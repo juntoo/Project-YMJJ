@@ -34,6 +34,15 @@
 		</c:if>
 	</c:if>
 	
+	<h3>About JEJU</h3>
+	
+	<c:if test="${id==null}">
+		<a href="${root}/aboutjeju/introduction.do">소개</a>&nbsp;&nbsp;
+		<a href="${root}/aboutjeju/location.do">위치</a>&nbsp;&nbsp;
+		<a href="${root}/aboutjeju/speciality.do">특별한곳</a>&nbsp;&nbsp;
+		<a href="${root}/aboutjeju/activities.do">액티비티</a>
+	</c:if>
+	
 	<h3>파일 게시판</h3>
 	<a href="${root}/fileboard/write.do">파일 게시판 쓰기</a>
 	<a href="${root}/fileboard/list.do">파일 게시판 목록</a>
