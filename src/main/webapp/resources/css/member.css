@@ -1,3 +1,5 @@
+@CHARSET "UTF-8";
+
 *{
 margin: 0px auto;
 padding: 0px auto;
@@ -84,22 +86,23 @@ height: 30px;
 position: absolute;
 left: 960px;
 top: 620px;
-transform: translateX(-55%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
 width: 860px;
-height: 756px;
+height: 500px;
 }
 #log_title{
 width: 860px;
-height: 130px;
+height: 90px;
 font-size: 50px;
 text-align: center;
 margin-top: 50px;
 }
 #log_content{
-width: 470px;
+width: 300px;
 height: 50px;
 line-height: 50px;
 text-align: center;
+font-size: 17px;
 }
 #log_content > label{
 float: left;
@@ -189,7 +192,7 @@ font-size: 17px;
 }
 .J_line_box{
 margin-top: 60px;
-transform: translateX(230px) translateY(0%);	
+transform: translateX(100px) translateY(0%);	
 }
 .J_line_btn{
 border: solid 0px #000000;
