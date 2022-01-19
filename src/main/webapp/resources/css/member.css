@@ -72,13 +72,13 @@ top: -12.5px;
 margin-left: 10px;
 }
 #but{
-    float: right;
-    margin-top: 20px;
-    margin-right: 20px;
+float: right;
+margin-top: 20px;
+margin-right: 20px;
 }
 #but > input{
-    width: 100px;
-    height: 30px;
+width: 100px;
+height: 30px;
 }
 #login{
 position: absolute;
@@ -106,62 +106,97 @@ float: left;
 width: 100px;
 }
 .line_box{
-	border:solid 0px red;
-	margin-left: 55px;
-	margin-top: 15px;
+border:solid 0px red;
+margin-left: 55px;
+margin-top: 15px;
 }
 .line{
-	border:solid 0px cyan;
-	width: 600px;
-	height: 40px;
+border:solid 0px cyan;
+width: 600px;
+height: 40px;
 	margin-top: 5px;
 }
-
 .name{
-	text-align: left;
-	font-size: 50px;
-	float: left;
-	margin-left: 0px;
+text-align: left;
+font-size: 50px;
+float: left;
+margin-left: 0px;
 }
-
 .title{
-	border: solid 0px #000000;
-	width: 135px;
-	height: 35px;
-	display: block;
-	float: left;
-	font-size: 20px;
-	
-	line-height: 35px;
-	border-bottom-width: 0px;
-	border-right-width: 0px;
-	padding-left: 5px;
+border: solid 0px #000000;
+width: 135px;
+height: 35px;
+display: block;
+float: left;
+font-size: 20px;
+line-height: 35px;
+border-bottom-width: 0px;
+border-right-width: 0px;
+padding-left: 5px;
 }
-
 .content{
-	border: solid 0px #000000;
-	width: 385px;
-	height: 35px;
-	display: block;
-	float: left;
-	
-	line-height: 35px;
-	border-bottom-width: 0px;
-	padding-left: 5px;
+border: solid 0px #000000;
+width: 385px;
+height: 35px;
+display: block;
+float: left;
+line-height: 35px;
+border-bottom-width: 0px;
+padding-left: 5px;
 }
-
 .line_btn{
-	border: solid 0px #000000;
-	width: 200px;
-	height: 35px;
-	
-	text-align: center;
-	line-height: 35px;
-	clear:left;
-	margin-top: 40px;
+border: solid 0px #000000;
+width: 200px;
+height: 35px;
+text-align: center;
+line-height: 35px;
+clear:left;
+margin-top: 40px;
 }
 .M_line_box{
-	border:solid 0px red;
-	margin-left: 55px;
-	margin-top: 70px;
+border:solid 0px red;
+margin-left: 55px;
+margin-top: 70px;
+}
+.register_box{
+border: solid 2px #000000;
+width: 900px;
+height: 500px;
+margin: 10px auto;
+}
+#subject{
+text-align: center;
+font-size: 50px;
+}
+.line{
+border:solid 0px red;
+width: 600px;
+height: 35px;
+}
+.J_title{
+border: solid 0px #000000;
+width: 120px;
+height: 35px;
+display: block;
+float:left;
+
+line-height: 35px;
+border-bottom-width: 0px;
+border-right-width: 0px;
+padding-left: 5px;
+margin-left: 20px;
+font-size: 17px;
+}
+.J_line_box{
+margin-top: 60px;
+transform: translateX(230px) translateY(0%);	
+}
+.J_line_btn{
+border: solid 0px #000000;
+width: 900px;
+height: 35px;
+text-align: center;
+line-height: 35px;
+clear:left;
+margin-top: 30px;
 }
