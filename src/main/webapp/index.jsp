@@ -43,8 +43,8 @@
 		<a href="${root}/aboutjeju/activities.do">액티비티</a>
 	</c:if>
 	
-	<h3>파일 게시판</h3>
-	<a href="${root}/fileboard/write.do">파일 게시판 쓰기</a>
-	<a href="${root}/fileboard/list.do">파일 게시판 목록</a>
+	<h3>기타</h3>
+	<a href="${root}/other/map.do">맵</a>
+	<a href="${root}/other/menu.do">메뉴</a>
 </body>
 </html>
