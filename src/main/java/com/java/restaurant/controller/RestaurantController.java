@@ -27,9 +27,9 @@ public class RestaurantController {
 		return new ModelAndView("restaurant/Restaurant_Add");
 	}
 	
-	@RequestMapping(value="/restaurant/udate.do", method = RequestMethod.GET)
+	@RequestMapping(value="/restaurant/update.do", method = RequestMethod.GET)
 	public ModelAndView restaurantUdate(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("restaurant/Restaurant_Udate");
+		return new ModelAndView("restaurant/Restaurant_Update");
 	}
 	
 	@RequestMapping(value="/restaurant/introduction.do", method = RequestMethod.GET)

@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>레스토랑 수정 페이지</title>
-<link rel="stylesheet" href="${root}/resources/css/restaurant/Restaurant_Udate.css"/>
+<link rel="stylesheet" href="${root}/resources/css/restaurant/Restaurant_Update.css"/>
 </head>
 <body>
 	
@@ -21,7 +21,7 @@
 
             <div id="subject1">
                 <div id="subject2">  <!--  div1 -->
-                    <h4>Udate Restaurant</h4>
+                    <h4>Update Restaurant</h4>
                 </div>
                 <div id="tedori_btn">
                     <div id="line_btn">
