@@ -17,8 +17,12 @@ public class OtherController {
 	private OtherService otherService;
 	
 	@RequestMapping(value = "/other/map.do", method = RequestMethod.GET)
-	public ModelAndView OtherMap(HttpServletRequest request, HttpServletResponse response) {	
-		return new ModelAndView("other/map");
+	public ModelAndView OtherMap(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("roadFullAddr", "경기도 시흥시 경기과기대로 269");
+		
+		otherService.getKakaoApiFromAddress(mav);
+		return mav;
 	}
 	@RequestMapping(value = "/other/menu.do", method = RequestMethod.GET)
 	public ModelAndView OtherMenu(HttpServletRequest request, HttpServletResponse response) {	
