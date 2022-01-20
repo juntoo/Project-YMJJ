@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Join</title>
-<link rel="stylesheet" href="${root}/resources/css/member.css"/>
+<link rel="stylesheet" href="${root}/resources/css/member/member.css"/>
 </head>
 <body>
 	<div id="register">

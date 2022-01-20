@@ -127,3 +127,6 @@ margin-left: 10px;
 #act1 > #color1,#act3 >#color2{
 	border-right: 2px black solid;
 }
+textarea{
+	width: 148px;
+}

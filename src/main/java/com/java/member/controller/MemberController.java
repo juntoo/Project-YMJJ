@@ -31,6 +31,14 @@ public class MemberController {
 	public ModelAndView memberMypageCom(HttpServletRequest request, HttpServletResponse response) {	
 		return new ModelAndView("member/Mypage-Com");
 	}
+	@RequestMapping(value = "/member/Mypage-M.do", method = RequestMethod.GET)
+	public ModelAndView memberMypageM(HttpServletRequest request, HttpServletResponse response) {	
+		return new ModelAndView("member/Mypage-M");
+	}
+	@RequestMapping(value = "/member/Mypage-M-D.do", method = RequestMethod.GET)
+	public ModelAndView memberMypageMD(HttpServletRequest request, HttpServletResponse response) {	
+		return new ModelAndView("member/Mypage-M-D");
+	}
 	
 	
 }

@@ -6,6 +6,9 @@ padding: 0px auto;
 box-sizing: border-box;
 font-size: 17px;
 }
+textarea{
+	width: 148px;
+}
 #title{
 width: 1920px;
 height: 108px;

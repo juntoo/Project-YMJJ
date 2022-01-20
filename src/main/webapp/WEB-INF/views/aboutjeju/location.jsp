@@ -25,7 +25,7 @@
                 <div style="border : 2px black solid; width: 1175px; height: 640px; margin-top: 40px;margin-left: 40px; overflow: hidden; position: relative;">
 					<!-- 3개묶음 아래 사진들 -->
 					<div style="float: left;">
-						<div id="imgsize" style="margin-right: 30px;">
+						<div id="imgsize">
 							<img id="secimg" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
 							<textarea rows="1" cols="20"></textarea>
 						</div>
@@ -40,13 +40,13 @@
 					</div>
 					<!-- 3개묶음 아래 사진들 -->
 					<div style="position: absolute; margin-top: 250px">
-						<div id="imgsize" style="margin-right: 30px;">
+						<div id="imgsize">
 							<img id="secimg" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
 							<textarea rows="1" cols="20"></textarea>
 						</div>
 						<div id="imgsize" >
 							<img id="thimg" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<textarea rows="1" cols="20"></textarea>
+							<textarea rows="1" cols="20" style="width: 148px"></textarea>
 						</div>
 						<div id="imgsize" >
 							<img id="forimg" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
