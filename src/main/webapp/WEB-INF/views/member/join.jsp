@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Join</title>
+<script type="text/javascript" src="${root}/resources/javascript/member.js"></script>
 <link rel="stylesheet" href="${root}/resources/css/member/member.css"/>
 </head>
 <body>
@@ -14,7 +15,7 @@
 		<div id="subject">YMJJ</div>
 		<div class="register_box">
 		
-			 <form name="memberForm"  id="form_style"  action="#"  method="post" onsubmit="return registerForm(this)"> 
+			 <form name="memberForm"  id="form_style"  action="${root}/member/joinOk.do"  method="post" onsubmit="return joinForm(this)"> 
 				 
 			 <div class="J_line_box">
 				<div class="line">
@@ -28,7 +29,7 @@
 					<label class="J_title">Regi.Num</label>
 					<span class="content">
 						<input type="text" name="jumin1" size="11" maxlength="6" />							
-						- <input type="text" name="jumin2" size="12" maxlength="7" />
+						- <input type="password" name="jumin2" size="12" maxlength="7" />
 					</span>	
 				</div>
 				
@@ -37,7 +38,7 @@
 						
 					<span class="content"> 
 						<input type="text" name="id"/>
-						<input type="button" value="ID Check" />
+						<input type="button" value="IDCheck" onclick="idCheck(memberForm, '${root}')"/>
 					</span>
 				</div>
 					
@@ -73,7 +74,7 @@
 				<div class="line">
 					<label class="J_title">E-Mail</label>
 					<span class="content">
-						<input type="text" name="email" size="22" />
+						<input type="email" name="email" size="22" />
 					</span>
 				</div>
 					

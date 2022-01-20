@@ -39,6 +39,9 @@ public class MemberController {
 	public ModelAndView memberMypageMD(HttpServletRequest request, HttpServletResponse response) {	
 		return new ModelAndView("member/Mypage-M-D");
 	}
-	
+	@RequestMapping(value = "/member/ID_Check.do", method = RequestMethod.GET)
+	public ModelAndView memberIdCheck(HttpServletRequest request, HttpServletResponse response) {	
+		return new ModelAndView("member/ID_Check");
+	}
 	
 }
