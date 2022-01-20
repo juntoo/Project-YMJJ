@@ -43,6 +43,11 @@
 		<a href="${root}/aboutjeju/activities.do">액티비티</a>
 	</c:if>
 	
+	<h3>Community</h3>
+	<a href="${root}/community/EventList.do">이벤트</a>
+	<a href="${root}/community/Notice.do">공지사항</a>
+	<a href="${root}/community/ReviewList.do">리뷰게시판</a>
+	
 	<h3>기타</h3>
 	<a href="${root}/other/map.do">맵</a>
 	<a href="${root}/other/menu.do">메뉴</a>
