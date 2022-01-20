@@ -43,6 +43,12 @@
 		<a href="${root}/aboutjeju/activities.do">액티비티</a>
 	</c:if>
 	
+	<h3>Restaurant View</h3>
+	<a href="${root}/restaurant/main.do">레스토랑 메인</a>
+	<a href="${root}/restaurant/write.do">레스토랑 추가</a>
+	<a href="${root}/restaurant/udate.do">레스토랑 수정</a>
+	<a href="${root}/restaurant/introduction.do">레스토랑</a>
+	
 	<h3>Community</h3>
 	<a href="${root}/community/EventList.do">이벤트</a>
 	<a href="${root}/community/Notice.do">공지사항</a>
