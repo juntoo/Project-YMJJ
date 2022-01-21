@@ -33,15 +33,15 @@
 								<div class="line">
 									<label class="title">Name</label>
 									<span class="content">
-										<input type="text" name="name" value="${memberDto.id}" disabled="disabled"/>
+										<input type="text" name="Mname" value="${memberDto.Mname}" disabled="disabled"/>
 									</span>
 								</div>
 								
 								<div class="line">
 									<label class="title">Regi.Num</label>
 									<span class="content">
-										<input type="text" name="jumin1" size="11" maxlength="6" value="${memberDto.jumin1}" disabled="disabled"/>
-										- <input type="password" name="jumin2" size="12" maxlength="7" value="${memberDto.jumin2}" disabled="disabled"/>
+										<input type="text" name="Mresidentnumber1" size="11" maxlength="6" value="${memberDto.Mresidentnumber1}" disabled="disabled"/>
+										- <input type="password" name="Mresidentnumber2" size="12" maxlength="7" value="${memberDto.Mresidentnumber2}" disabled="disabled"/>
 									</span>	
 								</div>
 								
@@ -49,28 +49,28 @@
 									<label class="title">ID</label>  
 									
 									<span class="content"> 
-										<input type="text" name="id" value="${memberDto.name}" disabled="disabled"/>
+										<input type="text" name="Mid" value="${memberDto.Mid}" disabled="disabled"/>
 									</span>
 								</div>
 								
 								<div class="line">
 									<label class="title">Password</label>
 									<span class="content">
-										<input type="password" name="password" value="${memberDto.password }"/>
+										<input type="password" name="Mpassword" value="${memberDto.Mpassword}"/>
 									</span>
 								</div>
 								
 								<div class="line">
 									<label class="title"></label>
 									<span class="content">
-										<input type="password" name="passwordCheck"value="${memberDto.password }"/>
+										<input type="password" name="MpasswordCheck"value="${memberDto.MpasswordCheck}"/>
 									</span>
 								</div>
 								
 								<div class="line">
 									<label class="title">Address</label>
 									<span class="content">
-										<input type="text" name="zipcode" value="${memberDto.zipcode}"/>
+										<input type="text" name="Mpostalcode" value="${memberDto.Mpostalcode}"/>
 										<input type="button" value="Search" />
 									</span>
 							  	</div>
@@ -78,7 +78,7 @@
 								<div class="line">
 									<label class="title"></label>
 									<span class="content">
-										<input type="text" name="address" size="40" value="${memberDto.address}"/>
+										<input type="text" name="Maddress" size="40" value="${memberDto.Maddress}"/>
 									</span>
 								</div>
 								
@@ -86,7 +86,7 @@
 									<label class="title">E-Mail</label>
 									
 									<span class="content">
-										<input type="text" name="email" size="25" value="${memberDto.email}"/>
+										<input type="text" name="Memail" size="25" value="${memberDto.Memail}"/>
 									</span>
 								</div>
 								
@@ -94,9 +94,9 @@
 									<label class="title">Tel)</label>
 									
 									<span class="content">
-										<input type="text" name="telnum1" size="5" maxlength="3" value="${memberDto.telnum1}"/>
-										<input type="text" name="telnum2" size="10" maxlength="4" value="${memberDto.telnum2}"/>
-										<input type="text" name="telnum3" size="10" maxlength="4" value="${memberDto.telnum3}"/>
+										<input type="text" name="Mcallnumber1" size="5" maxlength="3" value="${memberDto.Mcallnumber1}"/>
+										<input type="text" name="Mcallnumber2" size="10" maxlength="4" value="${memberDto.Mcallnumber2}"/>
+										<input type="text" name="Mcallnumber3" size="10" maxlength="4" value="${memberDto.Mcallnumber3}"/>
 									</span>	
 								</div>
 							</div>

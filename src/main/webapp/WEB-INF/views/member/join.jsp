@@ -21,15 +21,15 @@
 				<div class="line">
 					<label class="J_title">Name</label>
 					<span class="content">
-						<input type="text" name="name"/>
+						<input type="text" name="Mname"/>
 					</span>
 				</div>
 					
 				<div class="line">
 					<label class="J_title">Regi.Num</label>
 					<span class="content">
-						<input type="text" name="jumin1" size="11" maxlength="6" />							
-						- <input type="password" name="jumin2" size="12" maxlength="7" />
+						<input type="text" name="Mresidentnumber1" size="11" maxlength="6" />							
+						- <input type="password" name="Mresidentnumber2" size="12" maxlength="7" />
 					</span>	
 				</div>
 				
@@ -37,7 +37,7 @@
 					<label class="J_title">ID</label>  
 						
 					<span class="content"> 
-						<input type="text" name="id"/>
+						<input type="text" name="Mid"/>
 						<input type="button" value="IDCheck" onclick="idCheck(memberForm, '${root}')"/>
 					</span>
 				</div>
@@ -45,21 +45,21 @@
 				<div class="line">
 					<label class="J_title">Password</label>
 					<span class="content">
-						<input type="password" name="password" />
+						<input type="password" name="Mpassword" />
 					</span>
 				</div>
 					
 				<div class="line">
 					<label class="J_title"></label>
 					<span class="content">
-						<input type="password" name="passwordCheck"/>
+						<input type="password" name="MpasswordCheck"/>
 					</span>
 				</div>
 					
 				<div class="line">
 					<label class="J_title">Address</label>
 					<span class="content">
-						<input type="text" name="zipcode" size="10"/>
+						<input type="text" name="Mpostalcode" size="10"/>
 						<input type="button" value="Search" />
 					</span>
 				</div>
@@ -67,23 +67,23 @@
 				<div class="line">
 					<label class="J_title"></label>
 					<span class="content">
-						<input type="text" name="address" size="34" />
+						<input type="text" name="Maddress" size="34" />
 					</span>
 				</div>
 					
 				<div class="line">
 					<label class="J_title">E-Mail</label>
 					<span class="content">
-						<input type="email" name="email" size="22" />
+						<input type="email" name="Memail" size="22" />
 					</span>
 				</div>
 					
 				<div class="line">
 					<label class="J_title">Tel)</label>
 					<span class="content">
-						<input type="text" name="telnum1" size="4" maxlength="3" />
-						<input type="text" name="telnum2" size="9" maxlength="4" />
-						<input type="text" name="telnum3" size="9" maxlength="4" />
+						<input type="text" name="Mcallnumber1" size="4" maxlength="3" />
+						<input type="text" name="Mcallnumber2" size="9" maxlength="4" />
+						<input type="text" name="Mcallnumber3" size="9" maxlength="4" />
 					</span>	
 				</div>
 			</div>

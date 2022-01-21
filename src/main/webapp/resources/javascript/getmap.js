@@ -4,7 +4,7 @@
 
 var xhr=null;
 var arr=new Array();
-
+//toServer(주소)호출시 경고창에 x y 출력
 function toServer(address) {
 	var addr = address;
 	//alert(addr);
@@ -43,13 +43,6 @@ function processJson() {
 	var x = obj.documents[0].x;
 	alert(y + "\n" + x);
 	
-	var container = document.getElementById('map');
-	var options = {
-		center: new kakao.maps.LatLng(y,x),
-		level: 3
-	};
-
-	var map = new kakao.maps.Map(container, options);
 }
 
 function openMap(){

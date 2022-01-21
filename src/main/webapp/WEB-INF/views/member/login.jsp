@@ -14,11 +14,11 @@
         <div id="log_title" style="font-size: 50px;">YMJJ</div>
         <div id="log_content">
             <label>ID</label>
-            <input type="text"/>
+            <input type="text" name="Mid"/>
         </div>
         <div id="log_content">
             <label>Password</label>
-            <input type="password"/>
+            <input type="password" name="Mpassword"/>
         </div>
         <div id="log_content">
             <label></label>

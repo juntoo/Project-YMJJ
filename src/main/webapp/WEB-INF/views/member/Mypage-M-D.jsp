@@ -25,76 +25,75 @@
 					<form name="memberForm"  id="form_style" action="#" method="post" onsubmit="return registerForm(this)">
 						<div class="M_line_box">
 							<div class="line">
-								<label class="title">Name</label>
-								<span class="content">
-									<input type="text" name="name"/>
-								</span>
-							</div>
-							
-							<div class="line">
-								<label class="title">R.Number</label>
-								<span class="content">
-									<input type="text" name="jumin1" size="11" maxlength="6" />
-									- <input type="text" name="jumin2" size="12" maxlength="7" />
-								</span>	
-							</div>
-							
-							<div class="line">  
-								<label class="title">ID</label>  
+									<label class="title">Name</label>
+									<span class="content">
+										<input type="text" name="Mname" value="${memberDto.Mname}" disabled="disabled"/>
+									</span>
+								</div>
 								
-								<span class="content"> 
-									<input type="text" name="id"/>
-									<input type="button" value="ID Check" />
-								</span>
-							</div>
-							
-							<div class="line">
-								<label class="title">Password</label>
-								<span class="content">
-									<input type="password" name="password" />
-								</span>
-							</div>
-							
-							<div class="line">
-								<label class="title"></label>
-								<span class="content">
-									<input type="password" name="passwordCheck"/>
-								</span>
-							</div>
-							
-							<div class="line">
-								<label class="title">Address</label>
-								<span class="content">
-									<input type="text" name="zipcode" />
-									<input type="button" value="Search" />
-								</span>
-						  	</div>
-							
-							<div class="line">
-								<label class="title"></label>
-								<span class="content">
-									<input type="text" name="address" size="40" />
-								</span>
-							</div>
-							
-							<div class="line">
-								<label class="title">E-Mail</label>
+								<div class="line">
+									<label class="title">Regi.Num</label>
+									<span class="content">
+										<input type="text" name="Mresidentnumber1" size="11" maxlength="6" value="${memberDto.Mresidentnumber1}" disabled="disabled"/>
+										- <input type="password" name="Mresidentnumber2" size="12" maxlength="7" value="${memberDto.Mresidentnumber2}" disabled="disabled"/>
+									</span>	
+								</div>
 								
-								<span class="content">
-									<input type="text" name="email" size="25" />
-								</span>
-							</div>
-							
-							<div class="line">
-								<label class="title">Tel)</label>
+								<div class="line">  
+									<label class="title">ID</label>  
+									
+									<span class="content"> 
+										<input type="text" name="Mid" value="${memberDto.Mid}" disabled="disabled"/>
+									</span>
+								</div>
 								
-								<span class="content">
-									<input type="text" name="telnum1" size="5" maxlength="3" />
-									<input type="text" name="telnum2" size="10" maxlength="4" />
-									<input type="text" name="telnum3" size="10" maxlength="4" />
-								</span>	
+								<div class="line">
+									<label class="title">Password</label>
+									<span class="content">
+										<input type="password" name="Mpassword" value="${memberDto.Mpassword}" disabled="disabled"/>
+									</span>
+								</div>
+								
+								<div class="line">
+									<label class="title"></label>
+									<span class="content">
+										<input type="password" name="MpasswordCheck"value="${memberDto.MpasswordCheck}" disabled="disabled"/>
+									</span>
+								</div>
+								
+								<div class="line">
+									<label class="title">Address</label>
+									<span class="content">
+										<input type="text" name="Mpostalcode" value="${memberDto.Mpostalcode}" disabled="disabled"/>
+										<input type="button" value="Search" />
+									</span>
+							  	</div>
+								
+								<div class="line">
+									<label class="title"></label>
+									<span class="content">
+										<input type="text" name="Maddress" size="40" value="${memberDto.Maddress}" disabled="disabled"/>
+									</span>
+								</div>
+								
+								<div class="line">
+									<label class="title">E-Mail</label>
+									
+									<span class="content">
+										<input type="text" name="Memail" size="25" value="${memberDto.Memail}" disabled="disabled"/>
+									</span>
+								</div>
+								
+								<div class="line">
+									<label class="title">Tel)</label>
+									
+									<span class="content">
+										<input type="text" name="Mcallnumber1" size="5" maxlength="3" value="${memberDto.Mcallnumber1}" disabled="disabled"/>
+										<input type="text" name="Mcallnumber2" size="10" maxlength="4" value="${memberDto.Mcallnumber2}" disabled="disabled"/>
+										<input type="text" name="Mcallnumber3" size="10" maxlength="4" value="${memberDto.Mcallnumber3}" disabled="disabled"/>
+									</span>	
+								</div>
 							</div>
-						</div>
 						<div class="line_btn">
 							<input type="submit" value="Okay"/>
 							<input type="reset" value="Cancle"/>

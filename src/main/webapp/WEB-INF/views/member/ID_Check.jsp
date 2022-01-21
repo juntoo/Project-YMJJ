@@ -28,7 +28,7 @@
 	</c:if>
 	
 	<script type="text/javascript">
-		opener.memberForm.id.value="${id}";
+		opener.memberForm.Mid.value="${Mid}";
 	</script>
 	
 	<div align="center">
