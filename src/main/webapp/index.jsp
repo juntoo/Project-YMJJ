@@ -50,5 +50,6 @@
 	<h3>기타</h3>
 	<a href="${root}/other/map.do">맵</a>
 	<a href="${root}/other/menu.do">메뉴</a>
+	<a href="${root}/other/today.do">today</a>
 </body>
 </html>
