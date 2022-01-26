@@ -42,7 +42,7 @@
 	  	INSERT INTO Restaurant(RTnumber, RTname, RTtype, RTaddress, RTpostalcode,
 	  					  RTcallnumber1, RTcallnumber2, RTcallnumber3, RTlatitude,
 	  					  RTlongitude, RTintroduce, RTcount, group_number, sequence_number, sequence_level)			   
-		VALUES(Restaurant_RTnumber_seq.nextval, #{RTname}, #{RTtype}, #{RTaddress}, #{RTpostalcode},
+		VALUES('RT'|| Restaurant_RTnumber_seq.nextval, #{RTname}, #{RTtype}, #{RTaddress}, #{RTpostalcode},
 		            #{RTcallnumber1}, #{RTcallnumber2}, #{RTcallnumber3}, #{RTlatitude},
 		            #{RTlongitude}, #{RTintroduce}, #{RTcount}, #{group_Number}, #{sequence_Number},
 		            #{sequence_Level})
