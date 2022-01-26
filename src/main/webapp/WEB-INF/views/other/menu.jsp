@@ -44,7 +44,7 @@
 }
 #but{
     float: right;
-    margin-top: 40px;
+    margin-top: 25px;
 }
 #but > input{
     font-size: 17px;
@@ -64,13 +64,13 @@
         </div>
         <div id="but">
         	<c:if test="${Mid==null}">
-	        	<input type="button" value="Login" onclick="location.href='${root}/member/login.do'"/>
-	            <input type="button" value="Join" onclick="location.href='${root}/member/join.do'"/>
+	        	<input type="button" value="Login" onclick="location.href='${root}/member/login.do'" style="width: 65px; height: 25px; margin-top: 15px"/>
+	            <input type="button" value="Join" onclick="location.href='${root}/member/join.do'" style="width: 65px; height: 25px; margin-top: 15px"/>
         	</c:if>
         	<c:if test="${Mid!=null}">
         		<a style="font-size: 30px;">Name.</a>&nbsp;
         		<a style="font-size: 30px; margin-right: 20px; color: red;" onclick="location.href='${root}/member/Mypage-Com.do'">${Mname}</a>
-	            <input type="button" value="Logout" style="margin-bottom: 10px;" onclick="location.href='${root}/member/logout.do'"/>
+	            <input type="button" value="Logout"onclick="location.href='${root}/member/logout.do'" style="width: 65px; height: 25px;" />
         	</c:if>
            
         </div>

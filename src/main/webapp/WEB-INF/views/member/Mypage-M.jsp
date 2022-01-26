@@ -37,7 +37,7 @@
 						
 						<td width="200px" height="30px" align="left">${memberDto.mname}</td>
 						
-						<td width="200px" height="30px" align="center">${memberDto.mcallnumber1} + "-" + ${boardDto.mcallnumber2} + "-" + ${memberDto.mcallnumber3}</td>
+						<td width="200px" height="30px" align="center">${memberDto.mcallnumber1} - ${memberDto.mcallnumber2} - ${memberDto.mcallnumber3}</td>
 						<td width="200px" height="30px" align="center">${memberDto.memail}</td>
 						</tr>
 						</c:forEach>
