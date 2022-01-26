@@ -60,7 +60,7 @@
 					<label class="J_title">Address</label>
 					<span class="content">
 						<input type="text" name="Mpostalcode" size="10"/>
-						<input type="button" value="Search" />
+						<input type="button" value="Search" onclick="zipcodeRead('${root}')"/>
 					</span>
 				</div>
 					

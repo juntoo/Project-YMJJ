@@ -15,7 +15,7 @@
 			이미 사용중인 아이디 입니다.
 			
 			<form action="${root}/member/ID_Check.do" method="get">
-				<input type="text" name="id"/>
+				<input type="text" name="Mid"/>
 				<input type="submit" value="확인"/>
 			</form>
 		</div>

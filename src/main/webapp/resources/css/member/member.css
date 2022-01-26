@@ -203,3 +203,7 @@ line-height: 35px;
 clear:left;
 margin-top: 30px;
 }
+#commentView{
+border: 2px black solid; 
+height : 550px;
+}

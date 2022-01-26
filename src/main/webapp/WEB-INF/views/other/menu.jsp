@@ -16,35 +16,35 @@
 #header{
     border: 1px black solid;
     width: 1920px;
-    height: 100px;
+    height: 70px;
     float: left;
 }
 #logo{
     border: 1px black solid;
     width: 200px;
-    height: 100px;
+    height: 70px;
     margin-left: 40px;
     float: left;
 }
 #menuBar{
     position: absolute;
-    height: 100px;
+    height: 70px;
     overflow: hidden;
-    margin-left: 400px;
+    margin-left: 300px;
 }
 #menu{
     border: 1px black solid;
-    height: 100px;
-    width: 150px;
+    height: 70px;
+    width: 170px;
     float: left;
     font-size: 30px;
-    line-height: 100px;
+    line-height: 70px;
     text-align: center;
-    margin-left: 50px;
+    margin-left: 80px;
 }
 #but{
     float: right;
-    margin-top: 66px;
+    margin-top: 40px;
 }
 #but > input{
     font-size: 17px;
@@ -56,15 +56,23 @@
     <div id="header">
         <div id="logo">logo</div>
         <div id="menuBar">
-            <div id="menu"></div>
-            <div id="menu">2</div>
-            <div id="menu">3</div>
-            <div id="menu">4</div>
-            <div id="menu">5</div>
+            <div id="menu"> About JEJU</div>
+            <div id="menu">Restaurant</div>
+            <div id="menu">Community</div>
+            <div id="menu">Map</div>
+            <div id="menu">Today</div>
         </div>
         <div id="but">
-            <input type="button" value="로그인"/>
-            <input type="button" value="가입"/>
+        	<c:if test="${Mid==null}">
+	        	<input type="button" value="Login" onclick="location.href='${root}/member/login.do'"/>
+	            <input type="button" value="Join" onclick="location.href='${root}/member/join.do'"/>
+        	</c:if>
+        	<c:if test="${Mid!=null}">
+        		<a style="font-size: 30px;">Name.</a>&nbsp;
+        		<a style="font-size: 30px; margin-right: 20px; color: red;" onclick="location.href='${root}/member/Mypage-Com.do'">${Mname}</a>
+	            <input type="button" value="Logout" style="margin-bottom: 10px;" onclick="location.href='${root}/member/logout.do'"/>
+        	</c:if>
+           
         </div>
     </div>
 </body>

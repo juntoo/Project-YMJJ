@@ -10,12 +10,7 @@
 <link rel="stylesheet" href="${root}/resources/css/other/map.css"/>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a1b3be5083c3fb842c5d0ac3934a42c3"></script>
 <script type="text/javascript" src="${root}/resources/javascript/getmap.js"></script>
-<script type="text/javascript">
-function search() {
-	var Name = document.getElementById('RName').value;
-    alert(Name);
-}
-</script>
+<script type="text/javascript" src="${root}/resources/javascript/other.js"></script>
 </head>
 <body>
     <div>

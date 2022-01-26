@@ -28,22 +28,22 @@
 								<td width="200px" height="30px" align="center">ID</td>
 								<td width="200px" height="30px" align="center">이름</td>
 								<td width="200px" height="30px" align="center">전화번호</td>
-								<td width="200px" height="30px" align="center">이매일</td>
+								<td width="200px" height="30px" align="center">이메일</td>
 							</tr>
 							
 							<c:forEach var="memberDto" items="${memberList}">
-						<tr>
-							<td width="200px" height="30px" align="center">${memberDto.Mid}</td>
+						<tr onclick="location.href='${root}/member/Mypage-M-D.do?Mid=${memberDto.mid}'">
+							<td width="200px" height="30px" align="center">${memberDto.mid}</td>
 						
-						<td width="200px" height="30px" align="left">${memberDto.Mname}</td>
+						<td width="200px" height="30px" align="left">${memberDto.mname}</td>
 						
-						<td width="200px" height="30px" align="center">${boardDto.Mcallnumber1 + "-" + boardDto.Mcallnumber2 + "-" + boardDto.Mcallnumber3}</td>
-						<td width="200px" height="30px" align="center">${memberDto.Memail}</td>
+						<td width="200px" height="30px" align="center">${memberDto.mcallnumber1} + "-" + ${boardDto.mcallnumber2} + "-" + ${memberDto.mcallnumber3}</td>
+						<td width="200px" height="30px" align="center">${memberDto.memail}</td>
 						</tr>
 						</c:forEach>
 					</table>
 					</c:if>
-					<c:if test="${count != 0}">
+					<c:if test="${count == 0}">
 						<table>
 							<tr>
 								<td width="850px" height="30" align="center">회원이 존재하지 않습니다.</td>

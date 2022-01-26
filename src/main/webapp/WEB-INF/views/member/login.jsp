@@ -12,19 +12,21 @@
 <body>
     <div id="login">
         <div id="log_title" style="font-size: 50px;">YMJJ</div>
-        <div id="log_content">
-            <label>ID</label>
-            <input type="text" name="Mid"/>
-        </div>
-        <div id="log_content">
-            <label>Password</label>
-            <input type="password" name="Mpassword"/>
-        </div>
-        <div id="log_content">
-            <label></label>
-            <input type="button" value="Login" id="LoginBut"/>
-            <input type="button" value="Join" id="JoinBut"/>
-        </div>
+        <form action="${root}/member/loginOk.do" method="post">
+	        <div id="log_content">
+	            <label>ID</label>
+	            <input type="text" name="Mid"/>
+	        </div>
+	        <div id="log_content">
+	            <label>Password</label>
+	            <input type="password" name="Mpassword"/>
+	        </div>
+	        <div id="log_content">
+	            <label></label>
+	            <input type="submit" value="Login"/>
+	            <input type="button" value="Join" id="JoinBut" onclick="location.href='${root}/member/join.do'"/>
+	        </div>
+        </form>
     </div>
 </body>
 </html>

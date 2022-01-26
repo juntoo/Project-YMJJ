@@ -16,13 +16,15 @@
             <div id="category">
                 <div id="detail" style="border-left: 0px;"></div>
                 <div id="detail" style="border-right: 0px;"><a>Comment</a></div>
-                <div id="detail"><a>Account</a></div>
+                <div id="detail" onclick="location.href='${root}/member/Mypage-Acc.do'"><a>Account</a></div>
                 <div id="detail" style="height: 660px; border-left: 0px; border-bottom: 0px;"></div>
             </div>
             <div id="content">
                 <div style="border : 2px black solid; width: 1175px; height: 640px; margin-top: 40px;margin-left: 40px;">
                     <div id="mycomment">
                         <div id="subtitle">My Comment</div>
+                        <div id="commentView">
+                        </div>
                     </div>
                     <div id="bookmark">
                         <div id="subtitle">Bookmark</div>
