@@ -1,4 +1,4 @@
-package com.java.img.dao;
+package com.java.img.dto;
 
 
 public class ImgDto {

@@ -7,19 +7,20 @@ box-sizing: border-box;
 }
 #main_title{
 width: 1920px;
-height: 108px;
+height: 50px;
 text-align: center;
-margin-top: 20px;
+margin-top: 10px;
 font-size: 30px;
 }
 .today_box{
 border: black 1px solid;
 border-radius: 20px;
 width: 1870px;
-height: 772px;
+height: 740px;
+margin: 20xp;
 }
 .weather_box{
-border: black 2px solid;
+border: black 1px solid;
 width: 400px;
 height: 492px;
 float: left;

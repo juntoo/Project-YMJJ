@@ -17,7 +17,6 @@
     border: 1px black solid;
     width: 1920px;
     height: 70px;
-    float: left;
 }
 #logo{
     border: 1px black solid;
@@ -54,7 +53,7 @@
 </head>
 <body>
     <div id="header">
-        <div id="logo">logo</div>
+        <div id="logo" onclick="location.href='${root}'">logo</div>
         <div id="menuBar">
             <div id="menu"> About JEJU</div>
             <div id="menu">Restaurant</div>

@@ -28,7 +28,7 @@ public class MemberServiceImp implements MemberService {
 		LogAspect.logger.info(LogAspect.LogMsg+check);
 		
 		mav.addObject("check", check);
-		mav.setViewName("member/joinOk");
+		mav.setViewName("member/joinOk.tiles");
 	}
 	@Override
 	public void memberIdCheck(ModelAndView mav) {
@@ -42,7 +42,7 @@ public class MemberServiceImp implements MemberService {
 		
 		mav.addObject("Mid", Mid);
 		mav.addObject("check", check);
-		mav.setViewName("member/ID_Check");
+		mav.setViewName("member/ID_Check.tiles");
 	}
 	@Override
 	public void memberLoginOk(ModelAndView mav) {
@@ -55,7 +55,7 @@ public class MemberServiceImp implements MemberService {
 		MemberDto memberDto = memberDao.LoginOk(Mid, Mpassword);
 		LogAspect.logger.info(LogAspect.LogMsg+memberDto.toString());
 		mav.addObject("memberDto", memberDto);
-		mav.setViewName("member/loginOk");
+		mav.setViewName("member/loginOk.tiles");
 	}
 	@Override
 	public void MypageAcc(ModelAndView mav) {
@@ -69,7 +69,7 @@ public class MemberServiceImp implements MemberService {
 		
 		mav.addObject("memberDto", memberDto);
 		
-		mav.setViewName("member/Mypage-Acc");
+		mav.setViewName("member/Mypage-Acc.tiles");
 	}
 	@Override
 	public void MypageM(ModelAndView mav) {
@@ -80,9 +80,9 @@ public class MemberServiceImp implements MemberService {
 			LogAspect.logger.info(LogAspect.LogMsg + memberList.size());
 		}
 		mav.addObject("count", count);
-		mav.addObject("memberList", memberList);
+		mav.addObject("memberList.tiles", memberList);
 		
-		mav.setViewName("member/Mypage-M");		
+		mav.setViewName("member/Mypage-M.tiles");		
 	}
 	@Override
 	public void MypageMD(ModelAndView mav) {
@@ -92,7 +92,7 @@ public class MemberServiceImp implements MemberService {
 		MemberDto memberDto=memberDao.selectMid(Mid);
 		mav.addObject("memberDto", memberDto);
 		
-		mav.setViewName("member/Mypage-M-D");		
+		mav.setViewName("member/Mypage-M-D.tiles");		
 	}
 	@Override
 	public void Delelt(ModelAndView mav) {
@@ -105,7 +105,7 @@ public class MemberServiceImp implements MemberService {
 		int check=memberDao.update(memberDto);
 		mav.addObject("check", check);
 		
-		mav.setViewName("member/updateOk");	
+		mav.setViewName("member/updateOk.tiles");	
 	}
 }
 

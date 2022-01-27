@@ -73,7 +73,7 @@
 								<div class="line">
 									<label class="title">Address</label>
 									<span class="content">
-					                    <input type="text" id="sample4_postcode" placeholder="우편번호" name="Mpostalcode" size="7"/>
+					                    <input type="text" id="sample4_postcode" placeholder="우편번호" name="Mpostalcode" size="7" value="${memberDto.mpostalcode}"/>
 					                    <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"/>
 									</span>
 							  	</div>
@@ -81,7 +81,7 @@
 								<div class="line">
 									<label class="title"></label>
 									<span class="content">
-										<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="Maddress" size="30" />
+										<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="Maddress" size="30" value="${memberDto.maddress}"/>
 									</span>
 								</div>
 								

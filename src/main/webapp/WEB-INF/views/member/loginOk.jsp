@@ -16,7 +16,7 @@
 	
 		<script type="text/javascript">
 			alert("로그인 성공");
-			location.href="${root}/index.jsp";
+			location.href="${root}";
 		</script>
 	</c:if>
 	
