@@ -56,19 +56,3 @@ function idCheck(memberForm, root){
 	
 	window.open(url, "", "width=250, height=200");
 }
-
-function zipcodeRead(root){
-	var url=root + "/member/zipcode.do";
-	//alert(url);
-	
-	window.open(url, "", "width=500, height=500");
-}
-
-function sendAddress(zipcode, sido, gugun, dong, ri, bunji){
-	var address=sido+gugun+dong+ri+bunji;
-	// alert(zipcode + "\n" + address);
-	
-	opener.memberForm.Mpostalcode.value=zipcode;
-	opener.memberForm.Maddress.value=address;
-	self.close();
-}

@@ -10,6 +10,7 @@
 <title>레스토랑 추가 페이지</title>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="${root}/resources/javascript/KakaoAddress.js"></script>
+<script type="text/javascript" src="${root}/resources/javascript/getmap.js"></script>
 <link rel="stylesheet" href="${root}/resources/css/restaurant/Restaurant_Add.css"/>
 </head>
 <body>
