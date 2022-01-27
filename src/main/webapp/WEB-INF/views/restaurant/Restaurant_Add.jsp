@@ -111,9 +111,8 @@
                     </div>
                     
                     <div id="nav_btn">
-
-                        <input type="text" name=""/>
-                        <input type="button" value="img"/>
+                    
+                        <input type="file" value="img"/>
 
                     </div>
 
