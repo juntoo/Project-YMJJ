@@ -38,6 +38,7 @@ public class RestaurantController {
 	public ModelAndView restaurantboardWriteOk(HttpServletRequest request, HttpServletResponse response, RestaurnatDto restaurnatDto) {
 		
 		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
 		mav.addObject("restaurnatDto", restaurnatDto);
 		
 		restaurantService.restaurnatWriteOk(mav);

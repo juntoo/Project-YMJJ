@@ -24,7 +24,8 @@
 
             <form name="restaurantForm"  id="form_style"
             			action="${root}/restaurant/writeOk.do"  
-						method="post">
+						method="post"
+						enctype="multipart/form-data">
 						
 				<div id="subject1">
                 	<div id="subject2">  <!--  div1 -->
@@ -112,7 +113,7 @@
                     
                     <div id="nav_btn">
                     
-                        <input type="file" value="img"/>
+                        <input type="file" name="file" size="40"/>
 
                     </div>
 
