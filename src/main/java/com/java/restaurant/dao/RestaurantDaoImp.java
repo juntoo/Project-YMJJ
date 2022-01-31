@@ -20,7 +20,7 @@ public class RestaurantDaoImp implements RestaurantDao {
 	@Override
 	public int restaurantWriteOk(RestaurnatDto restaurnatDto) {
 		// TODO Auto-generated method stub
-		imgWriteOk(imgDto);
+		
 		
 		return sqlSessionTemplate.insert("boardInsert", restaurnatDto);
 	}

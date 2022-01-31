@@ -58,18 +58,14 @@ public class RestaurantServiceImp implements RestaurantService {
 	public void restaurnatWriteOk(ModelAndView mav) {
 		
 		Map<String, Object> map=mav.getModelMap();
-//		Map<String, Object> map=mav.getModelMap();
 		RestaurnatDto restaurnatDto=(RestaurnatDto) map.get("restaurnatDto");
 		
-		
+		int check=restaurantDao.restaurantWriteOk(restaurnatDto);
+		LogAspect.logger.info(LogAspect.LogMsg + check);
+		mav.addObject("check", check);
+
+		//Map<String, Object> map=mav.getModelMap();
 		//writeNumber(restaurnatDto);
-				LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
-//				 DB
-				int check=restaurantDao.restaurantWriteOk(restaurnatDto);
-				LogAspect.logger.info(LogAspect.LogMsg + check);
-		
-				
-		
 		ImgDto imgDto = (ImgDto) map.get("imgDto");
 		MultipartHttpServletRequest request=(MultipartHttpServletRequest) map.get("request");
 		
@@ -77,8 +73,8 @@ public class RestaurantServiceImp implements RestaurantService {
 		LogAspect.logger.info(LogAspect.LogMsg + upFile);
 		if(upFile.getSize() !=0) {
 			String fileName=Long.toString(System.currentTimeMillis()) + "_" + upFile.getOriginalFilename();
+			String Icategory = "0";
 			long fileSize=upFile.getSize();
-			//String Icategory = restaurnatDto.getRTnumber();
 			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
 			
 			File path=new File("C:\\pds\\");
@@ -87,125 +83,49 @@ public class RestaurantServiceImp implements RestaurantService {
 			if(path.exists() && path.isDirectory()) {
 				File file=new File(path, fileName);
 				
-				
+				//LogAspect.logger.info(LogAspect.LogMsg + imgDto.toString());
 				try {
 					upFile.transferTo(file);
 					
 					imgDto.setIpath(file.getAbsolutePath());
 					imgDto.setIname(fileName);
 					imgDto.setIsize(fileSize);
-					//imgDto.setIcategory(Icategory);
+					imgDto.setIcategory(Icategory);
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
 			}	
 		}
 		
+		//LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
+//		 DB
+		
 		LogAspect.logger.info(LogAspect.LogMsg + imgDto.toString());
 		int check2=restaurantDao.imgWriteOk(imgDto);
 		LogAspect.logger.info(LogAspect.LogMsg + check2);
 		
-		mav.addObject("check", check);
-		//mav.addObject("check", check2);
+		mav.addObject("check", check2);
 	
 		//imgWrite(mav);
 		mav.setViewName("restaurant/writeOk");
 	}
 	
 	
-	public void imgOk(ModelAndView mav) {
-		Map<String, Object> map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		
-		RestaurnatDto restaurnatDto=(RestaurnatDto) map.get("restaurnatDto");
-		String Icategory=restaurnatDto.getRTnumber();
-		
-		
-		if(request.getParameter("insert") !=null) {   
-			//Inumber=Integer.parseInt(request.getParameter("Inumber"));
-			Icategory=request.getParameter("Icategory");
-			
-		}
-		
-	}
-	
-	
-//	@Override
-//	public void ImgWrite(ModelAndView mav) {
-//		
-//		Map<String, Object> map=mav.getModelMap();
-//		ImgDto imgDto = (ImgDto) map.get("imgDto");
-//		MultipartHttpServletRequest request=(MultipartHttpServletRequest) map.get("request");
-//		
-//		MultipartFile upFile=request.getFile("file");
-//	
-//		if(upFile.getSize() !=0) {
-//			String fileName=Long.toString(System.currentTimeMillis()) + "_" + upFile.getOriginalFilename();
-//			long fileSize=upFile.getSize();
-//			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
-//			
-//			File path=new File("C:\\pds\\");
-//			path.mkdir();
-//			
-//			if(path.exists() && path.isDirectory()) {
-//				File file=new File(path, fileName);
-//				
-//				try {
-//					upFile.transferTo(file);
-//					
-//					imgDto.setIpath(file.getAbsolutePath());
-//					imgDto.setIname(fileName);
-//					imgDto.setIsize(fileSize);
-//				}catch(Exception e) {
-//					e.printStackTrace();
-//				}
-//			}	
-//		}
-//		
-//		LogAspect.logger.info(LogAspect.LogMsg + imgDto.toString());
-//		//int check=restaurantDao.imgWriteOk(imgDto);
-//		//LogAspect.logger.info(LogAspect.LogMsg + check);
-//		
-//		//mav.addObject("check", check);
-//		mav.setViewName("restaurant/writeOk");
-////	
-//		
-//		
-//	}
-	
-	
-
-//	@Override
-//	public void imgWrite(ModelAndView mav) {
-//		// TODO Auto-generated method stub
+//	public void imgOk(ModelAndView mav) {
 //		Map<String, Object> map=mav.getModelMap();
 //		HttpServletRequest request=(HttpServletRequest) map.get("request");
 //		
+//		RestaurnatDto restaurnatDto=(RestaurnatDto) map.get("restaurnatDto");
+//		String Icategory=restaurnatDto.getRTnumber();
 //		
-//		
-//	}
-//
-//	@Override
-//	public void imgWriteOk(ModelAndView mav) {
-//		// TODO Auto-generated method stub
-//		
-//		int Inumber;			//이미지 고유번호
-//		String Icategory = restaurnatDto.getRTnumber();
-//		
-//		Map<String, Object> map=mav.getModelMap();
-//		HttpServletRequest request=(HttpServletRequest) map.get("request");
 //		
 //		if(request.getParameter("insert") !=null) {   
-//			Inumber=Integer.parseInt(request.getParameter("Inumber"));
+//			//Inumber=Integer.parseInt(request.getParameter("Inumber"));
 //			Icategory=request.getParameter("Icategory");
 //			
 //		}
 //		
-//		mav.addObject("")
-//		
 //	}
-	
-	
 	
 	
 }

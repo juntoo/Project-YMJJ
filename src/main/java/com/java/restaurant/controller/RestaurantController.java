@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.java.img.dto.ImgDto;
 import com.java.restaurant.dto.RestaurnatDto;
 import com.java.restaurant.service.RestaurantService;
 
@@ -35,11 +36,12 @@ public class RestaurantController {
 	}
 	
 	@RequestMapping(value="/restaurant/writeOk.do", method=RequestMethod.POST)
-	public ModelAndView restaurantboardWriteOk(HttpServletRequest request, HttpServletResponse response, RestaurnatDto restaurnatDto) {
+	public ModelAndView restaurantboardWriteOk(HttpServletRequest request, HttpServletResponse response, RestaurnatDto restaurnatDto, ImgDto imgDto) {
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
 		mav.addObject("restaurnatDto", restaurnatDto);
+		mav.addObject("imgDto", imgDto);
 		
 		restaurantService.restaurnatWriteOk(mav);
 		return mav;

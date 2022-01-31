@@ -3,7 +3,7 @@ package com.java.img.dto;
 
 public class ImgDto {
 	private int Inumber;			//이미지 고유번호
-	private String Icategory ="null";		//카테고리 각각 고유번호
+	private String Icategory;		//카테고리 각각 고유번호
 	private String Iname;			//이미지 이름
 	private long Isize;				//이미지 사이즈
 	private String Ipath;			//이미지 주소
