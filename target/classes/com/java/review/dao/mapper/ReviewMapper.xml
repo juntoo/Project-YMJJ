@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+  <mapper namespace="com.java.review.dao.mapper.ReviewMapper">
+  
+  <resultMap type="com.java.review.dto.ReviewDto"  id="reviewDto">
+  		<result column="RVnumber"  property="RVnumber"/>
+  		<result column="Mid"  property="Mid"/>
+  		<result column="RTnumber"  property="RTnumber"/>
+  		<result column="RVtitle"  property="RVtitle"/>
+  		<result column="RVcontent"  property="RVcontent"/>
+  		<result column="RVcount"  property="RVcount"/>
+  		<result column="RVdate"  property="RVdate"/>
+  		
+  	</resultMap>
+  
+  <select id="reviewCount" resultType="int">
+  		SELECT COUNT(*) FROM Review
+  </select>
+  
+  <insert id="reviewInsert" parameterType="com.java.review.dto.ReviewDto">
+  	INSERT INTO review(RVnumber, Mid, RTnumber, RVtitle, RVcontent, RVcount, RVdate)
+  	VALUES('RV0'||Review_RVnumber_seq.nextval, #{Mid}, #{RTnumber}, #{RVtitle}, #{RVcontent}, #{RVcount}, SYSDATE)
+  </insert>
+  
+  <insert id="imgInsert" parameterType="com.java.img.dto.ImgDto" >
+  	INSERT INTO Img VALUES(Img_Inumber_seq.nextval, #{RVnumber}, #{Iname}, #{Isize}, #{Ipath})
+  </insert>
+  
+  <select id="reviewList" parameterType="java.util.HashMap" resultMap="reviewDto">
+  	<![CDATA[
+	  		SELECT * FROM
+						(SELECT ROWNUM rnum, a.* FROM 
+								(SELECT * FROM review ORDER BY RVnumber DESC) a) b 
+			WHERE b.rnum >=#{startRow} AND b.rnum <=#{endRow}
+		]]>
+  </select>
+  
+  
+  </mapper>
