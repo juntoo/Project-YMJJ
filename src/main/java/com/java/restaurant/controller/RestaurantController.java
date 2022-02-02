@@ -41,7 +41,6 @@ public class RestaurantController {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
 		mav.addObject("restaurnatDto", restaurnatDto);
-		mav.addObject("imgDto", imgDto);
 		
 		restaurantService.restaurnatWriteOk(mav);
 		return mav;

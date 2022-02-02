@@ -2,7 +2,7 @@ package com.java.member.dto;
 
 
 public class MemberDto {
-	private String Mid;
+	private String Mid="Admin";
 	private String Mpassword;
 	private String Mname;
 	private String Mpostalcode;

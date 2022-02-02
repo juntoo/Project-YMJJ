@@ -9,7 +9,7 @@ public interface RestaurantDao {
 
 	public int restaurantWriteOk(RestaurnatDto restaurnatDto);
 	
-	public int imgWriteOk(ImgDto imgDto);
+	//public int imgWriteOk(ImgDto imgDto);
 	
 
 	

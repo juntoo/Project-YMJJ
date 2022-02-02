@@ -14,23 +14,20 @@ public class RestaurantDaoImp implements RestaurantDao {
 
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
-	
-	private ImgDto imgDto;
 
 	@Override
 	public int restaurantWriteOk(RestaurnatDto restaurnatDto) {
 		// TODO Auto-generated method stub
 		
-		
 		return sqlSessionTemplate.insert("boardInsert", restaurnatDto);
 	}
 
-	@Override
-	public int imgWriteOk(ImgDto imgDto) {
-		// TODO Auto-generated method stub
-		
-		return sqlSessionTemplate.insert("insert", imgDto);
-	}
+//	@Override
+//	public int imgWriteOk(ImgDto imgDto) {
+//		// TODO Auto-generated method stub
+//		
+//		return sqlSessionTemplate.insert("insert", imgDto);
+//	}
 	
 	
 	

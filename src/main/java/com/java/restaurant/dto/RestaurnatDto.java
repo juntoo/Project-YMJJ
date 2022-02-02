@@ -1,10 +1,9 @@
 package com.java.restaurant.dto;
 
-
 public class RestaurnatDto {
 	
 	private String RTnumber;
-	
+	private String Mid;
 	private String RTname;
 	private	String RTtype;
 	private String RTaddress;
@@ -18,11 +17,20 @@ public class RestaurnatDto {
 	private String RTintroduce;
 	private int RTcount;
 	
+	private String RTIname;			//이미지 이름
+	private long RTIsize;				//이미지 사이즈
+	private String RTIpath;			//이미지 주소
 	public String getRTnumber() {
 		return RTnumber;
 	}
 	public void setRTnumber(String rTnumber) {
 		RTnumber = rTnumber;
+	}
+	public String getMid() {
+		return Mid;
+	}
+	public void setMid(String mid) {
+		Mid = mid;
 	}
 	public String getRTname() {
 		return RTname;
@@ -90,17 +98,35 @@ public class RestaurnatDto {
 	public void setRTcount(int rTcount) {
 		RTcount = rTcount;
 	}
+	public String getRTIname() {
+		return RTIname;
+	}
+	public void setRTIname(String rTIname) {
+		RTIname = rTIname;
+	}
+	public long getRTIsize() {
+		return RTIsize;
+	}
+	public void setRTIsize(long rTIsize) {
+		RTIsize = rTIsize;
+	}
+	public String getRTIpath() {
+		return RTIpath;
+	}
+	public void setRTIpath(String rTIpath) {
+		RTIpath = rTIpath;
+	}
 	@Override
 	public String toString() {
-		return "RestaurnatDto [RTnumber=" + RTnumber + ", RTname=" + RTname + ", RTtype=" + RTtype + ", RTaddress="
-				+ RTaddress + ", RTpostalcode=" + RTpostalcode + ", RTcallnumber1=" + RTcallnumber1 + ", RTcallnumber2="
-				+ RTcallnumber2 + ", RTcallnumber3=" + RTcallnumber3 + ", RTlatitude=" + RTlatitude + ", RTlongitude="
-				+ RTlongitude + ", RTintroduce=" + RTintroduce + ", RTcount=" + RTcount + "]";
+		return "RestaurnatDto [RTnumber=" + RTnumber + ", Mid=" + Mid + ", RTname=" + RTname + ", RTtype=" + RTtype
+				+ ", RTaddress=" + RTaddress + ", RTpostalcode=" + RTpostalcode + ", RTcallnumber1=" + RTcallnumber1
+				+ ", RTcallnumber2=" + RTcallnumber2 + ", RTcallnumber3=" + RTcallnumber3 + ", RTlatitude=" + RTlatitude
+				+ ", RTlongitude=" + RTlongitude + ", RTintroduce=" + RTintroduce + ", RTcount=" + RTcount
+				+ ", RTIname=" + RTIname + ", RTIsize=" + RTIsize + ", RTIpath=" + RTIpath + "]";
 	}
-
-
-
 	
+	
+
 	
 	
 	

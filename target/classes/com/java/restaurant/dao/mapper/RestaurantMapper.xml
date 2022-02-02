@@ -6,9 +6,9 @@
   <mapper namespace="com.java.restaurant.dao.mapper.RestaurantMapper">
   	
   <insert id="boardInsert" parameterType="com.java.restaurant.dto.RestaurnatDto">
-	  	INSERT INTO Restaurant VALUES('RT'|| Restaurant_RTnumber_seq.nextval, #{RTname}, #{RTtype}, #{RTaddress}, #{RTpostalcode},
+	  	INSERT INTO Restaurant VALUES('RT'|| Restaurant_RTnumber_seq.nextval, #{Mid}, #{RTname}, #{RTtype}, #{RTaddress}, #{RTpostalcode},
 		            #{RTcallnumber1}, #{RTcallnumber2}, #{RTcallnumber3}, #{RTlatitude},
-		            #{RTlongitude}, #{RTintroduce}, #{RTcount})
+		            #{RTlongitude}, #{RTintroduce}, #{RTcount}, #{RTIname}, #{RTIsize}, #{RTIpath})
   </insert>
   	
   

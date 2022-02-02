@@ -117,7 +117,7 @@ public class ReviewServiceImp implements ReviewService {
 			long fileSize=upFile.getSize();
 			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
 			
-			File path=new File("F:\\pds\\");
+			File path=new File("C:\\pds\\");
 			path.mkdir();
 			LogAspect.logger.info(LogAspect.LogMsg + path);
 			LogAspect.logger.info(LogAspect.LogMsg + fileName);
