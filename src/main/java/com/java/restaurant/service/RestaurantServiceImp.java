@@ -2,6 +2,7 @@ package com.java.restaurant.service;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -73,7 +74,6 @@ public class RestaurantServiceImp implements RestaurantService {
 		LogAspect.logger.info(LogAspect.LogMsg + upFile);
 		if(upFile.getSize() !=0) {
 			String fileName=Long.toString(System.currentTimeMillis()) + "_" + upFile.getOriginalFilename();
-			String mid = memberDto.getMid();
 			long fileSize=upFile.getSize();
 			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
 			
@@ -82,7 +82,6 @@ public class RestaurantServiceImp implements RestaurantService {
 			
 			if(path.exists() && path.isDirectory()) {
 				File file=new File(path, fileName);
-				
 				//LogAspect.logger.info(LogAspect.LogMsg + imgDto.toString());
 				try {
 					upFile.transferTo(file);
@@ -90,7 +89,7 @@ public class RestaurantServiceImp implements RestaurantService {
 					restaurnatDto.setRTIpath(file.getAbsolutePath());
 					restaurnatDto.setRTIname(fileName);
 					restaurnatDto.setRTIsize(fileSize);
-					restaurnatDto.setMid(mid);
+				
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
@@ -109,6 +108,41 @@ public class RestaurantServiceImp implements RestaurantService {
 		
 		
 	}
+	
+	@Override
+    public void restaurantList(ModelAndView mav) {
+        // TODO Auto-generated method stub
+
+        Map<String, Object> map=mav.getModel();
+        HttpServletRequest request=(HttpServletRequest) map.get("request");
+
+        String pageNumber=request.getParameter("pageNumber");
+        if(pageNumber == null) pageNumber="1";
+
+        int currengPage=Integer.parseInt(pageNumber);
+        LogAspect.logger.info(LogAspect.LogMsg + currengPage);
+
+        int boardSize=10;
+        int startRow=(currengPage-1) * boardSize +1;
+        int endRow=currengPage*boardSize; 
+
+        int count=restaurantDao.getCount();
+        LogAspect.logger.info(LogAspect.LogMsg + count);
+
+        List<RestaurnatDto> restaurantList=null;
+        if(count > 0) {
+            restaurantList=restaurantDao.restaurantList(startRow, endRow);
+            LogAspect.logger.info(LogAspect.LogMsg + restaurantList.size());
+        }
+
+        mav.addObject("boardSize", boardSize);
+        mav.addObject("currengPage", currengPage);
+        mav.addObject("restaurantList", restaurantList);
+        mav.addObject("count", count);
+
+        mav.setViewName("restaurant/Restaurant_Main_Admin");
+
+    }
 	
 	
 	

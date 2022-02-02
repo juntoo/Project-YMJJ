@@ -36,57 +36,59 @@
 
 	<div style="font-size: 17px;" id="list">
 	
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름1</span>
-		</li>
+		<c:forEach var="restaurantDto" items="${restaurantList}">
+         <li style="width: 340px; height: 200px; margin-left: 40px; ">
+            <div>사진</div>
+            <div style="text-align: center; margin-top: 130px; font-weight: bold;">${restaurantDto.RTname}</div>
+         </li>
+        </c:forEach>
+   </div>
 		
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름6</span>
-		</li>
+	<div style="font-size: 17px" id="page">
+		<%-- 페이지번호  
+				1. 한페이지당 게시물 수 : boardSize
+				2. 총 페이지 수 : count 100 / boardSize 10 = 10page
+				3. 페이지 블럭 : 
+							- 시작페이지번호 : (int) ((currengPage-1)/pageBlock)*pageBlock+1    (3-1)=2/10=0.2*10=0+1=1
+							- 끝페이지 번호 :  시작페이지번호+pageBlock-1
+				            - 다음/이전
+
+		--%> 
+		<%-- 총 페이지 수 --%>
+		<fmt:parseNumber var="pageCount" value="${count/boardSize + (count % boardSize == 0 ? 0:1)}" integerOnly="true"/>
 		
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름2</span>
-		</li>
+		<%-- 페이지 블럭 --%>
+		<c:set var="pageBlock" value="${3}"/>
 		
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름7</span>
-		</li>
+		<%-- 요청 페이지의 시작페이지 / 끝페이지 번호 --%>
+		<fmt:parseNumber var="result" value="${(currengPage-1)/pageBlock}" integerOnly="true"/>
+		<c:set var="startPage" value="${result*pageBlock+1}"/>
+		<c:set var="endPage" value="${startPage+pageBlock-1}"/>
 		
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름3</span>
-		</li>
+		<c:if test="${endPage >  pageCount}">
+			<c:set var="endPage" value="${pageCount}"/>
+		</c:if>
 		
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름8</span>
-		</li>
+		<c:if test="${startPage > pageBlock }">
+			<a href="${root}/restaurant/main.do?pageNumber=${startPage-pageBlock}">[이전]</a>
+		</c:if>
 		
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름4</span>
-		</li>
+		<c:forEach var="i"  begin="${startPage}" end="${endPage}">
+			<a href="${root}/restaurant/main.do?pageNumber=${i}">[${i}]</a>
+		</c:forEach>
 		
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름9</span>
-		</li>
-		
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름5</span>
-		</li>
-		
-		<li>
-			<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20150215_151%2Fevrcdae11_1423938174584lTSFl_JPEG%2F%25B0%25DC%25BF%25EF%25B9%25E8%25B0%25E6%25C8%25AD%25B8%25E9%25C0%25CC%25B9%25CC%25C1%25F6%25B5%25CE%25B9%25F8%25C0%25E7_%252813%2529.jpg&type=sc960_832"/>
-			<span>대충 가게이름10</span>
-		</li>
-		
+		<c:if test="${endPage < pageCount }">
+			<a href="${root}/restaurant/main.do?pageNumber=${startPage+pageBlock}">[다음]</a>
+		</c:if>
+			
+		<br/><br/>
+		<div>
+			총 페이지 : ${pageCount }
+			시작페이지 번호 : ${startPage }
+			끝페이지 번호 : ${endPage }
+		</div>
 	</div>
+	
 
 </div>
 </body>

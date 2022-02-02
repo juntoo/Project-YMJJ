@@ -18,10 +18,10 @@ public class OtherController {
 	
 	@RequestMapping(value = "/other/map.do", method = RequestMethod.GET)
 	public ModelAndView OtherMap(HttpServletRequest request, HttpServletResponse response) {
-		return new ModelAndView("other/map.tiles");
+		return new ModelAndView("other/map");
 	}
 	@RequestMapping(value = "/other/today.do", method = RequestMethod.GET)
 	public ModelAndView OtherToday(HttpServletRequest request, HttpServletResponse response) {	
-		return new ModelAndView("other/today.tiles");
+		return new ModelAndView("other/today");
 	}
 }

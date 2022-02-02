@@ -3,7 +3,6 @@ package com.java.restaurant.dto;
 public class RestaurnatDto {
 	
 	private String RTnumber;
-	private String Mid;
 	private String RTname;
 	private	String RTtype;
 	private String RTaddress;
@@ -25,12 +24,6 @@ public class RestaurnatDto {
 	}
 	public void setRTnumber(String rTnumber) {
 		RTnumber = rTnumber;
-	}
-	public String getMid() {
-		return Mid;
-	}
-	public void setMid(String mid) {
-		Mid = mid;
 	}
 	public String getRTname() {
 		return RTname;
@@ -118,16 +111,13 @@ public class RestaurnatDto {
 	}
 	@Override
 	public String toString() {
-		return "RestaurnatDto [RTnumber=" + RTnumber + ", Mid=" + Mid + ", RTname=" + RTname + ", RTtype=" + RTtype
-				+ ", RTaddress=" + RTaddress + ", RTpostalcode=" + RTpostalcode + ", RTcallnumber1=" + RTcallnumber1
-				+ ", RTcallnumber2=" + RTcallnumber2 + ", RTcallnumber3=" + RTcallnumber3 + ", RTlatitude=" + RTlatitude
-				+ ", RTlongitude=" + RTlongitude + ", RTintroduce=" + RTintroduce + ", RTcount=" + RTcount
-				+ ", RTIname=" + RTIname + ", RTIsize=" + RTIsize + ", RTIpath=" + RTIpath + "]";
+		return "RestaurnatDto [RTnumber=" + RTnumber + ", RTname=" + RTname + ", RTtype=" + RTtype + ", RTaddress="
+				+ RTaddress + ", RTpostalcode=" + RTpostalcode + ", RTcallnumber1=" + RTcallnumber1 + ", RTcallnumber2="
+				+ RTcallnumber2 + ", RTcallnumber3=" + RTcallnumber3 + ", RTlatitude=" + RTlatitude + ", RTlongitude="
+				+ RTlongitude + ", RTintroduce=" + RTintroduce + ", RTcount=" + RTcount + ", RTIname=" + RTIname
+				+ ", RTIsize=" + RTIsize + ", RTIpath=" + RTIpath + "]";
 	}
-	
-	
 
-	
-	
+
 	
 }

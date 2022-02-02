@@ -8,6 +8,8 @@ public interface RestaurantService {
 	
 	public void restaurnatWriteOk(ModelAndView mav);
 	
+	public void restaurantList(ModelAndView mav);
+	
 	//public void ImgWrite(ModelAndView mav);
 
 }

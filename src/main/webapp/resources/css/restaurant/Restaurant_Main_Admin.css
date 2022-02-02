@@ -19,7 +19,7 @@
 }
 
 #Main{
-	margin-top: 100px;
+	margin-top: 80px;
 }
 
 #tag{
@@ -39,7 +39,6 @@
 #list{
     column-width:320px;
     column-gap: 20px;
-    width: 1700px;
     padding-top: 50px;
 }
 
@@ -63,10 +62,10 @@
 }
 
 #btn_type{
-
 	border: 0px solid red;
-  
 	margin-left: 1650px;
-	
-	
   }
+  
+#page{
+    text-align: center;
+}

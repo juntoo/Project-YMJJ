@@ -6,10 +6,25 @@
   <mapper namespace="com.java.restaurant.dao.mapper.RestaurantMapper">
   	
   <insert id="boardInsert" parameterType="com.java.restaurant.dto.RestaurnatDto">
-	  	INSERT INTO Restaurant VALUES('RT'|| Restaurant_RTnumber_seq.nextval, #{Mid}, #{RTname}, #{RTtype}, #{RTaddress}, #{RTpostalcode},
+	  	INSERT INTO Restaurant VALUES('RT'|| Restaurant_RTnumber_seq.nextval, #{RTname}, #{RTtype}, #{RTaddress}, #{RTpostalcode},
 		            #{RTcallnumber1}, #{RTcallnumber2}, #{RTcallnumber3}, #{RTlatitude},
 		            #{RTlongitude}, #{RTintroduce}, #{RTcount}, #{RTIname}, #{RTIsize}, #{RTIpath})
   </insert>
+  
+  <select id="boardCount" resultType="int">
+  		SELECT COUNT(*) FROM restaurant
+  </select>
+  	
+  	 
+  	
+  <select id="boardList" parameterType="java.util.HashMap" resultMap="restaurnatDto">
+  	<![CDATA[
+	  	SELECT * FROM
+				(SELECT ROWNUM rnum, a.* FROM 
+				(SELECT * FROM restaurant) a) b 
+		WHERE b.rnum >=#{startRow} AND b.rnum <=#{endRow}
+		]]>
+  </select>
   	
   
   	<!--
@@ -19,7 +34,7 @@
   	
   	 
   	
-  	<select id="boardList" parameterType="java.util.HashMap" resultMap="boardDto">
+  	<select id="boardList" parameterType="java.util." resultMap="boardDto">
   		<![CDATA[
 	  		SELECT * FROM
 						(SELECT ROWNUM rnum, a.* FROM 
