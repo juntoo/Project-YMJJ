@@ -20,7 +20,7 @@
 		</script>
 	</c:if>
 	
-	<c:if test="${memberLevel == null}">
+	<c:if test="${memberDto == null}">
 		<script type="text/javascript">
 			alert("입력하신 정보가 존재하지 않습니다.");
 			location.href="${root}/member/login.do";

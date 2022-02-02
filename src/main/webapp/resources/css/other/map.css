@@ -6,20 +6,11 @@ padding: 0px auto;
 box-sizing: border-box;
 font-size: 17px;
 }
-#title{
-width: 1920px;
-height: 108px;
-text-align: center;
-margin-top: 20px;
-}
-#title > a{
-font-size: 50px;
-}
 #M_menuF{
 border: 3px black solid;
 position: absolute;
 left: 960px;
-top: 490px;
+top: 530px;
 transform: translateX(-50%) translateY(-50%);
 width: 1536px;
 height: 750px;

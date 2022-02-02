@@ -141,7 +141,6 @@ public class RestaurantServiceImp implements RestaurantService {
         mav.addObject("count", count);
 
         mav.setViewName("restaurant/Restaurant_Main_Admin");
-
     }
 	
 	

@@ -12,12 +12,12 @@
   </insert>
   
   <select id="boardCount" resultType="int">
-  		SELECT COUNT(*) FROM restaurant
+  		SELECT COUNT(*) FROM Restaurant
   </select>
   	
   	 
   	
-  <select id="boardList" parameterType="java.util.HashMap" resultMap="restaurnatDto">
+  <select id="boardList" parameterType="java.util.HashMap" resultType="com.java.restaurant.dto.RestaurnatDto">
   	<![CDATA[
 	  	SELECT * FROM
 				(SELECT ROWNUM rnum, a.* FROM 

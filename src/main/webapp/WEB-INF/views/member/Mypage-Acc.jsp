@@ -19,7 +19,7 @@
         <div id="menuF">
             <div id="category">
                 <div id="detail" style="border-left: 0px;"></div>
-                <div id="detail" onclick="location.href='${root}/member/Mypage-Com.do'"><a>Comment</a></div>
+                <div id="detail" onclick="location.href='${root}/member/Mypage-Com.do?Mid=${Mid}'"><a>Comment</a></div>
                 <div id="detail" style="border-right: 0px;"><a>Account</a></div>
                 <div id="detail" style="height: 660px; border-left: 0px; border-bottom: 0px;"></div>
             </div>

@@ -63,7 +63,11 @@ public class MemberController {
 	}
 	@RequestMapping(value = "/member/Mypage-Com.do", method = RequestMethod.GET)
 	public ModelAndView memberMypageCom(HttpServletRequest request, HttpServletResponse response) {	
-		return new ModelAndView("member/Mypage-Com");
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("request", request);
+		
+		memberService.MypageCom(mav);
+		return mav;
 	}
 	@RequestMapping(value = "/member/Mypage-M.do", method = RequestMethod.GET)
 	public ModelAndView memberMypageM(HttpServletRequest request, HttpServletResponse response) {

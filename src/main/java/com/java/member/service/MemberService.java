@@ -20,4 +20,6 @@ public interface MemberService {
 
 	void Updata(ModelAndView mav);
 
+	void MypageCom(ModelAndView mav);
+
 }

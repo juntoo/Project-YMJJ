@@ -24,16 +24,28 @@
                     <div id="mycomment">
                         <div id="subtitle">My Comment</div>
                         <div id="commentView">
+                        	<table border="1">
+								<tr>
+									<td width="200px" height="30px" align="center">가게이름</td>
+									<td width="200px" height="30px" align="center">TITLE</td>
+									<td width="200px" height="30px" align="center">CONTENT</td>
+								</tr>
+								
+								<c:forEach var="reviewDto" items="${reviewList}">
+									<tr>
+									<td width="150px" height="30px" align="center">${reviewDto.RTname}</td>
+									
+									<td width="200px" height="30px" align="left">${reviewDto.RVtitle}</td>
+									
+									<td width="300px" height="30px" align="center">${reviewDto.RVcontent}</td>
+									</tr>
+								</c:forEach>
+							</table>
                         </div>
                     </div>
                     <div id="bookmark">
                         <div id="subtitle">Bookmark</div>
                     </div>
-                </div>
-                <div id="but">
-                    <input type="button"/>
-                    <input type="button"/>
-                    <input type="button"/>
                 </div>
             </div>
         </div>

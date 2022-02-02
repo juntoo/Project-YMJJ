@@ -23,7 +23,7 @@
 		<h3>${Mname}님 환영합니다.</h3>
 		<a href="${root}/member/logout.do">로그아웃</a>
 		<a href="${root}/member/Mypage-Acc.do">마이페이지-ACC</a>&nbsp;&nbsp;
-		<a href="${root}/member/Mypage-Com.do">마이페이지-COM</a>&nbsp;&nbsp;
+		<a href="${root}/member/Mypage-Com.do?Mid=${Mid}">마이페이지-COM</a>&nbsp;&nbsp;
 		<a href="${root}/member/Mypage-M.do">마이페이지-M</a>&nbsp;&nbsp;
 		<a href="${root}/member/Mypage-M-D.do">마이페이지-M-D</a>
 	</c:if>

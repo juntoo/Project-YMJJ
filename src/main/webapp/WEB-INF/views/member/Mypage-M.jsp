@@ -32,16 +32,16 @@
 							</tr>
 							
 							<c:forEach var="memberDto" items="${memberList}">
-						<tr onclick="location.href='${root}/member/Mypage-M-D.do?Mid=${memberDto.mid}'">
-							<td width="200px" height="30px" align="center">${memberDto.mid}</td>
-						
-						<td width="200px" height="30px" align="left">${memberDto.mname}</td>
-						
-						<td width="200px" height="30px" align="center">${memberDto.mcallnumber1} - ${memberDto.mcallnumber2} - ${memberDto.mcallnumber3}</td>
-						<td width="200px" height="30px" align="center">${memberDto.memail}</td>
-						</tr>
-						</c:forEach>
-					</table>
+								<tr onclick="location.href='${root}/member/Mypage-M-D.do?Mid=${memberDto.mid}'">
+								<td width="200px" height="30px" align="center">${memberDto.mid}</td>
+								
+								<td width="200px" height="30px" align="left">${memberDto.mname}</td>
+								
+								<td width="200px" height="30px" align="center">${memberDto.mcallnumber1} - ${memberDto.mcallnumber2} - ${memberDto.mcallnumber3}</td>
+								<td width="200px" height="30px" align="center">${memberDto.memail}</td>
+								</tr>
+							</c:forEach>
+						</table>
 					</c:if>
 					<c:if test="${count == 0}">
 						<table>
