@@ -1,27 +1,53 @@
 package com.java.other.service;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.java.aop.LogAspect;
 import com.java.other.dao.OtherDao;
+import com.java.restaurant.dto.RestaurnatDto;
 
 
 @Component
 public class OtherServiceImp implements OtherService {
 	@Autowired
 	private OtherDao otherDao;
-	
+
+	@Override
+	public void getRestaurnat(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		List<RestaurnatDto> RestaurnatList=null;
+		RestaurnatList = otherDao.getRestaurnatList(request.getParameter("RTtype"));
+		mav.addObject("RestaurnatList", RestaurnatList);
+		mav.addObject("Count", RestaurnatList.size());
+		mav.addObject("RTtype", request.getParameter("RTtype"));
+		
+		mav.setViewName("/other/map");
+	}
+	@Override
+	public void selectRestaurnat(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		List<RestaurnatDto> RestaurnatList=null;
+		RestaurnatList = otherDao.selectRestaurnatList(request.getParameter("RTname"));
+		mav.addObject("RestaurnatList", RestaurnatList);
+		mav.addObject("Count", RestaurnatList.size());
+		
+		mav.setViewName("/other/map");
+	}
+	@Override
+	public void OtherToday(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		List<RestaurnatDto> RestaurnatList=null;
+		
+		mav.setViewName("/other/today");
+	}
 	
 }

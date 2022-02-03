@@ -93,10 +93,6 @@ public class MemberController {
 		memberService.Delelt(mav);
 		return mav;
 	}
-	@RequestMapping(value = "/member/zipcode.do", method = RequestMethod.GET)
-	public ModelAndView memberZipcode(HttpServletRequest request, HttpServletResponse response) {	
-		return new ModelAndView("member/zipcode");
-	}
 	@RequestMapping(value = "/member/updata.do", method = RequestMethod.POST)
 	public ModelAndView memberUpdata(HttpServletRequest request, HttpServletResponse response, MemberDto memberDto) {	
 		ModelAndView mav = new ModelAndView();

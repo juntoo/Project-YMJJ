@@ -48,6 +48,12 @@
   	<select id="getReview" parameterType="String" resultType="com.java.member.dto.SimpleReviewDto">
   	SELECT RVnumber,Mid,review.RTnumber,RVtitle,RVcontent,RVcount,RVdate,RTname FROM review, Restaurant WHERE Mid = #{Mid} AND review.RTnumber = Restaurant.RTnumber
   	</select>
+  	<select id="getRestaurnatList" parameterType="String" resultType="com.java.restaurant.dto.RestaurnatDto">
+  	SELECT * FROM Restaurant WHERE RTtype = #{RTtype}
+  	</select>
+  	<select id="selectRestaurnatList" parameterType="String" resultType="com.java.restaurant.dto.RestaurnatDto">
+  	SELECT * FROM Restaurant WHERE RTname = #{RTname}
+  	</select>
   </mapper>   		
 
   

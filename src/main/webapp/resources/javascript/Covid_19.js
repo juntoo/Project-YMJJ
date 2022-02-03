@@ -16,53 +16,54 @@ if(month2 <= 10) month2 = '0'+month2;
 if(date2 <= 10) date2 = '0'+date2;
 let day1 = year + month1 + date1;
 let day2 = year + month2 + date2;
-
 function toServer() {
 	var url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19SidoInfStateJson'; /*URL*/
-	var queryParams = '?' + encodeURIComponent('serviceKey') + '=p9kIIHWTfQm9+AFcHD8soBdYHClnAWe4uC2OVZJ8RyiJGH/zad7PMaT2CtRyUZsP4jGgjSN1dbK4h4IYWa8LgA=='; /*Service Key*/
-	queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-	queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
-	queryParams += '&' + encodeURIComponent('startCreateDt') + '=' + encodeURIComponent('day2'); /**/
-	queryParams += '&' + encodeURIComponent('endCreateDt') + '=' + encodeURIComponent('day1'); /**/
+	var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'iEcfXuGJalP7M6bBshTuqNRxSp%2BGlxbHG1TUf8Uo123RCP5noez%2BTb6y5o0VJRXz3c%2B2dVDe426qvPvt2k06Iw%3D%3D'; /*Service Key*/
+	queryParams += '&' + encodeURIComponent('startCreateDt') + '=' + encodeURIComponent(day2); /**/
+	queryParams += '&' + encodeURIComponent('endCreateDt') + '=' + encodeURIComponent(day1); /**/
 	queryParams += '&_type=json' /**/
+	//alert(queryParams);
 	xhr.open('GET', url + queryParams);
+	
 	xhr.send('');
 	}
 
 
 xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
-        alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+        //alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
 		var arr=JSON.parse(xhr.responseText);
 		//alert("오늘날짜 : " + day1);
 		//alert("전날짜 : " + day2);
 		//alert(arr.response.body.items.item.length);
+		var jejucount = 0;
+		var allcount = 0;
 		var dates = new Array();
-		var deathCnt = new Array();
-		var decideCnt = new Array();
+		var jejudeathCnt = new Array();
+		var jejudefCnt = new Array();
 		for (var i = 0; i < arr.response.body.items.item.length; i++) {
-			//str+="<div>"+arr.response.body.items.item[i].createDt+"</div>";
-			//str+="<div>"+arr.response.body.items.item[i].deathCnt+"</div>";
-			//str+="<div>"+arr.response.body.items.item[i].decideCnt+"</div><br/>";
-			dates[i] = arr.response.body.items.item[i].createDt.substr(0, 10);
-			deathCnt[i] = arr.response.body.items.item[i].deathCnt;
-			decideCnt[i] = arr.response.body.items.item[i].decideCnt;
+			if(arr.response.body.items.item[i].gubun=='제주'){
+				dates[jejucount] = arr.response.body.items.item[i].createDt.substr(0, 10);
+				jejudeathCnt[jejucount] = arr.response.body.items.item[i].deathCnt;
+				jejudefCnt[jejucount] = arr.response.body.items.item[i].incDec;
+				jejucount++;
+			}
 		}
 		new Chart(document.getElementById("mixed-chart"), {
 			type: 'bar',
 			 data: {
 			  labels: [dates[3],dates[2],dates[1],dates[0]],
 			  datasets: [{
-			  	 label: "사망자",
+			  	 label: "제주 사망자",
 		          type: "line",
-		          borderColor: "#3e95cd",
-		          data: [deathCnt[3],deathCnt[2],deathCnt[1],deathCnt[0]],
+		          borderColor: "#f74545",
+		          data: [jejudeathCnt[3],jejudeathCnt[2],jejudeathCnt[1],jejudeathCnt[0]],
 		          fill: false
 		        }, {
-		          label: "확진자",
+		          label: "제주 확진자",
 		          type: "bar",
-		          backgroundColor: "rgba(0,0,0,0.2)",
-		          data: [decideCnt[3],decideCnt[2],decideCnt[1],decideCnt[0]],
+		          backgroundColor: "rgba(69, 226, 247, 0.81)",
+		          data: [jejudefCnt[3],jejudefCnt[2],jejudefCnt[1],jejudefCnt[0]],
 		        }
 			  ]
 			},

@@ -25,4 +25,5 @@ public interface MemberDao {
 
 	List<SimpleReviewDto> getReview(String parameter);
 
+
 }

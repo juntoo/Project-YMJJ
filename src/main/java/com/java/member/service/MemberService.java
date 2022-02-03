@@ -22,4 +22,5 @@ public interface MemberService {
 
 	void MypageCom(ModelAndView mav);
 
+
 }

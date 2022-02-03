@@ -59,11 +59,12 @@
 			</div>
 			
 			<div class="covid_box"> <!-- covid 박스 -->
-			<canvas id="mixed-chart"></canvas>
+			<canvas id="mixed-chart" height="370px"></canvas>
 			<script type="text/javascript">toServer()</script>
 			</div>
 				
 			<div class="ranking_box"> <!-- 랭킹 박스 -->
+				
 			</div>
 			
 			<div class="box_title">

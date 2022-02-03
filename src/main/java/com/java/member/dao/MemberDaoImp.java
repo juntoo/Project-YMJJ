@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import com.java.member.dto.MemberDto;
 import com.java.member.dto.SimpleReviewDto;
-import com.java.review.dto.ReviewDto;
 
 @Component
 public class MemberDaoImp implements MemberDao {
@@ -58,5 +57,4 @@ public class MemberDaoImp implements MemberDao {
 	public List<SimpleReviewDto> getReview(String Mid) {
 		return sqlSessionTemplate.selectList("getReview", Mid);
 	}
-	
 }
