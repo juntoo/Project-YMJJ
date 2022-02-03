@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.java.aop.LogAspect;
 import com.java.img.dto.ImgDto;
 import com.java.restaurant.dto.RestaurnatDto;
 
@@ -38,7 +39,24 @@ public class RestaurantDaoImp implements RestaurantDao {
         
         return sqlSessionTemplate.selectList("boardList", hMap);
     }
+
+//	@Override
+//	public RestaurnatDto read(int rTnumber) {
+//		// TODO Auto-generated method stub
+//		
+//		RestaurnatDto restaurnatDto=null;
+//		
+//		int check=sqlSessionTemplate.update("boardCount", rTnumber);
+//		LogAspect.logger.info(LogAspect.LogMsg + check);
+//		
+//		restaurnatDto=sqlSessionTemplate.selectOne("boardRead", rTnumber);
+//		
+//		
+//		return restaurnatDto;
+//	}
 	
+    
+    
 	
 
 //	@Override

@@ -37,8 +37,8 @@
 
 	
 	<h3>Restaurant View</h3>
-	<a href="${root}/restaurant/main.do">레스토랑 메인</a>
-	<a href="${root}/restaurant/write.do">레스토랑 추가</a>
+	<a href="${root}/restaurant/main.do?root=${root}">레스토랑 메인</a>
+	<a href="${root}/restaurant/write.do?root=${root}">레스토랑 추가</a>
 	<a href="${root}/restaurant/update.do">레스토랑 수정</a>
 	<a href="${root}/restaurant/introduction.do">레스토랑</a>
 	

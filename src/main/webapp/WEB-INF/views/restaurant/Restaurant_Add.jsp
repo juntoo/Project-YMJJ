@@ -23,7 +23,7 @@
 		<div id="sub_content">
 
             <form name="restaurantForm"  id="form_style"
-            			action="${root}/restaurant/writeOk.do"  
+            			action="${root}/restaurant/writeOk.do?root=${root}"  
 						method="post"
 						enctype="multipart/form-data">
 						

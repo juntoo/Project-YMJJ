@@ -32,8 +32,8 @@
 
                 <div id="rstitle">
 
-                    <div id="restaurant_name">이름</div>
-                    <div id="restaurant_introduction">소개글</div>
+                    <div id="restaurant_name">이름${restaurantDto.RTname}</div>
+                    <div id="restaurant_introduction">${restaurantDto.RTintroduce}</div>
 
                 </div>
 
@@ -50,6 +50,18 @@
             </div>
 
             <div id="kakaomap">맵</div>
+            
+            <!--<c:if test="${restaurantDto.RTIname !=null}">
+				<tr>
+					<td align="center" height="30" width="200">파일명</td>
+					<td colspan="3">
+						<a href="${root}/fileboard/downLoad.do?boardNumber=${boardDto.boardNumber}">
+							${boardDto.fileName} 
+						</a>
+					</td>		
+				</tr>
+			
+			</c:if>-->
 
 
 

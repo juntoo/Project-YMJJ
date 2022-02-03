@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -24,12 +26,14 @@ public class RestaurantServiceImp implements RestaurantService {
 	
 	//private ImgDto imgDto;
 	
+	
 	@Autowired
 	private RestaurantDao restaurantDao;
 
 	@Override
 	public void restaurnatWrite(ModelAndView mav) {
 		// TODO Auto-generated method stub
+		
 		
 //		int Inumber = 0;
 		String RTnumber="0"; // 글번호 : ROOT 항상 boardNumber 0, 답글인 경우 부모의 boardNumber							// 글레벨
@@ -60,16 +64,24 @@ public class RestaurantServiceImp implements RestaurantService {
 		
 	}
 
+	@Autowired private ResourceLoader resourceLoader;
+	
 	@Override
 	public void restaurnatWriteOk(ModelAndView mav) {
 		// TODO Auto-generated method stub
+		
 		Map<String, Object> map=mav.getModelMap();
 		RestaurnatDto restaurnatDto=(RestaurnatDto) map.get("restaurnatDto");
 		MultipartHttpServletRequest request=(MultipartHttpServletRequest) map.get("request");
 		
-		MemberDto memberDto=new MemberDto();
+		String root = request.getParameter("root");
 		
-		System.out.println(memberDto.getMid());
+		String root2 = root+"/img/";
+		
+		System.out.println(request.getSession().getServletContext().getRealPath("/").concat("resources"));
+	
+		//servletContext.getRealPath("/resources/img")
+		
 		MultipartFile upFile=request.getFile("file");
 		LogAspect.logger.info(LogAspect.LogMsg + upFile);
 		if(upFile.getSize() !=0) {
@@ -77,7 +89,8 @@ public class RestaurantServiceImp implements RestaurantService {
 			long fileSize=upFile.getSize();
 			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
 			
-			File path=new File("C:\\pds\\");
+			File path=new File(request.getSession().getServletContext().getRealPath("/").concat("resources"));
+			//C:\\pds\\
 			path.mkdir();
 			
 			if(path.exists() && path.isDirectory()) {
@@ -112,6 +125,8 @@ public class RestaurantServiceImp implements RestaurantService {
 	@Override
     public void restaurantList(ModelAndView mav) {
         // TODO Auto-generated method stub
+		
+	
 
         Map<String, Object> map=mav.getModel();
         HttpServletRequest request=(HttpServletRequest) map.get("request");
@@ -142,6 +157,37 @@ public class RestaurantServiceImp implements RestaurantService {
 
         mav.setViewName("restaurant/Restaurant_Main_Admin");
     }
+
+	@Override
+	public void restaurantRead(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		
+//		Map<String, Object> map=mav.getModelMap();
+//		HttpServletRequest request=(HttpServletRequest) map.get("request");
+//		
+//		int RTnumber=Integer.parseInt(request.getParameter("RTnumber"));
+//		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
+//		LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
+//		
+//		RestaurnatDto restaurnatDto = restaurantDao.read(RTnumber);
+//		LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
+//		
+//		if(restaurnatDto.getRTIsize() !=0) {
+//			
+//			int index=restaurnatDto.getRTIname().indexOf("_") +1;
+//			restaurnatDto.setRTIname(restaurnatDto.getRTIname().substring(index));
+//			
+//		}
+//		
+//		mav.addObject("restaurnatDto", restaurnatDto);
+//		mav.addObject("pageNumber", pageNumber);
+//		
+//		mav.setViewName("/restaurant/Restaurant_Introduction");
+		
+	}
+	
+	
+	
 	
 	
 	

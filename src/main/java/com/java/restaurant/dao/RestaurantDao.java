@@ -13,6 +13,8 @@ public interface RestaurantDao {
 	public int getCount();
 
     public List<RestaurnatDto> restaurantList(int startRow, int endRow);
+
+	//public RestaurnatDto read(int rTnumber);
 	
 	//public int imgWriteOk(ImgDto imgDto);
 	

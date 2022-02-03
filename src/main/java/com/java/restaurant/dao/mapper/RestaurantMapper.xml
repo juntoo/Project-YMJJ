@@ -25,7 +25,11 @@
 		WHERE b.rnum >=#{startRow} AND b.rnum <=#{endRow}
 		]]>
   </select>
-  	
+  
+  <!--
+  <select id="boardRead" parameterType="int" resultMap="com.java.restaurant.dto.RestaurnatDto">
+  		SELECT  * FROM restaurant WHERE RTnumber=#{RTnumber}
+  </select>-->
   
   	<!--
   	<select id="boardCount" resultType="int">

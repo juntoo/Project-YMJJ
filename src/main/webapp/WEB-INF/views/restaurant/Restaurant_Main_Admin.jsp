@@ -35,11 +35,12 @@
 	</div>
 
 	<div style="font-size: 17px;" id="list">
-	
 		<c:forEach var="restaurantDto" items="${restaurantList}">
          <li style="width: 340px; height: 200px; margin-left: 40px; ">
-            <div>사진</div>
-            <div style="text-align: center; margin-top: 130px; font-weight: bold;">${restaurantDto.RTname}</div>
+            <a href="${root}/restaurant/introduction.do?RTnumber=${restaurantDto.RTnumber}">
+            	<div><img alt="pictures" src="${root}/resources/img/"></div>
+            	<div style="text-align: center; margin-top: 130px; font-weight: bold;">${restaurantDto.RTname}</div>
+            </a>
          </li>
         </c:forEach>
    </div>
