@@ -15,36 +15,32 @@
         <div id="menuF">
             <div id="category">
                 <div id="detail" style="border-left: 0px;"></div>
-                <div id="detail"><a>Introduction</a></div>
-                <div id="detail"><a>Location</a></div>
-                <div id="detail"><a>Speciality</a></div>
-                <div id="detail" style="border-right: 0px;"><a>Activities</a></div>
+                <div id="detail"><a href="${root}/aboutjeju/introduction.do">Introduction</a></div>
+                <div id="detail"><a  href="${root}/aboutjeju/location.do">Location</a></div>
+                <div id="detail"><a  href="${root}/aboutjeju/speciality.do">Speciality</a></div>
+                <div id="detail" style="border-right: 0px;"><a href="${root}/aboutjeju/activities.do">Activities</a></div>
                 <div id="detail" style="height: 600px; border-left: 0px; border-bottom: 0px;"></div>              
             </div>
             <div id="content">
                 <div style="border : 2px black solid; width: 1175px; height: 640px; margin-top: 40px;margin-left: 40px;">
-                
 	                <!-- 왼쪽 사진들 -->
 					<div id="hiking">
 						<div>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<p>대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를</p>
+							<img width="150px" height="150px" alt="" src=""/>
+							
+							<input name="sectext" style="width:149px;height:30px;"/>
 						</div>
 						<div>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<p>대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를</p>						
+							<img width="150px" height="150px" alt="" src=""/>
+							
+							<input name="thimgtext" style="width:149px;height:30px;"/>					
 						</div>
 						<div>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<p>대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를</p>
+							<img width="150px" height="150px" alt="" src=""/>
+							
+							<input name="fortext" style="width:149px;height:30px;"/>
 						</div>
 					</div>
-						
-	
-						
 						<!-- 가운데 큰 글씨 -->
 					<div id="activity">
 						<div id="act1">
@@ -62,42 +58,34 @@
 						
 						<div id="act3">
 							<div id="color2">
-								<img width="200px" height="150px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
+								<img width="200px" height="150px" alt="" src=""/>
 							</div>
 							<div>
-								<img width="200px" height="150px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
+								<img width="200px" height="150px" alt="" src=""/>
 							</div>
 						</div>
 					</div>
 						
-						
-						
-						
-							
 					<div id="leisure">
 						<div>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<p>대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를</p>
+							<img width="150px" height="150px" alt="" src=""/>
+							<input name="fatext" style="width:149px;height:30px;"/>
 						</div>
 						<div>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<p>대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를</p>
+							<img width="150px" height="150px" alt="" src=""/>
+							<input name="sixtext" style="width:149px;height:30px;"/>
 						</div>
 						<div>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<img width="110px" height="110px" alt="" src="https://blog.jinbo.net/attach/615/200937431.jpg"/>
-							<p>대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를 측정하는 글 대충 길이를</p>
+							<img width="150px" height="150px" alt="" src=""/>
+							<input name="sentext" style="width:149px;height:30px;"/>
 						</div>
 					</div>
 	                         
 	            </div>
 	                
                 <div id="but">
-                    <input type="button"/>
-                    <input type="button"/>
-                    <input type="button"/>
+                    <input type="submit" value="입력"/>
+                    <input type="reset" value="취소"/>
                 </div>
             </div>
         </div>

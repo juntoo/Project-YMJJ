@@ -29,7 +29,7 @@
 	</c:if>
 	
 	<h3>About JEJU</h3>
-	
+	<a href="${root}/aboutjeju/write.do">about추가</a>&nbsp;&nbsp;
 	<a href="${root}/aboutjeju/introduction.do">소개</a>&nbsp;&nbsp;
 	<a href="${root}/aboutjeju/location.do">위치</a>&nbsp;&nbsp;
 	<a href="${root}/aboutjeju/speciality.do">특별한곳</a>&nbsp;&nbsp;
