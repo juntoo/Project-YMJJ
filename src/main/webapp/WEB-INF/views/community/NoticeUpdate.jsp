@@ -37,7 +37,7 @@
 			
 			
 			<!-- 본문 -->
-			<form action="${root}/community/NoticeWriteOk.do" method="post">			
+			<form action="${root}/community/NoticeUpdateOk.do" method="post">			
 			<div id="content">			
 				<div id="mid1" style="height: 118px;">
 					<span id="viewcount"
@@ -52,9 +52,11 @@
 						style="height: 66px; line-height: 60px; margin-left: -54px; display: inline-block;">
 						<span style="vertical-align: top; margin-top: 5px;">
 							
+							<input type="hidden" value="${noticeBoardDto.cnumber}" name="cnumber"/>
+							
 							<!-- 제목 입력(title) -->
 							<input
-							type="text" value="제목을 입력하세요." name="ctitle"
+							type="text" value="${noticeBoardDto.ctitle}" name="ctitle"
 							style="width: 500px; height: 35px; font-size: 17px;" /></span>
 						<div
 							style="border-left: 1px black solid; height: 59px; float: left; margin-left: 87px; margin-top: 0px;"></div>
@@ -69,6 +71,7 @@
 								<div>
 									<textarea rows="10" cols="80" name="ccontent"
 										style="font-size: 17px; margin-left: 152px; margin-top: -110px;">
+										${noticeBoardDto.ccontent}
 										</textarea>
 										<input hidden="" value="1" name="ccategory"/>
 								</div>
