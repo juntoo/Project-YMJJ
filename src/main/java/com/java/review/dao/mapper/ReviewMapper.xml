@@ -9,24 +9,27 @@
   		<result column="RVnumber"  property="RVnumber"/>
   		<result column="Mid"  property="Mid"/>
   		<result column="RTnumber"  property="RTnumber"/>
+  		<result column="RTname"  property="RTname"/>
   		<result column="RVtitle"  property="RVtitle"/>
   		<result column="RVcontent"  property="RVcontent"/>
   		<result column="RVcount"  property="RVcount"/>
   		<result column="RVdate"  property="RVdate"/>
-  		
+  		<result column="RVimgname"  property="RVimgname"/>
+  		<result column="RVimgsize"  property="RVimgsize"/>
+  		<result column="RVimgpath"  property="RVimgpath"/>
   	</resultMap>
   
   <select id="reviewCount" resultType="int">
   		SELECT COUNT(*) FROM Review
   </select>
   
-  <insert id="reviewInsert" parameterType="com.java.review.dto.ReviewDto">
-  	INSERT INTO review(RVnumber, Mid, RTnumber, RVtitle, RVcontent, RVcount, RVdate)
-  	VALUES('RV0'||Review_RVnumber_seq.nextval, #{Mid}, #{RTnumber}, #{RVtitle}, #{RVcontent}, #{RVcount}, SYSDATE)
-  </insert>
+  <select id="getRTname" resultType="String">
+  		SELECT RTname FROM Restaurant WHERE RTnumber = #{RTnumber};
+  </select>
   
-  <insert id="imgInsert" parameterType="com.java.img.dto.ImgDto" >
-  	INSERT INTO Img VALUES(Img_Inumber_seq.nextval, #{RVnumber}, #{Iname}, #{Isize}, #{Ipath})
+  <insert id="reviewInsert" parameterType="com.java.review.dto.ReviewDto">
+  	INSERT INTO review(RVnumber, Writer, RTnumber, RTname, RVtitle, RVcontent, RVcount, RVdate, RVimgname, RVimgpath, RVimgsize)
+  	VALUES('RV0'||Review_RVnumber_seq.nextval, #{Writer}, #{RTnumber}, #{RTname}, #{RVtitle}, #{RVcontent}, #{RVcount}, SYSDATE, #{RVimgname}, #{RVimgpath}, #{RVimgsize})
   </insert>
   
   <select id="reviewList" parameterType="java.util.HashMap" resultMap="reviewDto">
@@ -38,5 +41,20 @@
 		]]>
   </select>
   
+  <update id="reviewReadCount" parameterType="String">
+  		UPDATE review SET RVcount=RVcount+1 WHERE RVnumber=#{RVnumber}
+  </update>
+  
+  <select id="reviewRead" parameterType="String" resultMap="reviewDto">
+  	SELECT * FROM review WHERE RVnumber=#{RVnumber}
+  </select>
+  
+  <select id="passCheck" parameterType="String" resultType="int">
+  	SELECT COUNT(*) FROM member WHERE Mpassword=#{password}
+  </select>
+  
+  <delete id="reviewDelete" parameterType="String">
+  	DELETE FROM review WHERE RVnumber=#{RVnumber}
+  </delete>
   
   </mapper>

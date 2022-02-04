@@ -14,7 +14,7 @@
 			<table>
 				<tr>
 					<td>
-						<input type="text" name="RTnumber"/>
+						<input type="text" name="RTname"/>
 						<input type="submit" value="검색"/>
 					</td>
 				</tr>

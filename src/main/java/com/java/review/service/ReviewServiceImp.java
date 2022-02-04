@@ -53,7 +53,7 @@ public class ReviewServiceImp implements ReviewService {
 		mav.addObject("ReviewList", reviewList);
 		mav.addObject("count", count);
 		
-		mav.setViewName("community/ReviewList");
+		mav.setViewName("community/ReviewList.tiles");
 	}
 	
 //	@Override
@@ -68,52 +68,32 @@ public class ReviewServiceImp implements ReviewService {
 	
 	@Override
 	public void reviewWrite(ModelAndView mav) {
-		
-		int Inumber=0;
-		String RVnumber="0";
-		String Icategory="0";
-		
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
-		if(request.getParameter("RVnumber") !=null) {
-			RVnumber=(request.getParameter("RVnumber"));
-			
+		String RVnumber=null;
+		
+		if(request.getParameter("RVnumber")!=null) {
+			RVnumber=request.getParameter("RVnumber");
 		}
 		
-		if(request.getParameter("insert") !=null) {
-			Inumber=Integer.parseInt(request.getParameter("Inumber"));
-			Icategory=request.getParameter("Icategory");
-		}
-		
+				
 		mav.addObject("RVnumber", RVnumber);
 		
-		mav.addObject("Inumber", Inumber);
-		mav.addObject("Icategory", Icategory);
-		
-		mav.setViewName("community/ReviewWrite");
-		
+		mav.setViewName("community/ReviewWrite.tiles");	
 	}
 	
 	@Override
 	public void reviewWriteOk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		ReviewDto reviewDto=(ReviewDto) map.get("reviewDto");
-		
-		int check=reviewDao.reviewWriteOk(reviewDto);
-		LogAspect.logger.info(LogAspect.LogMsg + check);
-		mav.addObject("check", check);
-
-		//Map<String, Object> map=mav.getModelMap();
-		//writeNumber(restaurnatDto);
-		ImgDto imgDto = (ImgDto) map.get("imgDto");
 		MultipartHttpServletRequest request=(MultipartHttpServletRequest) map.get("request");
+		String root=request.getParameter("root");
 		
 		MultipartFile upFile=request.getFile("file");
 		LogAspect.logger.info(LogAspect.LogMsg + upFile);
 		if(upFile.getSize() !=0) {
 			String fileName=Long.toString(System.currentTimeMillis()) + "_" + upFile.getOriginalFilename();
-			String Icategory = "0";
 			long fileSize=upFile.getSize();
 			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
 			
@@ -121,86 +101,91 @@ public class ReviewServiceImp implements ReviewService {
 			path.mkdir();
 			LogAspect.logger.info(LogAspect.LogMsg + path);
 			LogAspect.logger.info(LogAspect.LogMsg + fileName);
+			LogAspect.logger.info(LogAspect.LogMsg + path.exists() +","+path.isDirectory());
 			
 			if(path.exists() && path.isDirectory()) {
 				File file=new File(path, fileName);
 				
-				LogAspect.logger.info(LogAspect.LogMsg + imgDto.toString());
 				try {
 					upFile.transferTo(file);
 					
-					imgDto.setIpath(file.getAbsolutePath());
-					imgDto.setIname(fileName);
-					imgDto.setIsize(fileSize);
-					imgDto.setIcategory(Icategory);
+					reviewDto.setRVimgname(fileName);
+					reviewDto.setRVimgpath(file.getAbsolutePath());
+					reviewDto.setRVimgsize(fileSize);
 				}catch(Exception e) {
 					e.printStackTrace();
 				}
 			}	
 		}
+
+		LogAspect.logger.info(LogAspect.LogMsg + reviewDto.toString());
+		int check=reviewDao.reviewWriteNumber(reviewDto);
 		
-		//LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
-//		 DB
-		
-		LogAspect.logger.info(LogAspect.LogMsg + imgDto.toString());
-		int check2=reviewDao.imgWriteOk(imgDto);
-		LogAspect.logger.info(LogAspect.LogMsg + check2);
-		
-		mav.addObject("check", check2);
+		mav.addObject("check", check);
 	
 		//imgWrite(mav);
-		mav.setViewName("community/ReviewWriteOk");
+		mav.setViewName("community/ReviewWriteOk.tiles");
+		
+	}
+
+	@Override
+	public void reviewRead(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String RVnumber=request.getParameter("RVnumber");
+		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
+		
+		LogAspect.logger.info(LogAspect.LogMsg + RVnumber + "," + pageNumber);
+		
+		ReviewDto reviewDto=reviewDao.read(RVnumber);
+		LogAspect.logger.info(LogAspect.LogMsg + reviewDto.toString());
+		
+		if(reviewDto.getRVimgsize() !=0) {
+			int index=reviewDto.getRVimgname().indexOf("_")+1;
+			reviewDto.setRVimgname(reviewDto.getRVimgname().substring(index));
+		}
+		
+		mav.addObject("reviewDto", reviewDto);
+		mav.addObject("pageNumber", pageNumber);
+		mav.setViewName("community/ReviewRead.tiles");
 		
 	}
 	
-//	@Override
-//	public void reviewWriteOk(ModelAndView mav) {
-//		Map<String, Object> map=mav.getModelMap();
-//		ReviewDto reviewDto=(ReviewDto) map.get("reviewDto");
-//		ImgDto imgDto=(ImgDto) map.get("imgDto");
-//		LogAspect.logger.info(LogAspect.LogMsg+reviewDto.toString());
-//		MultipartHttpServletRequest request=(MultipartHttpServletRequest) map.get("request");
-//		
-//		MultipartFile upFile=request.getFile("file");
-//		LogAspect.logger.info(LogAspect.LogMsg+upFile.getName());
-//		if(upFile.getSize() !=0) {
-//			String Iname=upFile.getOriginalFilename();
-//			long Isize=upFile.getSize();
-//			LogAspect.logger.info(LogAspect.LogMsg+Iname+","+Isize);
-//			
-//			File path=new File("${root}/resources/img");
-//			path.mkdir();
-//			
-//			if(path.exists() && path.isDirectory()) {
-//				File file=new File(path, Iname);
-//				
-//				try {
-//					upFile.transferTo(file);
-//					
-//					imgDto.setIname(Iname);
-//					imgDto.setIsize(Isize);
-//					imgDto.setIpath(file.getAbsolutePath());
-//					
-//				}catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		}
-//		
-//		int check=reviewDao.reviewWriteOk(reviewDto, imgDto);
-//		LogAspect.logger.info(LogAspect.LogMsg+reviewDto.toString()+","+imgDto.toString());
-//		//int check=reviewDao.reviewWriteNumber(reviewDto, imgDto);
-//		LogAspect.logger.info(LogAspect.LogMsg+check);
-//		
-//		mav.addObject("check",check);
-//		mav.addObject("request",request);
-//		mav.setViewName("community/ReviewWriteOk");
-//		
-//	}
-	
-	
-	public void reviewWriterNumber(ReviewDto reviewDto) {
-		String RVnumber=reviewDto.getRVnumber();
+	@Override
+	public void reviewDeleteOk(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
+		int check=0;
+		String RVnumber=request.getParameter("RVnumber");
+		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
+		String password=request.getParameter("password");
+		LogAspect.logger.info(LogAspect.LogMsg+RVnumber+","+pageNumber+","+password);
+		
+		int passCheck=reviewDao.passCheck(password);
+		
+		if(passCheck > 0) {
+			check=reviewDao.reviewDeleteCheck(RVnumber);
+			LogAspect.logger.info(LogAspect.LogMsg+"check="+check);
+		}
+		
+		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
+		mav.setViewName("community/ReviewDeleteOk.tiles");
+		
+	}
+	
+	@Override
+	public void RTsearch(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		List<RestaurnatDto> RTlist=reviewDao.RTsearch();
+		
+		
+		mav.addObject("request",request);
+		
+		mav.setViewName("community/RestaurantSearch.tiles");
 	}
 }

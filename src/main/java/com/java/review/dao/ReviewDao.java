@@ -13,7 +13,11 @@ public interface ReviewDao {
 	
 	public int reviewWriteOk(ReviewDto reviewDto);
 	
-	public int imgWriteOk(ImgDto imgDto);
+	public ReviewDto read(String RVnumber);
 	
-	public int reviewWriteNumber(ReviewDto reviewDto, ImgDto imgDto);
+	public int reviewWriteNumber(ReviewDto reviewDto);
+	
+	public int passCheck(String password);
+	
+	public int reviewDeleteCheck(String RVnumber);
 }

@@ -18,15 +18,15 @@
 			<div id="category">
 				<div id="detail" style="border-left: 0px;"></div>
 				<div id="detail" style="border-right: 0px;"
-					onclick="location.href='https://www.naver.com/';">
+					onclick="location.href='${root}/community/ReviewList.do';">
 					<a>Review</a>
 				</div>
 				<div id="detail"
-					onclick="location.href='https://maplestory.nexon.com/News/Event';">
+					onclick="location.href='${root}/community/EventList.do';">
 					<a>Event</a>
 				</div>
 				<div id="detail"
-					onclick="location.href='https://maplestory.nexon.com/News/Notice';">
+					onclick="location.href='${root}/community/Notice.do';">
 					<a>Notice</a>
 				</div>
 				<div id="detail"

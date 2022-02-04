@@ -11,7 +11,7 @@
 <body>
 	<c:if test="${check > 0}">
 		<script type="text/javascript">
-			location.href="${root}/community/ReviewImgCheck.do"
+			location.href="${root}/community/ReviewList.do"
 		</script>
 	</c:if>
 	

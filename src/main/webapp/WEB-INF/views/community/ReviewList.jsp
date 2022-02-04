@@ -35,17 +35,24 @@
 					style="cursor: pointer; height: 630px; border-left: 0px; border-bottom: 0px;"></div>
 			</div>
 
-			<c:if test="${count == 0}">
+			<c:if test="${count == 0 and Mid != null}">
 				<div id="content" style="text-align: center; line-height: 750px; ">
-					아직 리뷰가 없습니다!
-					리뷰를 작성해주세요!
+					<a href="${root}/community/ReviewWrite.do">
+						아직 리뷰가 없습니다!
+						리뷰를 작성해주세요!
+					</a>
+				</div>
+			</c:if>
+			
+			<c:if test="${count == 0 and Mid == null}">
+				<div id="content" style="text-align: center; line-height: 750px; ">
+						아직 리뷰가 없습니다!
+						리뷰를 작성해주세요!
 				</div>
 			</c:if>
 			
 			
-			
 			<c:if test="${count > 0}">
-			
 			
 			<div id="content">
 				<c:forEach var="reviewDto" items="${ReviewList}">
@@ -53,12 +60,12 @@
 						<div id="card_content">${reviewDto.RVcontent}</div>
 						<div id="card_title">
 							<div id="card_frame">
-								<a href="#"> <img alt="1636904439.png"
-									src="https://www.w3schools.com/howto/img_nature_wide.jpg">
+								<a href="${root}/community/ReviewRead.do?RVnumber=${reviewDto.RVnumber}&pageNumber=${currentPage}"> 
+									<img src="${reviewDto.RVimgpath}">
 								</a>
 								<div id="card_text">
-									<div id="card_text2">${reviewDto.RVtitle}</div>
-									${RestaurnatDto.RTtitle}
+									<div id="card_text2">제목:${reviewDto.RVtitle}</div>
+									식당명:${reviewDto.RTname}
 								</div>
 							</div>
 						</div>
