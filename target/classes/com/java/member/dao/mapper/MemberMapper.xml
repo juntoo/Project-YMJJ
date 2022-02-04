@@ -37,7 +37,7 @@
   	DELETE FROM BOOKMARK WHERE Mid = #{Mid}
   	</delete>
   	<delete id="ReViewdelete" parameterType="String">
-  	DELETE FROM REVIEW WHERE Mid = #{Mid}
+  	DELETE FROM REVIEW WHERE Writer = #{Mid}
   	</delete>
   	<delete id="Commentdelete" parameterType="String">
   	DELETE FROM COMMENTS WHERE Mid = #{Mid}

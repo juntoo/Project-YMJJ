@@ -7,13 +7,12 @@ public class MemberDto {
 	private String Mname;
 	private String Mpostalcode;
 	private String Maddress;
-	private int Mresidentnumber1;
-	private int Mresidentnumber2;
-	private int Mcallnumber1;
-	private int Mcallnumber2;
-	private int Mcallnumber3;
+	private String Mresidentnumber1;
+	private String Mresidentnumber2;
+	private String Mcallnumber1;
+	private String Mcallnumber2;
+	private String Mcallnumber3;
 	private String Memail;
-	
 	public String getMid() {
 		return Mid;
 	}
@@ -44,34 +43,34 @@ public class MemberDto {
 	public void setMaddress(String maddress) {
 		Maddress = maddress;
 	}
-	public int getMresidentnumber1() {
+	public String getMresidentnumber1() {
 		return Mresidentnumber1;
 	}
-	public void setMresidentnumber1(int mresidentnumber1) {
+	public void setMresidentnumber1(String mresidentnumber1) {
 		Mresidentnumber1 = mresidentnumber1;
 	}
-	public int getMresidentnumber2() {
+	public String getMresidentnumber2() {
 		return Mresidentnumber2;
 	}
-	public void setMresidentnumber2(int mresidentnumber2) {
+	public void setMresidentnumber2(String mresidentnumber2) {
 		Mresidentnumber2 = mresidentnumber2;
 	}
-	public int getMcallnumber1() {
+	public String getMcallnumber1() {
 		return Mcallnumber1;
 	}
-	public void setMcallnumber1(int mcallnumber1) {
+	public void setMcallnumber1(String mcallnumber1) {
 		Mcallnumber1 = mcallnumber1;
 	}
-	public int getMcallnumber2() {
+	public String getMcallnumber2() {
 		return Mcallnumber2;
 	}
-	public void setMcallnumber2(int mcallnumber2) {
+	public void setMcallnumber2(String mcallnumber2) {
 		Mcallnumber2 = mcallnumber2;
 	}
-	public int getMcallnumber3() {
+	public String getMcallnumber3() {
 		return Mcallnumber3;
 	}
-	public void setMcallnumber3(int mcallnumber3) {
+	public void setMcallnumber3(String mcallnumber3) {
 		Mcallnumber3 = mcallnumber3;
 	}
 	public String getMemail() {
@@ -87,5 +86,7 @@ public class MemberDto {
 				+ ", Mresidentnumber2=" + Mresidentnumber2 + ", Mcallnumber1=" + Mcallnumber1 + ", Mcallnumber2="
 				+ Mcallnumber2 + ", Mcallnumber3=" + Mcallnumber3 + ", Memail=" + Memail + "]";
 	}
+	
+	
 	
 }
