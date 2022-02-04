@@ -40,20 +40,20 @@ public class RestaurantDaoImp implements RestaurantDao {
         return sqlSessionTemplate.selectList("boardList", hMap);
     }
 
-//	@Override
-//	public RestaurnatDto read(int rTnumber) {
-//		// TODO Auto-generated method stub
-//		
-//		RestaurnatDto restaurnatDto=null;
-//		
-//		int check=sqlSessionTemplate.update("boardCount", rTnumber);
-//		LogAspect.logger.info(LogAspect.LogMsg + check);
-//		
-//		restaurnatDto=sqlSessionTemplate.selectOne("boardRead", rTnumber);
-//		
-//		
-//		return restaurnatDto;
-//	}
+	@Override
+	public RestaurnatDto read(String RTnumber) {
+		// TODO Auto-generated method stub
+		
+		RestaurnatDto restaurnatDto=null;
+		
+		int check=sqlSessionTemplate.update("boardReadCount", RTnumber);
+		LogAspect.logger.info(LogAspect.LogMsg + check);
+		
+		restaurnatDto=sqlSessionTemplate.selectOne("boardRead", RTnumber);
+		
+		
+		return restaurnatDto;
+	}
 	
     
     

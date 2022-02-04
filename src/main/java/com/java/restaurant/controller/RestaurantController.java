@@ -57,7 +57,15 @@ public class RestaurantController {
 	
 	@RequestMapping(value="/restaurant/introduction.do", method = RequestMethod.GET)
 	public ModelAndView restaurantIntroduction(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("restaurant/Restaurant_Introduction");
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		restaurantService.restaurantRead(mav);
+		return mav;
+
+		//return new ModelAndView("restaurant/Restaurant_Introduction");
+		
 	}
 
 }

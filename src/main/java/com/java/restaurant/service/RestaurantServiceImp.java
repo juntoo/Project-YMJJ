@@ -162,27 +162,27 @@ public class RestaurantServiceImp implements RestaurantService {
 	public void restaurantRead(ModelAndView mav) {
 		// TODO Auto-generated method stub
 		
-//		Map<String, Object> map=mav.getModelMap();
-//		HttpServletRequest request=(HttpServletRequest) map.get("request");
-//		
-//		int RTnumber=Integer.parseInt(request.getParameter("RTnumber"));
-//		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
-//		LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
-//		
-//		RestaurnatDto restaurnatDto = restaurantDao.read(RTnumber);
-//		LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
-//		
-//		if(restaurnatDto.getRTIsize() !=0) {
-//			
-//			int index=restaurnatDto.getRTIname().indexOf("_") +1;
-//			restaurnatDto.setRTIname(restaurnatDto.getRTIname().substring(index));
-//			
-//		}
-//		
-//		mav.addObject("restaurnatDto", restaurnatDto);
-//		mav.addObject("pageNumber", pageNumber);
-//		
-//		mav.setViewName("/restaurant/Restaurant_Introduction");
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String RTnumber=request.getParameter("RTnumber");
+		String pageNumber=request.getParameter("pageNumber");
+		LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
+		
+		RestaurnatDto restaurnatDto = restaurantDao.read(RTnumber);
+		LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
+		
+		if(restaurnatDto.getRTIsize() !=0) {
+			
+			int index=restaurnatDto.getRTIname().indexOf("_") +1;
+			restaurnatDto.setRTIname(restaurnatDto.getRTIname().substring(index));
+			
+		}
+		
+		mav.addObject("restaurnatDto", restaurnatDto);
+		mav.addObject("pageNumber", pageNumber);
+		
+		mav.setViewName("restaurant/Restaurant_Introduction");
 		
 	}
 	
