@@ -181,7 +181,7 @@ public class ReviewServiceImp implements ReviewService {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
-		List<RestaurnatDto> RTlist=reviewDao.RTsearch();
+		//List<RestaurnatDto> RTlist=reviewDao.RTsearch();
 		
 		
 		mav.addObject("request",request);

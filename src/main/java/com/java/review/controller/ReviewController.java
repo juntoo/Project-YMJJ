@@ -76,7 +76,7 @@ public class ReviewController {
 		mav.addObject("RVnumber",RVnumber);
 		mav.addObject("pageNumber",pageNumber);
 		
-		mav.setViewName("community/ReviewDelete.tiles");
+		mav.setViewName("community/ReviewDelete.tiles.tiles");
 		return mav;
 	}
 	

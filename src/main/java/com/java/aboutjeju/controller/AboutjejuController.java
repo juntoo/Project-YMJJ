@@ -42,7 +42,7 @@ public class AboutjejuController {
 		//aboutjejuService.Iread(mav);
 		
 		//return mav;
-		return new ModelAndView("aboutjeju/introduction");
+		return new ModelAndView("aboutjeju/introduction.tiles");
 	}
 	
 	@RequestMapping(value="/aboutjeju/location.do", method = RequestMethod.GET)
@@ -55,7 +55,7 @@ public class AboutjejuController {
 		//aboutjejuService.Lread(mav);
 		
 		//return mav;
-		return new ModelAndView("aboutjeju/location");
+		return new ModelAndView("aboutjeju/location.tiles");
 	}
 	
 	@RequestMapping(value="/aboutjeju/speciality.do", method = RequestMethod.GET)
@@ -68,7 +68,7 @@ public class AboutjejuController {
 		//aboutjejuService.Sread(mav);
 		
 		//return mav;
-		return new ModelAndView("aboutjeju/speciality");
+		return new ModelAndView("aboutjeju/speciality.tiles");
 	}
 	
 	@RequestMapping(value="/aboutjeju/activities.do", method = RequestMethod.GET)
@@ -81,6 +81,6 @@ public class AboutjejuController {
 		//aboutjejuService.Aread(mav);
 		
 		//return mav;
-		return new ModelAndView("aboutjeju/activities");
+		return new ModelAndView("aboutjeju/activities.tiles");
 	}
 }

@@ -66,7 +66,7 @@ public class AboutjejuServiceImp implements AboutjejuService {
 		//LogAspect.logger.info(LogAspect.LogMsg+imgDto.toString());
 		LogAspect.logger.info(LogAspect.LogMsg+aboutjejuDto.toString());
 		mav.addObject("check",check);
-		mav.setViewName("aboutjeju/writeOK");
+		mav.setViewName("aboutjeju/writeOK.tiles");
 		}
 	}
 
@@ -75,7 +75,7 @@ public class AboutjejuServiceImp implements AboutjejuService {
 		// TODO Auto-generated method stub
 		
 		//mav.setViewName("aboutjeju/introduction.tiles");
-		mav.setViewName("aboutjeju/introduction");
+		mav.setViewName("aboutjeju/introduction.tiles");
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class AboutjejuServiceImp implements AboutjejuService {
 		// TODO Auto-generated method stub
 		
 		//mav.setViewName("aboutjeju/location.tiles");
-		mav.setViewName("aboutjeju/location");
+		mav.setViewName("aboutjeju/location.tiles");
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class AboutjejuServiceImp implements AboutjejuService {
 		// TODO Auto-generated method stub
 		
 		//mav.setViewName("aboutjeju/speciality.tiles");
-		mav.setViewName("aboutjeju/speciality");
+		mav.setViewName("aboutjeju/speciality.tiles");
 	}
 
 	@Override
@@ -99,6 +99,6 @@ public class AboutjejuServiceImp implements AboutjejuService {
 		// TODO Auto-generated method stub
 		
 		//mav.setViewName("aboutjeju/activities.tiles");
-		mav.setViewName("aboutjeju/activities");
+		mav.setViewName("aboutjeju/activities.tiles");
 	}
 }

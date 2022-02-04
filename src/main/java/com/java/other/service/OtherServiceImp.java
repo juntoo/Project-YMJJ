@@ -28,7 +28,7 @@ public class OtherServiceImp implements OtherService {
 		mav.addObject("Count", RestaurnatList.size());
 		mav.addObject("RTtype", request.getParameter("RTtype"));
 		
-		mav.setViewName("/other/map");
+		mav.setViewName("/other/map.tiles");
 	}
 	@Override
 	public void selectRestaurnat(ModelAndView mav) {
@@ -39,7 +39,7 @@ public class OtherServiceImp implements OtherService {
 		mav.addObject("RestaurnatList", RestaurnatList);
 		mav.addObject("Count", RestaurnatList.size());
 		
-		mav.setViewName("/other/map");
+		mav.setViewName("/other/map.tiles");
 	}
 	@Override
 	public void OtherToday(ModelAndView mav) {
@@ -47,7 +47,7 @@ public class OtherServiceImp implements OtherService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		List<RestaurnatDto> RestaurnatList=null;
 		
-		mav.setViewName("/other/today");
+		mav.setViewName("/other/today.tiles");
 	}
 	
 }

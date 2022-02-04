@@ -18,21 +18,21 @@ public class EventController {
 	
 	@RequestMapping(value="/community/EventList.do", method = RequestMethod.GET)
 	public ModelAndView reviewList(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/EventList");
+		return new ModelAndView("community/EventList.tiles");
 	}
 	
 	@RequestMapping(value="/community/EventRead.do", method = RequestMethod.GET)
 	public ModelAndView aboutjejuLocation(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/EventRead");
+		return new ModelAndView("community/EventRead.tiles");
 	}
 	
 	@RequestMapping(value="/community/EventUpdate.do", method = RequestMethod.GET)
 	public ModelAndView aboutjejuSpeciality(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/EventUpdate");
+		return new ModelAndView("community/EventUpdate.tiles");
 	}
 	
 	@RequestMapping(value="/community/EventWrite.do", method = RequestMethod.GET)
 	public ModelAndView aboutjejuactivities(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/EventWrite");
+		return new ModelAndView("community/EventWrite.tiles");
 	}
 }

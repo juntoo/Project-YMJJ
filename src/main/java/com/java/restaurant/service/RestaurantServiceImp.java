@@ -58,7 +58,7 @@ public class RestaurantServiceImp implements RestaurantService {
 //		mav.addObject("Inumber", Inumber);
 //		mav.addObject("Icategory", Icategory);
 		
-		mav.setViewName("restaurant/Restaurant_Add");
+		mav.setViewName("restaurant/Restaurant_Add.tiles");
 		
 		
 		
@@ -117,7 +117,7 @@ public class RestaurantServiceImp implements RestaurantService {
 		mav.addObject("check", check);
 	
 		//imgWrite(mav);
-		mav.setViewName("restaurant/writeOk");
+		mav.setViewName("restaurant/writeOk.tiles");
 		
 		
 	}
@@ -155,7 +155,7 @@ public class RestaurantServiceImp implements RestaurantService {
         mav.addObject("restaurantList", restaurantList);
         mav.addObject("count", count);
 
-        mav.setViewName("restaurant/Restaurant_Main_Admin");
+        mav.setViewName("restaurant/Restaurant_Main_Admin.tiles");
     }
 
 	@Override
@@ -182,7 +182,7 @@ public class RestaurantServiceImp implements RestaurantService {
 		mav.addObject("restaurnatDto", restaurnatDto);
 		mav.addObject("pageNumber", pageNumber);
 		
-		mav.setViewName("restaurant/Restaurant_Introduction");
+		mav.setViewName("restaurant/Restaurant_Introduction.tiles");
 		
 	}
 	

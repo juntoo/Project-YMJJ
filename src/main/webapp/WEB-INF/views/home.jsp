@@ -4,51 +4,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Home</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="${root}/resources/javascript/other.js"></script>
+<script>
+$(document).ready(function(){
+    $('.slider').bxSlider();
+});
+  </script>
+<style>
+*{
+margin: 0px auto;
+padding: 0px auto;
+box-sizing: border-box;
+}
+.slider{
+width: 100%;
+height: 500px;
+}
+#mainView{
+border : 1px black solid;
+width: 1900px;
+height: 830px;
+margin: 10px;
+padding: 10px;
+}
+img{
+width: 1900px;
+height: 750px;
+}
+#select{
+	position : fixed;
+	text-align: center;
+	top: 650px;
+	left: 730px;
+}
+#today{
+margin-top: 30px;
+background-color: white;
+width: 200px;
+text-align: center;
+}
+</style>
 </head>
 <body>
 	<c:set var="root" value="${pageContext.request.contextPath}"/>
-	
-	<h3> YMJJ </h3>
-	
-	<h3>회원 관리</h3>
-	
-	<c:if test="${Mid==null}">
-		<a href="${root}/member/join.do">회원가입</a>&nbsp;&nbsp;
-		<a href="${root}/member/login.do">로그인</a>&nbsp;&nbsp;
-	</c:if>
-	
-	<c:if test="${Mid !=null}">
-		<h3>${Mname}님 환영합니다.</h3>
-		<a href="${root}/member/logout.do">로그아웃</a>
-		<a href="${root}/member/Mypage-Acc.do">마이페이지-ACC</a>&nbsp;&nbsp;
-		<a href="${root}/member/Mypage-Com.do?Mid=${Mid}">마이페이지-COM</a>&nbsp;&nbsp;
-		<a href="${root}/member/Mypage-M.do">마이페이지-M</a>&nbsp;&nbsp;
-		<a href="${root}/member/Mypage-M-D.do">마이페이지-M-D</a>
-	</c:if>
-	
-	<h3>About JEJU</h3>
-	
-	<a href="${root}/aboutjeju/introduction.do">소개</a>&nbsp;&nbsp;
-	<a href="${root}/aboutjeju/location.do">위치</a>&nbsp;&nbsp;
-	<a href="${root}/aboutjeju/speciality.do">특별한곳</a>&nbsp;&nbsp;
-	<a href="${root}/aboutjeju/activities.do">액티비티</a>
-
-	
-	<h3>Restaurant View</h3>
-	<a href="${root}/restaurant/main.do">레스토랑 메인</a>
-	<a href="${root}/restaurant/write.do">레스토랑 추가</a>
-	<a href="${root}/restaurant/update.do">레스토랑 수정</a>
-	<a href="${root}/restaurant/introduction.do">레스토랑</a>
-	
-	<h3>Community</h3>
-	<a href="${root}/community/EventList.do">이벤트</a>
-	<a href="${root}/community/Notice.do">공지사항</a>
-	<a href="${root}/community/ReviewList.do">리뷰게시판</a>
-	
-	<h3>기타</h3>
-	<a href="${root}/other/map.do">맵</a>
-	<a href="${root}/other/today.do">today</a>
+	<div id="mainView">
+		<div class="slider">
+	        <img alt="" src="${root}/resources/img/고양이3.jfif">
+	        <img alt="" src="${root}/resources/img/고양이2.jfif">
+	       <img alt="" src="${root}/resources/img/고양이.jfif">
+	    </div>
+	</div>
+	<div id="select">
+		<input type="text" name="select" placeholder="음식점 이름을 입력하세요" onkeyup="if(window.event.keyCode==13){search()}" id="RName" style="width: 450px;"/>
+		
+		<div id="today">날씨 확진자</div>
+	</div>
 </body>
 </html>

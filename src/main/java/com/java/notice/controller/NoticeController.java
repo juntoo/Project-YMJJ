@@ -18,10 +18,10 @@ public class NoticeController {
 	
 	@RequestMapping(value="/community/Notice.do", method = RequestMethod.GET)
 	public ModelAndView reviewList(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/Notice");
+		return new ModelAndView("community/Notice.tiles");
 	}
 	@RequestMapping(value="/community/NoticeWrite.do", method = RequestMethod.GET)
 	public ModelAndView aboutjejuactivities(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/NoticeWrite");
+		return new ModelAndView("community/NoticeWrite.tiles");
 	}
 }

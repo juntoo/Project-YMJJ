@@ -52,7 +52,7 @@ public class RestaurantController {
 	
 	@RequestMapping(value="/restaurant/update.do", method = RequestMethod.GET)
 	public ModelAndView restaurantUdate(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("restaurant/Restaurant_Update");
+		return new ModelAndView("restaurant/Restaurant_Update.tiles");
 	}
 	
 	@RequestMapping(value="/restaurant/introduction.do", method = RequestMethod.GET)

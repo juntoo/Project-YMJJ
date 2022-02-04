@@ -55,23 +55,30 @@
     <div id="header">
         <div id="logo" onclick="location.href='${root}'">logo</div>
         <div id="menuBar">
-            <div id="menu"> About JEJU</div>
-            <div id="menu">Restaurant</div>
+            <div id="menu" onclick="location.href='${root}/aboutjeju/introduction.do'">About JEJU</div>
+            <div id="menu" onclick="location.href='${root}/restaurant/main.do'">Restaurant</div>
             <div id="menu">Community</div>
-            <div id="menu">Map</div>
-            <div id="menu">Today</div>
+            <div id="menu" onclick="location.href='${root}/other/map.do'">Map</div>
+            <div id="menu" onclick="location.href='${root}/other/today.do'">Today</div>
         </div>
         <div id="but">
         	<c:if test="${Mid==null}">
 	        	<input type="button" value="Login" onclick="location.href='${root}/member/login.do'" style="width: 65px; height: 25px; margin-top: 15px"/>
 	            <input type="button" value="Join" onclick="location.href='${root}/member/join.do'" style="width: 65px; height: 25px; margin-top: 15px"/>
         	</c:if>
+        	
         	<c:if test="${Mid!=null}">
-        		<a style="font-size: 30px;">Name.</a>&nbsp;
-        		<a style="font-size: 30px; margin-right: 20px; color: red;" onclick="location.href='${root}/member/Mypage-Com.do'">${Mname}</a>
-	            <input type="button" value="Logout"onclick="location.href='${root}/member/logout.do'" style="width: 65px; height: 25px;" />
-        	</c:if>
-           
+	       		<c:if test="${Mid!='admin'}">
+		       		<a style="font-size: 30px;">Name.</a>&nbsp;
+		       		<a style="font-size: 30px; margin-right: 20px; color: red;" onclick="location.href='${root}/member/Mypage-Com.do'">${Mname}</a>
+		            <input type="button" value="Logout"onclick="location.href='${root}/member/logout.do'" style="width: 65px; height: 25px;" />
+	       		</c:if>
+	       		<c:if test="${Mid=='admin'}">
+		       		<a style="font-size: 30px;">Name.</a>&nbsp;
+		       		<a style="font-size: 30px; margin-right: 20px; color: red;" onclick="location.href='${root}/member/Mypage-M.do'">${Mname}</a>
+		            <input type="button" value="Logout"onclick="location.href='${root}/member/logout.do'" style="width: 65px; height: 25px;" />
+	       		</c:if>
+       		</c:if>
         </div>
     </div>
 </body>
