@@ -7,10 +7,12 @@ box-sizing: border-box;
 }
 #main_title{
 width: 1920px;
-height: 50px;
+height: 80px;
 text-align: center;
-margin-top: 10px;
+margin-top: 20px;
 font-size: 30px;
+font-size: 50px;
+font-weight: bolder;
 }
 .today_box{
 border: black 1px solid;

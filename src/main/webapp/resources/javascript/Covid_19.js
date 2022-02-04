@@ -28,7 +28,6 @@ function toServer() {
 	xhr.send('');
 	}
 
-
 xhr.onreadystatechange = function () {
     if (this.readyState == 4) {
         //alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
@@ -75,6 +74,5 @@ xhr.onreadystatechange = function () {
 			  legend: { display: false }
 			}
 		});
-		
     }
 };
