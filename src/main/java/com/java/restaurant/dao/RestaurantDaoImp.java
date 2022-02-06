@@ -41,7 +41,7 @@ public class RestaurantDaoImp implements RestaurantDao {
     }
 
 	@Override
-	public RestaurnatDto read(String RTnumber) {
+	public RestaurnatDto restaurantRead(String RTnumber) {
 		// TODO Auto-generated method stub
 		
 		RestaurnatDto restaurnatDto=null;
@@ -51,10 +51,16 @@ public class RestaurantDaoImp implements RestaurantDao {
 		
 		restaurnatDto=sqlSessionTemplate.selectOne("boardRead", RTnumber);
 		
+		restaurantMapList(RTnumber);
 		
 		return restaurnatDto;
 	}
 	
+	@Override
+	public List<RestaurnatDto> restaurantMapList(String RTnumber){
+		return sqlSessionTemplate.selectList("boardRead",RTnumber);
+		
+	}
     
     
 	

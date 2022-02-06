@@ -78,6 +78,13 @@ public class RestaurantServiceImp implements RestaurantService {
 		
 		String root2 = root+"/img/";
 		
+		String latitude = request.getParameter("RTlatitude");
+		String longitude = request.getParameter("RTlongitude");
+		
+		System.out.println("정보"+latitude+longitude+root);
+		
+		
+		
 		System.out.println(request.getSession().getServletContext().getRealPath("/").concat("resources"));
 	
 		//servletContext.getRealPath("/resources/img")
@@ -149,7 +156,9 @@ public class RestaurantServiceImp implements RestaurantService {
             restaurantList=restaurantDao.restaurantList(startRow, endRow);
             LogAspect.logger.info(LogAspect.LogMsg + restaurantList.size());
         }
-
+        
+        //System.out.println(restaurantList);
+        
         mav.addObject("boardSize", boardSize);
         mav.addObject("currengPage", currengPage);
         mav.addObject("restaurantList", restaurantList);
@@ -169,7 +178,7 @@ public class RestaurantServiceImp implements RestaurantService {
 		String pageNumber=request.getParameter("pageNumber");
 		LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
 		
-		RestaurnatDto restaurnatDto = restaurantDao.read(RTnumber);
+		RestaurnatDto restaurnatDto = restaurantDao.restaurantRead(RTnumber);
 		LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
 		
 		if(restaurnatDto.getRTIsize() !=0) {
@@ -179,7 +188,10 @@ public class RestaurantServiceImp implements RestaurantService {
 			
 		}
 		
-		mav.addObject("restaurnatDto", restaurnatDto);
+		List<RestaurnatDto> restaurantMapList=restaurantDao.restaurantMapList(RTnumber);
+		
+		mav.addObject("restaurantDto", restaurnatDto);
+		mav.addObject("restaurantMapList", restaurantMapList);
 		mav.addObject("pageNumber", pageNumber);
 		
 		mav.setViewName("restaurant/Restaurant_Introduction.tiles");

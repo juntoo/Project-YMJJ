@@ -44,6 +44,7 @@ function processJson() {
 		alert(y + "\n" + x);
 		document.getElementById('y').value = y;
 		document.getElementById('x').value = x;
+
 }
 
 function setDraggable(draggable) {

@@ -45,11 +45,17 @@ body > #content{
     
     float: left;
 
-    margin-left: 20px;
+    margin-left: 28px;
     margin-top: 20px;
+    
+    overflow: hidden;
+	
+}
 
-    text-align: center;
-    line-height: 400px;
+#content > #subject > #Restaurant_photo > img{
+	
+	max-width: 100%;
+ 	max-height: 100%;
 }
 
 #nav{
@@ -62,7 +68,7 @@ body > #content{
 }
 
 #content > #subject > #nav > #rstitle > #restaurant_name{
-    border: 2px solid black;
+    border: 1px solid black;
 
     margin-left: 10px;
     margin-right: 10px;
@@ -74,7 +80,7 @@ body > #content{
     
     height: 175px;
     
-    border: 2px solid black;
+    border: 1px solid black;
 
     margin-top: 20px;
     margin-left: 10px;
@@ -124,12 +130,9 @@ body > #content{
 #kakaomap{
     width: 380px;
     height: 425px;
-    border: 2px solid red;
+    border: 2px solid black;
     float: left;
 
     margin-top: 20px;
-
-    text-align: center;
-    line-height: 400px;
 
 }

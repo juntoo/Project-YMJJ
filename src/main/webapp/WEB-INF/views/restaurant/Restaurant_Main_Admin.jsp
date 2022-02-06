@@ -27,18 +27,18 @@
 		<a>양식</a>
 		
 	</div>
-
+	
 	<div id="btn_type">
-		<input type="button" value="추가"/>
-		<input type="button" value="수정"/>
+		<input type="button" onclick="location.href='${root}/restaurant/write.do'" value="추가"/>
+		<input type="button" onclick="location.href='${root}/restaurant/update.do'" value="수정"/>
 		<input type="button" value="삭제"/>
 	</div>
 
 	<div style="font-size: 17px;" id="list">
 		<c:forEach var="restaurantDto" items="${restaurantList}">
          <li style="width: 340px; height: 200px; margin-left: 40px; ">
-            <a href="${root}/restaurant/introduction.do?RTnumber=${restaurantDto.RTnumber}">
-            	<div><img alt="pictures" src="${root}/resources/img/"></div>
+            <a href="${root}/restaurant/introduction.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${currengPage}">
+            	<div><img alt="pictures" src="${root}/resources/img/${restaurantDto.RTIname}"></div>
             	<div style="text-align: center; margin-top: 130px; font-weight: bold;">${restaurantDto.RTname}</div>
             </a>
          </li>

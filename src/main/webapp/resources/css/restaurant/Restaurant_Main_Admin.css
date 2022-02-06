@@ -49,6 +49,7 @@
     margin-bottom: 40px;
     padding:10px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);;
+    overflow: hidden;
 }
 
 #list li img{

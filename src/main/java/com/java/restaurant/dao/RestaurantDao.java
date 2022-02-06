@@ -14,7 +14,9 @@ public interface RestaurantDao {
 
     public List<RestaurnatDto> restaurantList(int startRow, int endRow);
 
-	public RestaurnatDto read(String RTnumber);
+	public RestaurnatDto restaurantRead(String RTnumber);
+	
+	public List<RestaurnatDto> restaurantMapList(String RTnumber);
 	
 	//public int imgWriteOk(ImgDto imgDto);
 	
