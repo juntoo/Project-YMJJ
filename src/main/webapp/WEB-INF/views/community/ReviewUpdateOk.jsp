@@ -11,14 +11,14 @@
 <body>
 	<c:if test="${check > 0}">
 		<script type="text/javascript">
-			alert("삭제 되었습니다.");
+			alert("수정되었습니다.");
 			location.href="${root}/community/ReviewList.do?pageNumber=${pageNumber}";
 		</script>
 	</c:if>
 
 	<c:if test="${check==0}">
 		<script type="text/javascript">
-			alert("삭제 되지않았습니다. \n 비밀번호를 확인하세요.");
+			alert("수정되지 않았습니다.");
 			location.href= history.back();
 		</script>
 	</c:if>

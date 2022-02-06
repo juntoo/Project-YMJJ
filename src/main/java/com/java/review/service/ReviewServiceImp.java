@@ -97,7 +97,7 @@ public class ReviewServiceImp implements ReviewService {
 			long fileSize=upFile.getSize();
 			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
 			
-			File path=new File("C:\\pds\\");
+			File path=new File("C:\\Users\\Admin\\Documents\\k-move\\Spring\\workspace\\YMJJtest\\src\\main\\webapp\\resources\\img\\");
 			path.mkdir();
 			LogAspect.logger.info(LogAspect.LogMsg + path);
 			LogAspect.logger.info(LogAspect.LogMsg + fileName);
@@ -123,7 +123,6 @@ public class ReviewServiceImp implements ReviewService {
 		
 		mav.addObject("check", check);
 	
-		//imgWrite(mav);
 		mav.setViewName("community/ReviewWriteOk.tiles");
 		
 	}
@@ -141,10 +140,10 @@ public class ReviewServiceImp implements ReviewService {
 		ReviewDto reviewDto=reviewDao.read(RVnumber);
 		LogAspect.logger.info(LogAspect.LogMsg + reviewDto.toString());
 		
-		if(reviewDto.getRVimgsize() !=0) {
-			int index=reviewDto.getRVimgname().indexOf("_")+1;
-			reviewDto.setRVimgname(reviewDto.getRVimgname().substring(index));
-		}
+//		if(reviewDto.getRVimgsize() !=0) {
+//			int index=reviewDto.getRVimgname().indexOf("_")+1;
+//			reviewDto.setRVimgname(reviewDto.getRVimgname().substring(index));
+//		}
 		
 		mav.addObject("reviewDto", reviewDto);
 		mav.addObject("pageNumber", pageNumber);
@@ -161,13 +160,21 @@ public class ReviewServiceImp implements ReviewService {
 		String RVnumber=request.getParameter("RVnumber");
 		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
 		String password=request.getParameter("password");
-		LogAspect.logger.info(LogAspect.LogMsg+RVnumber+","+pageNumber+","+password);
+		String Mid=request.getParameter("Mid");
+		String imgpath=request.getParameter("imgPath");
+		File path=new File(imgpath);
+		LogAspect.logger.info(LogAspect.LogMsg+RVnumber+","+pageNumber+","+password+","+Mid+","+path);
 		
-		int passCheck=reviewDao.passCheck(password);
+		int passCheck=reviewDao.passCheck(password, Mid);
 		
 		if(passCheck > 0) {
 			check=reviewDao.reviewDeleteCheck(RVnumber);
 			LogAspect.logger.info(LogAspect.LogMsg+"check="+check);
+		}
+		
+		if(path.exists()) {
+			LogAspect.logger.info(LogAspect.LogMsg+"삭제됨");
+			path.delete();
 		}
 		
 		mav.addObject("check", check);
@@ -177,14 +184,57 @@ public class ReviewServiceImp implements ReviewService {
 	}
 	
 	@Override
+	public void reviewUpdate(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String RVnumber=request.getParameter("RVnumber");
+		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
+		LogAspect.logger.info(LogAspect.LogMsg+RVnumber+","+pageNumber);
+		
+		ReviewDto reviewDto=reviewDao.reviewUpdateSelect(RVnumber);
+		LogAspect.logger.info(LogAspect.LogMsg+reviewDto.toString());
+		
+		mav.addObject("reviewDto", reviewDto);
+		mav.addObject("pageNumber", pageNumber);
+		
+		mav.setViewName("community/ReviewUpdate.tiles");
+		
+	}
+	
+	@Override
+	public void reviewUpdateOk(ModelAndView mav) {
+		Map<String, Object> map=mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		ReviewDto reviewDto=(ReviewDto) map.get("reviewDto");
+		LogAspect.logger.info(LogAspect.LogMsg+reviewDto.toString());
+		
+		int check=reviewDao.reviewUpdateOk(reviewDto);
+		LogAspect.logger.info(LogAspect.LogMsg+check);
+		
+		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));
+		
+		mav.addObject("check", check);
+		mav.addObject("pageNumber", pageNumber);
+		mav.setViewName("community/ReviewUpdateOk.tiles");
+		
+	}
+	
+	@Override
 	public void RTsearch(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
-		//List<RestaurnatDto> RTlist=reviewDao.RTsearch();
+		List<RestaurnatDto> RTlist=null;
 		
+		String RTname=request.getParameter("RTname");
+		LogAspect.logger.info(LogAspect.LogMsg+"rtName"+RTname);
 		
-		mav.addObject("request",request);
+		RTlist=reviewDao.RTsearch(RTname);
+		LogAspect.logger.info(LogAspect.LogMsg+"size"+RTlist.size());
+		
+		mav.addObject("RTlist",RTlist);
 		
 		mav.setViewName("community/RestaurantSearch.tiles");
 	}

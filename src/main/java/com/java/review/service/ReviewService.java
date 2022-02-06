@@ -13,5 +13,10 @@ public interface ReviewService {
 	
 	public void reviewDeleteOk(ModelAndView mav);
 	
+	public void reviewUpdate(ModelAndView mav);
+	
+	public void reviewUpdateOk(ModelAndView mav);
+	
 	public void RTsearch(ModelAndView mav);
+	
 }

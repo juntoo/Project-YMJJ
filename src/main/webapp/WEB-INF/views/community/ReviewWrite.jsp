@@ -76,12 +76,12 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 
-function RTsearch(root){
-	var url=root+"/community/RestaurantSearch.do";
-	//alert(url);
-	
-	window.open(url, "", "width=500, height=500");
-}
+	function RTsearch(root){
+		var url=root+"/community/RestaurantSearch.do";
+		//alert(url);
+		
+			window.open(url, "", "width=500, height=500");
+	}
 </script>
 </head>
 <body>

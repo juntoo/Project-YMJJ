@@ -61,7 +61,7 @@
 						<div id="card_title">
 							<div id="card_frame">
 								<a href="${root}/community/ReviewRead.do?RVnumber=${reviewDto.RVnumber}&pageNumber=${currentPage}"> 
-									<img src="${reviewDto.RVimgpath}">
+									<img src="${root}/resources/img/${reviewDto.RVimgname}">
 								</a>
 								<div id="card_text">
 									<div id="card_text2">제목:${reviewDto.RVtitle}</div>

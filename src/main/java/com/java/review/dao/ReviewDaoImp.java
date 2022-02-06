@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.java.aop.LogAspect;
 import com.java.img.dto.ImgDto;
+import com.java.restaurant.dto.RestaurnatDto;
 import com.java.review.dto.ReviewDto;
 
 @Component
@@ -57,8 +58,12 @@ public class ReviewDaoImp implements ReviewDao {
 	}
 	
 	@Override
-	public int passCheck(String password) {
-		int check=sqlSessionTemplate.selectOne("passCheck", password);
+	public int passCheck(String password, String Mid) {
+		HashMap<String, String> hMap=new HashMap<String, String>();
+		hMap.put("password", password);
+		hMap.put("Mid", Mid);
+		
+		int check=sqlSessionTemplate.selectOne("passCheck", hMap);
 		
 		return check;
 	}
@@ -68,5 +73,23 @@ public class ReviewDaoImp implements ReviewDao {
 		int check=sqlSessionTemplate.delete("reviewDelete", RVnumber);
 		
 		return check;
+	}
+	
+	@Override
+	public ReviewDto reviewUpdateSelect(String RVnumber) {
+		
+		return sqlSessionTemplate.selectOne("reviewRead",RVnumber);
+	}
+	
+	@Override
+	public int reviewUpdateOk(ReviewDto reviewDto) {
+		
+		return sqlSessionTemplate.update("reviewUpdate", reviewDto);
+	}
+	
+	@Override
+	public List<RestaurnatDto> RTsearch(String RTname) {
+		
+		return sqlSessionTemplate.selectList("RTsearch",RTname);
 	}
 }

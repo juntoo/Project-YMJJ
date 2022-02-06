@@ -16,6 +16,13 @@
 		
 		location.href=url;
 	}
+	
+	function upFun(root, RVnumber, pageNumber){
+		var url=root + "/community/ReviewUpdate.do?RVnumber=" + RVnumber + "&pageNumber=" + pageNumber;
+		// alert(url);
+		
+		location.href=url;
+	}
 </script>
 </head>
 <body>
@@ -46,7 +53,7 @@
 					<span id="viewcount">조회수 : ${reviewDto.RVcount} </span>  
 					<span id="mid1_button">
 						<c:if test="${Mid == reviewDto.writer || Mid == 'admin'}">
-							<input type="button" value="수정" />
+							<input type="button" value="수정" onclick="upFun('${root}', '${reviewDto.RVnumber}', '${pageNumber}')"/>
 							<input type="button" value="삭제" onclick="delFun('${root}', '${reviewDto.RVnumber}', '${pageNumber}')"/>
 						</c:if>
 					</span>

@@ -157,7 +157,7 @@
 #card{
 	float: left;
 	width: 50%;
-	height: 350px;
+	height: 335px;
 	border-bottom: 1px gray solid;
 	box-sizing: border-box;
 }
@@ -175,7 +175,7 @@
 
 #card_title{
 	float: left;
-	width: 35%;
+	width: 247px;
 	height: 100%;
 	display: table;
 	text-align: center;
@@ -201,18 +201,29 @@
 	left: 0;
 	bottom: 0px;
 	height: 40px;
-	width: 100%;
+	width: 247px;
 	line-height: 40px;
 	border: 1px gray solid;
 	box-sizing: border-box;
 }
 
+#card_text>#card_text2{
+	height:40px;
+	width:406px;
+	line-height: 40px;
+	border: 1px gray solid;
+	box-sizing: border-box;
+	margin-left: -407px;
+	margin-bottom:-40px;
+}
+
 #reviewListBot{
-	display: table-cell;
-	width: 100%;
+	position:absolute;
+	width: 1305.6px;
 	height: 50px;
-	text-align: right;
-	float: right;
+	text-align: center;
+	float: center;
+	top: 670px;
 }
 
 #reviewListBot > a {
@@ -248,4 +259,9 @@
 	width: 25px;
 	height: 25px;
 	float: left;
+}
+
+#searchBox{
+	margin-left: 20px;
+	margin-top: 15px;
 }

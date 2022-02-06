@@ -39,10 +39,27 @@ public class ReviewController {
 		return mav;
 	}
 	
-//	@RequestMapping(value="/community/ReviewUpdate.do", method = RequestMethod.GET)
-//	public ModelAndView reviewUpdate(HttpServletRequest request,HttpServletResponse response) {
-//		return new ModelAndView("community/ReviewUpdate");
-//	}
+	@RequestMapping(value="/community/ReviewUpdate.do", method = RequestMethod.GET)
+	public ModelAndView reviewUpdate(HttpServletRequest request,HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		reviewService.reviewUpdate(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/community/ReviewUpdateOk.do", method = RequestMethod.POST)
+	public ModelAndView reviewUpdateOk(HttpServletRequest request,HttpServletResponse response, ReviewDto reviewDto) {
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("reviewDto",reviewDto);
+		
+		reviewService.reviewUpdateOk(mav);
+		
+		return mav;
+	}
 	
 	@RequestMapping(value="/community/ReviewWrite.do", method = RequestMethod.GET)
 	public ModelAndView reviewWrite(HttpServletRequest request,HttpServletResponse response) {
@@ -76,7 +93,7 @@ public class ReviewController {
 		mav.addObject("RVnumber",RVnumber);
 		mav.addObject("pageNumber",pageNumber);
 		
-		mav.setViewName("community/ReviewDelete.tiles.tiles");
+		mav.setViewName("community/ReviewDelete.tiles");
 		return mav;
 	}
 	
