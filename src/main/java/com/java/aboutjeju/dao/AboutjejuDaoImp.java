@@ -1,5 +1,7 @@
 package com.java.aboutjeju.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +16,31 @@ public class AboutjejuDaoImp implements AboutjejuDao {
 
 	@Override
 	public int LMinsert(AboutjejuDto aboutjejuDto) {
-		// TODO Auto-generated method stub
-		return sqlSessionTemplate.insert("LMinsert",aboutjejuDto);
+		//항목 추가
+		return sqlSessionTemplate.insert("Linsert",aboutjejuDto);
+	}
+
+	@Override
+	public List<AboutjejuDto> IRead(String introduction) {
+		//카테고리별 selectList
+		return sqlSessionTemplate.selectList("IRead",introduction);	
+	}
+
+	@Override
+	public List<AboutjejuDto> Lread(String location) {
+		
+		return sqlSessionTemplate.selectOne("LRead",location);
+	}
+
+	@Override
+	public List<AboutjejuDto> Sread(String speciality) {
+		
+		return sqlSessionTemplate.selectOne("SRead",speciality);
+	}
+
+	@Override
+	public List<AboutjejuDto> Aread(String activites) {
+		
+		return sqlSessionTemplate.selectOne("ARead",activites);	
 	}
 }

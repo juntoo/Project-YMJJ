@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${root}/resources/css/aboutjeju/special.css">
 </head>
 <body>
-<form class="form-style" action="${root}/aboutjeju/wirteOK" method="get" enctype="multipart/form-data">
+
     <div>
         <div id="title"><a>About JEJU</a></div>
         <div id="menuF">
@@ -23,44 +23,37 @@
                 <div id="detail" style="height: 600px; border-left: 0px; border-bottom: 0px;"></div>              
             </div>
             <div id="content">
+            <form class="form-style" action="${root}/aboutjeju/wirteOK" method="get" enctype="multipart/form-data">
                 <div id="con" style="border : 2px black solid; width: 1175px; height: 640px; margin-top: 40px;margin-left: 40px;">         
                 	<div id="con1">
                 	
                 		<!-- 왼쪽 사진 -->
                 		<div style="padding-top: 50px; margin-top: 20px;">
-                			<img width="150px" height="150px" alt="" src=""/>
-                			<input name="sectext" style="width:149px;height:30px;"/>
+                			<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[0].iname" onclick="btnClick(${Ilist}, 0)"/>
+                			<a id="sectext" style="width:149px;height:30px;">${Ilist[0].LMtitle}</a>
                 		</div>
                 		
                 		<!-- 가운데 큰 사진 -->
                 		<div style="border : 0px black solid; width: 651px; height: 450px; padding: 10px; margin-top: 30px;">
-                			<img width="600px" height="400px" alt="" src=""/>
+                			<img width="600px" height="400px" alt="" src="${root}/img/${Ilist[1].iname" onclick="btnClick(${Ilist}, 1)"/>
                 		</div>
                 		
                 		<!-- 오른쪽 사진 -->
                 		<div>
-                			<img width="150px" height="150px" alt="" src=""/>
-                			<input name="thtext" style="width:149px;height:30px;"/>
+                			<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[2].iname" onclick="btnClick(${Ilist}, 2)"/>
+                			<a id="thtext" style="width:149px;height:30px;">${Ilist[2].LMtitle}</a>
                 		</div>
                 	</div>
                 	
-                	
-                	
                 	<!-- 맨 아래 사진 -->
                 	<div id="con2">	
-                		<img width="145px" height="145px" alt="" src=""/>
-                		<input name="fortext" style="width:149px;height:30px; margin-right: 10px;"/>
+                		<img width="145px" height="145px" alt="" src="${root}/img/${Ilist[3].iname" onclick="btnClick(${Ilist}, 3)"/>
+                		<a id="fortext" style="width:149px;height:30px; margin-right: 10px;">${Ilist[3].LMtitle}</a>
                 	</div>
                 </div>
-                
-                
-                <div id="but">
-                    <input type="submit" value="입력"/>
-                    <input type="reset" value="취소"/>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-    </form>
 </body>
 </html>

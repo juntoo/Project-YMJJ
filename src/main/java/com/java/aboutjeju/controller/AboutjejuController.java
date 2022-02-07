@@ -33,54 +33,41 @@ public class AboutjejuController {
 		return mav;
 	}
 	@RequestMapping(value="/aboutjeju/introduction.do", method = RequestMethod.GET)
-	public ModelAndView aboutjejuIntroduction(HttpServletRequest request,HttpServletResponse response,AboutjejuDto aboutjejuDto) {
+	public ModelAndView Introductionread(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request",request);
-		mav.addObject("response",response);
-		mav.addObject("aboutjejuDto", aboutjejuDto);
-
-		//aboutjejuService.Iread(mav);
-		
-		//return mav;
-		return new ModelAndView("aboutjeju/introduction.tiles");
+		aboutjejuService.Iread(mav);
+		//return new ModelAndView("aboutjeju/introduction");
+		return mav;
 	}
 	
 	@RequestMapping(value="/aboutjeju/location.do", method = RequestMethod.GET)
-	public ModelAndView aboutjejuLocation(HttpServletRequest request,HttpServletResponse response,AboutjejuDto aboutjejuDto) {
+	public ModelAndView Locationread(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request",request);
-		mav.addObject("response",response);
-		mav.addObject("aboutjejuDto", aboutjejuDto);
 
-		//aboutjejuService.Lread(mav);
-		
-		//return mav;
-		return new ModelAndView("aboutjeju/location.tiles");
+		aboutjejuService.Lread(mav);
+		//return new ModelAndView("aboutjeju/location");
+		return mav;
 	}
 	
 	@RequestMapping(value="/aboutjeju/speciality.do", method = RequestMethod.GET)
-	public ModelAndView aboutjejuSpeciality(HttpServletRequest request,HttpServletResponse response,AboutjejuDto aboutjejuDto) {
+	public ModelAndView Specialityread(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request",request);
-		mav.addObject("response",response);
-		mav.addObject("aboutjejuDto", aboutjejuDto);
 
-		//aboutjejuService.Sread(mav);
-		
-		//return mav;
-		return new ModelAndView("aboutjeju/speciality.tiles");
+		aboutjejuService.Sread(mav);
+		//return new ModelAndView("aboutjeju/speciality");
+		return mav;
 	}
 	
-	@RequestMapping(value="/aboutjeju/activities.do", method = RequestMethod.GET)
-	public ModelAndView aboutjejuactivities(HttpServletRequest request,HttpServletResponse response,AboutjejuDto aboutjejuDto) {
+	@RequestMapping(value="/aboutjeju/activites.do", method = RequestMethod.GET)
+	public ModelAndView activitiesread(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request",request);
-		mav.addObject("response",response);
-		mav.addObject("aboutjejuDto", aboutjejuDto);
 
-		//aboutjejuService.Aread(mav);
-		
-		//return mav;
-		return new ModelAndView("aboutjeju/activities.tiles");
+		aboutjejuService.Aread(mav);
+		//return new ModelAndView("aboutjeju/activites");
+		return mav;
 	}
 }

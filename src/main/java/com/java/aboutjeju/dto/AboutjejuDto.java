@@ -1,7 +1,7 @@
 package com.java.aboutjeju.dto;
 
 public class AboutjejuDto {
-	private String LMnumber; //고유번호
+	private int LMnumber; //고유번호
 	private String LMcategory; //카테고리
 	private String LMtitle; //제목
 	private String LMcontent; //내용
@@ -9,14 +9,13 @@ public class AboutjejuDto {
 	private String LMpostalcode;
 	private String LMlatitude; //위도
 	private String LMlongitude; // 경도
-	
 	private String Iname;			//이미지 이름
 	private long Isize;				//이미지 사이즈
 	private String Ipath;
-	public String getLMnumber() {
+	public int getLMnumber() {
 		return LMnumber;
 	}
-	public void setLMnumber(String lMnumber) {
+	public void setLMnumber(int lMnumber) {
 		LMnumber = lMnumber;
 	}
 	public String getLMcategory() {
@@ -81,9 +80,10 @@ public class AboutjejuDto {
 	}
 	@Override
 	public String toString() {
-		return "AboutjejuDto [LMnumber=" + LMnumber + ", LMcategory=" + LMcategory + ", LMtitle=" + LMtitle
+		return "aboutjejuDto [LMnumber=" + LMnumber + ", LMcategory=" + LMcategory + ", LMtitle=" + LMtitle
 				+ ", LMcontent=" + LMcontent + ", LMaddress=" + LMaddress + ", LMpostalcode=" + LMpostalcode
 				+ ", LMlatitude=" + LMlatitude + ", LMlongitude=" + LMlongitude + ", Iname=" + Iname + ", Isize="
 				+ Isize + ", Ipath=" + Ipath + "]";
 	}
+	
 }

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${root}/resources/css/aboutjeju/activities.css">
 </head>
 <body>
-    <div>
+     <div>
         <div id="title"><a>AboutJEJU</a></div>
         <div id="menuF">
             <div id="category">
@@ -22,33 +22,34 @@
                 <div id="detail" style="height: 600px; border-left: 0px; border-bottom: 0px;"></div>              
             </div>
             <div id="content">
+            <form class="form-style" action="" method="get" enctype="multipart/form-data">
                 <div style="border : 2px black solid; width: 1175px; height: 640px; margin-top: 40px;margin-left: 40px;">
 	                <!-- 왼쪽 사진들 -->
 					<div id="hiking">
 						<div>
-							<img width="150px" height="150px" alt="" src=""/>
+							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[0].iname}"/>
 							
-							<input name="sectext" style="width:149px;height:30px;"/>
+							<a id="sectext" style="width:149px;height:30px;">${Ilist[0].LMtitle}</a>
 						</div>
 						<div>
-							<img width="150px" height="150px" alt="" src=""/>
+							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[1].iname}"/>
 							
-							<input name="thimgtext" style="width:149px;height:30px;"/>					
+							<a id="thimgtext" style="width:149px;height:30px;">${Ilist[1].LMtitle}</a>					
 						</div>
 						<div>
-							<img width="150px" height="150px" alt="" src=""/>
+							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[2].iname}"/>
 							
-							<input name="fortext" style="width:149px;height:30px;"/>
+							<a id="fortext" style="width:149px;height:30px;">${Ilist[2].LMtitle}</a>
 						</div>
 					</div>
 						<!-- 가운데 큰 글씨 -->
 					<div id="activity">
 						<div id="act1">
 							<div id="color1">
-								<input type="text" value="Hiking" disabled="disabled"/>
+								<a>${Ilist[4].LMcontent}</a>
 							</div>
 							<div>
-								<input type="text" value="Leisure" disabled="disabled"/>
+								<a>${Ilist[5].LMcontent}</a>
 							</div>
 						</div>
 						
@@ -58,35 +59,30 @@
 						
 						<div id="act3">
 							<div id="color2">
-								<img width="200px" height="150px" alt="" src=""/>
+								<img width="200px" height="150px" alt="" src="${root}/img/${Ilist[4].iname}"/>
 							</div>
 							<div>
-								<img width="200px" height="150px" alt="" src=""/>
+								<img width="200px" height="150px" alt="" src="${root}/img/${Ilist[5].iname}"/>
 							</div>
 						</div>
 					</div>
 						
 					<div id="leisure">
 						<div>
-							<img width="150px" height="150px" alt="" src=""/>
-							<input name="fatext" style="width:149px;height:30px;"/>
+							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[6].iname}"/>
+							<a id="fatext" style="width:149px;height:30px;">${Ilist[6].LMtitle}</a>
 						</div>
 						<div>
-							<img width="150px" height="150px" alt="" src=""/>
-							<input name="sixtext" style="width:149px;height:30px;"/>
+							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[7].iname}"/>
+							<a id="sixtext" style="width:149px;height:30px;">${Ilist[7].LMtitle}</a>
 						</div>
 						<div>
-							<img width="150px" height="150px" alt="" src=""/>
-							<input name="sentext" style="width:149px;height:30px;"/>
+							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[3].iname}"/>
+							<a id="sentext" style="width:149px;height:30px;">${Ilist[3].LMtitle}</a>
 						</div>
 					</div>
-	                         
 	            </div>
-	                
-                <div id="but">
-                    <input type="submit" value="입력"/>
-                    <input type="reset" value="취소"/>
-                </div>
+	          </form>
             </div>
         </div>
     </div>
