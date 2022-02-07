@@ -9,7 +9,7 @@
 <c:set var="root" value="${pageContext.request.contextPath}" />
 </head>
 <body>
-	<div align="center"> 
+	<div align="center" style="margin-top: 300px;"> 
 		<form action="${root}/community/ReviewDeleteOk.do" method="post">
 			<input type="hidden" name="RVnumber"  value="${RVnumber}"/>
 			<input type="hidden" name="pageNumber"  value="${pageNumber}"/>

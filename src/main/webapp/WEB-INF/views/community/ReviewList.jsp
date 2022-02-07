@@ -56,11 +56,11 @@
 			
 			<div id="content">
 				<c:forEach var="reviewDto" items="${ReviewList}">
-					<div id="card">
+					<div id="card" onclick="location.href='${root}/community/ReviewRead.do?RVnumber=${reviewDto.RVnumber}&pageNumber=${currentPage}';">
 						<div id="card_content">${reviewDto.RVcontent}</div>
 						<div id="card_title">
 							<div id="card_frame">
-								<a href="${root}/community/ReviewRead.do?RVnumber=${reviewDto.RVnumber}&pageNumber=${currentPage}"> 
+<%--  								<a href="${root}/community/ReviewRead.do?RVnumber=${reviewDto.RVnumber}&pageNumber=${currentPage}"> --%>
 									<img src="${root}/resources/img/${reviewDto.RVimgname}">
 								</a>
 								<div id="card_text">

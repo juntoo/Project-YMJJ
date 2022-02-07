@@ -6,21 +6,22 @@
 	box-sizing: border-box;
 }
 
-#title {
-	width: 1920px;
-	height: 108px;
-	text-align: center;
-	margin-top: 20px;
+#title{
+width: 1920px;
+height: 108px;
+text-align: center;
+margin-top: 20px;
+font-size: 50px;
+font-weight: bolder;
 }
-
-#title>a {
-	font-size: 50px;
+#title > a{
+    font-size: 50px;
 }
 
 #menuF {
 	position: absolute;
 	left: 960px;
-	top: 490px;
+	top: 540px;
 	transform: translateX(-55%) translateY(-50%);
 	width: 1536px;
 	height: 750px;
@@ -156,15 +157,16 @@
 
 #card{
 	float: left;
-	width: 50%;
-	height: 335px;
-	border-bottom: 1px gray solid;
+	width: 638px;
+	height: 315px;
+	margin: 6px;
+	border: 1px gray solid;
 	box-sizing: border-box;
 }
 
 #card_content{
 	float: left;
-	width: 62%;
+	width: 394px;
 	height: 250px;
 	padding: 50px;
 	box-sizing: border-box;
@@ -175,7 +177,7 @@
 
 #card_title{
 	float: left;
-	width: 247px;
+	width: 242px;
 	height: 100%;
 	display: table;
 	text-align: center;
@@ -187,7 +189,7 @@
 	vertical-align: middle;
 	height: 210px;
 	position: relative;
-	border: 1px gray solid;
+	border-left: 1px gray solid;
 	box-sizing: border-box;
 }
 
@@ -201,19 +203,19 @@
 	left: 0;
 	bottom: 0px;
 	height: 40px;
-	width: 247px;
+	width: 242px;
 	line-height: 40px;
-	border: 1px gray solid;
+	border-top: 1px gray solid;
 	box-sizing: border-box;
 }
 
 #card_text>#card_text2{
 	height:40px;
-	width:406px;
+	width:395px;
 	line-height: 40px;
-	border: 1px gray solid;
+	border-top: 1px gray solid;
 	box-sizing: border-box;
-	margin-left: -407px;
+	margin-left: -396px;
 	margin-bottom:-40px;
 }
 
