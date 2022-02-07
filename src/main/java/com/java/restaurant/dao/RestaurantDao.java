@@ -30,6 +30,8 @@ public interface RestaurantDao {
 	public int commentsGetCount();
 	
 	public List<CommentsDto> commentList(int startRow, int endRow, String RTnumber);
+
+	public RestaurnatDto selectrestaurant(String parameter);
 	
 	
 	//public int imgWriteOk(ImgDto imgDto);

@@ -10,7 +10,7 @@
   	</insert>
   	
   	<select id="commentsCount" resultType="int">
-		SELECT COUNT(*) FROM Comments
+		SELECT COUNT(CMnumber) FROM Comments
 	</select>
   
 	<select id="commentsList" parameterType="java.util.HashMap" resultType="com.java.comments.dto.CommentsDto">

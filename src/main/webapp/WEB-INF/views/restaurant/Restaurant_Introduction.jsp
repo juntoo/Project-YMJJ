@@ -39,7 +39,7 @@
         <div id="btn_type">
             <input type="button" onclick="location.href='${root}/restaurant/write.do'" value="추가"/>
 			<input type="button" onclick="location.href='${root}/restaurant/Restaurant_Update.do'" value="수정"/>
-            <input type="button" onclick="location.href='${root}/restaurant/Restaurantdelete.do?restaurantDto=${restaurantDto}'"value="삭제"/>
+            <input type="button" onclick="location.href='${root}/restaurant/Restaurantdelete.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${pageNumber}'"value="삭제"/>
         </div>
 
         <div id="subject">

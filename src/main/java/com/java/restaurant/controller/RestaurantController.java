@@ -109,22 +109,17 @@ public class RestaurantController {
 	}
 	
 	@RequestMapping(value = "/restaurant/Restaurantdelete.do", method = RequestMethod.GET)
-	public ModelAndView boardDelete(HttpServletRequest request, HttpServletResponse response, RestaurnatDto restaurnatDto) {
+	public ModelAndView boardDelete(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
-		//mav.addObject("restaurnatDto", restaurnatDto);
-		
 		restaurantService.restaurantDelete(mav);
 		return mav;
-		
 	}
 	
-	@RequestMapping(value = "/restaurant/RestaurantdeleteOk.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/restaurant/RestaurantdeleteOk.do", method = RequestMethod.GET)
 	public ModelAndView boardDeleteOk(HttpServletRequest request, HttpServletResponse response) {
-		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
-		
 		restaurantService.restaurantDeleteOk(mav);
 		return mav;
 	}

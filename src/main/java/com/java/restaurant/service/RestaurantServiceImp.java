@@ -1,11 +1,9 @@
 package com.java.restaurant.service;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.java.aop.LogAspect;
 import com.java.comments.dto.CommentsDto;
-import com.java.img.dto.ImgDto;
-import com.java.member.dto.MemberDto;
 import com.java.restaurant.dao.RestaurantDao;
 import com.java.restaurant.dto.RestaurnatDto;
 
@@ -208,10 +204,37 @@ public class RestaurantServiceImp implements RestaurantService {
 		
 
 		commentsViewList(mav, RTnumber);
-		
-		
-		
 	}
+	@Override
+	public void commentsViewList(ModelAndView mav, String RTnumber) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber == null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+        LogAspect.logger.info(LogAspect.LogMsg + currentPage);
+        
+        int boardSize=5;
+		int startRow=(currentPage-1)*boardSize+1;			
+		int endRow=currentPage*boardSize;
+		
+		int count = restaurantDao.commentsGetCount();
+		LogAspect.logger.info(LogAspect.LogMsg + count);
+		List<CommentsDto> commentsDtoList=null;
+		if(count > 0) {
+			commentsDtoList=restaurantDao.commentList(startRow, endRow, RTnumber);
+		}
+		
+		mav.addObject("commentsList", commentsDtoList);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("currentPage", currentPage);
+		
+		mav.setViewName("restaurant/Restaurant_Introduction.tiles");
+	
+	} 
 	
 	@Override
 	  public void restaurantUpdate(ModelAndView mav) {
@@ -288,13 +311,9 @@ public class RestaurantServiceImp implements RestaurantService {
 		public void restaurantDelete(ModelAndView mav) {
 			Map<String, Object> map = mav.getModelMap();
 		    HttpServletRequest request = (HttpServletRequest) map.get("request");
+		    System.out.println("정보" + request.getParameter("RTnumber"));
 		    
-		   // RestaurnatDto restaurnatDto=(RestaurnatDto) request.getParameter("restaurnatDto");
-		    
-		    
-		    System.out.println("정보" + restaurnatDto.getRTnumber());
-		    mav.addObject("restaurnatDto", restaurnatDto);
-		    mav.addObject("RTnumber", restaurnatDto.getRTnumber());
+		    mav.addObject("RTnumber", request.getParameter("RTnumber"));
 		    mav.addObject("pageNumber", request.getParameter("pageNumber"));
 		    
 		    mav.setViewName("restaurant/Restaurantdelete.tiles");
@@ -302,28 +321,24 @@ public class RestaurantServiceImp implements RestaurantService {
 
 	  @Override
 	  public void restaurantDeleteOk(ModelAndView mav) {
-	    Map<String, Object> map = mav.getModelMap();
+		Map<String, Object> map = mav.getModelMap();
 	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+	    System.out.println("정보" + request.getParameter("RTnumber"));
+	    System.out.println("정보" + request.getParameter("pageNumber"));
 	    
-	    RestaurnatDto restaurnatDto=(RestaurnatDto) map.get("restaurnatDto");
-
-	    String RTnumber=request.getParameter("RTnumber");
-	    String pageNumber=request.getParameter("pageNumber");
-	    LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
-
-	    System.out.println(RTnumber);
-	    
-	    int check = restaurantDao.restaurantDeleteOk(RTnumber);
+	    RestaurnatDto readBoard = restaurantDao.selectrestaurant(request.getParameter("RTnumber"));
+	    int check = restaurantDao.restaurantDeleteOk(request.getParameter("RTnumber"));
 	    LogAspect.logger.info(LogAspect.LogMsg + check);
 
-	    if (check > 0 && restaurnatDto.getRTIpath() != null) {
-	      File file = new File(restaurnatDto.getRTIpath());
+	    if (check > 0 && readBoard.getRTIpath() != null) {
+	    	LogAspect.logger.info(LogAspect.LogMsg + check);
+	      File file = new File(readBoard.getRTIpath());
 	      if (file.exists() && file.isFile())
 	        file.delete();
 	    }
 
 	    mav.addObject("check", check);
-	    mav.addObject("pageNumber", pageNumber);
+	    mav.addObject("pageNumber", request.getParameter("pageNumber"));
 	    mav.setViewName("restaurant/RestaurantdeleteOk.tiles");
 	  }
 	
@@ -350,47 +365,6 @@ public class RestaurantServiceImp implements RestaurantService {
 		
 	}
 
-	@Override
-	public void commentsViewList(ModelAndView mav, String RTnumber) {
-		// TODO Auto-generated method stub
-		
-		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		
-		String pageNumber=request.getParameter("pageNumber");
-		if(pageNumber == null) pageNumber="1";
-		
-		int currentPage=Integer.parseInt(pageNumber);
-        LogAspect.logger.info(LogAspect.LogMsg + currentPage);
-        
-        int boardSize=5;
-		int startRow=(currentPage-1)*boardSize+1;			
-		int endRow=currentPage*boardSize;
-		
-		int count=restaurantDao.commentsGetCount();
-		
-		List<CommentsDto> commentsDtoList=null;
-		if(count > 0) {
-			commentsDtoList=restaurantDao.commentList(startRow, endRow, RTnumber);
-		}
-		LogAspect.logger.info(LogAspect.LogMsg + commentsDtoList.size());
-		
-		mav.addObject("commentsList", commentsDtoList);
-		mav.addObject("boardSize", boardSize);
-		mav.addObject("currentPage", currentPage);
-		
-		mav.setViewName("restaurant/Restaurant_Introduction.tiles");
-	
-	} 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 // imgDto 사용할때 이코드
 //	@Override

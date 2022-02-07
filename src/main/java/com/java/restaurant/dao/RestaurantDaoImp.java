@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import com.java.aop.LogAspect;
 import com.java.comments.dto.CommentsDto;
-import com.java.img.dto.ImgDto;
 import com.java.restaurant.dto.RestaurnatDto;
 
 @Component
@@ -58,6 +57,11 @@ public class RestaurantDaoImp implements RestaurantDao {
 	
 	@Override
 	public int restaurantDeleteOk(String RTnumber) {
+		sqlSessionTemplate.delete("Bdelete", RTnumber);
+		sqlSessionTemplate.delete("Cdelete", RTnumber);
+		sqlSessionTemplate.delete("Rdelete", RTnumber);
+		sqlSessionTemplate.delete("CMdelete", RTnumber);
+		
 		return sqlSessionTemplate.delete("boardDelete", RTnumber);
 	}
 	    
@@ -90,8 +94,9 @@ public class RestaurantDaoImp implements RestaurantDao {
 
 	@Override
 	public int commentsGetCount() {
-		// TODO Auto-generated method stub
-		return sqlSessionTemplate.selectOne("commentsCount");
+		int check = sqlSessionTemplate.selectOne("commentsCount");
+		 LogAspect.logger.info(LogAspect.LogMsg + check);
+		return check;
 	}
 
 	@Override
@@ -106,7 +111,10 @@ public class RestaurantDaoImp implements RestaurantDao {
 		return sqlSessionTemplate.selectList("commentsList", hMap);
 	}
 	
-
+	@Override
+	public RestaurnatDto selectrestaurant(String parameter) {
+		return sqlSessionTemplate.selectOne("selectrestaurant", parameter);
+	}
 	
     
 	

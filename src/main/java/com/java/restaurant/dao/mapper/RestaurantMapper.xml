@@ -41,10 +41,24 @@
   </update>
   
   <delete id="boardDelete" parameterType="String">
-  		DELETE FROM restaurant 
-  		WHERE RTnumber=#{RTnumber}
+  		DELETE FROM Restaurant WHERE RTnumber = #{RTnumber}
   </delete>	
   
+  <select id="selectrestaurant" parameterType="String" resultType="com.java.restaurant.dto.RestaurnatDto">
+  SELECT * FROM Restaurant WHERE RTnumber = #{parameter}
+  </select>
+  <delete id="Bdelete" parameterType="String">
+  DELETE FROM BOOKMARK WHERE RTnumber = #{RTnumber}
+  </delete>
+  <delete id="Cdelete" parameterType="String">
+  DELETE FROM Comments WHERE RTnumber = #{RTnumber}
+  </delete>
+  <delete id="Rdelete" parameterType="String">
+  DELETE FROM Review WHERE RTnumber = #{RTnumber}
+  </delete>
+  <delete id="CMdelete" parameterType="String">
+  DELETE FROM Community WHERE RTnumber = #{RTnumber}
+  </delete>
   	<!--
   	<select id="boardCount" resultType="int">
   		SELECT COUNT(*) FROM board
