@@ -8,6 +8,6 @@
 <title>템플릿 제외</title>
 </head>
 <body>
-	<tiles:insertAttribute name="contest"/>
+	<tiles:insertAttribute name="content"/>
 </body>
 </html>

@@ -38,7 +38,7 @@
 
         <div id="btn_type">
             <input type="button" onclick="location.href='${root}/restaurant/write.do'" value="추가"/>
-			<input type="button" onclick="location.href='${root}/restaurant/update.do'" value="수정"/>
+			<input type="button" onclick="location.href='${root}/restaurant/update.do?RTnumber=${RTnumber}'" value="수정"/>
             <input type="button" value="삭제"/>
         </div>
 

@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.java.aop.LogAspect;
 import com.java.member.dao.MemberDao;
+import com.java.member.dto.BookmarkDto;
 import com.java.member.dto.MemberDto;
 import com.java.member.dto.SimpleReviewDto;
 
@@ -43,7 +44,7 @@ public class MemberServiceImp implements MemberService {
 		
 		mav.addObject("Mid", Mid);
 		mav.addObject("check", check);
-		mav.setViewName("member/ID_Check.empty");
+		mav.setViewName("member/ID_Check.empt");
 	}
 	@Override
 	public void memberLoginOk(ModelAndView mav) {
@@ -101,7 +102,7 @@ public class MemberServiceImp implements MemberService {
 		int check=memberDao.delete(request.getParameter("Mid"));
 		mav.addObject("check", check);
 
-		mav.setViewName("member/delete.tiles");	
+		mav.setViewName("member/Mdelete.tiles");	
 	}
 	@Override
 	public void Updata(ModelAndView mav) {
@@ -118,10 +119,29 @@ public class MemberServiceImp implements MemberService {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		LogAspect.logger.info(LogAspect.LogMsg+request.getParameter("Mid"));
 		List<SimpleReviewDto> reviewList=null;
+		List<BookmarkDto> BookmarkList=null;		
 		reviewList = memberDao.getReview(request.getParameter("Mid"));
+		BookmarkList = memberDao.getBook(request.getParameter("Mid"));
 		mav.addObject("reviewList", reviewList);
+		mav.addObject("BookmarkList", BookmarkList);
 
 		mav.setViewName("member/Mypage-Com.tiles");
+	}
+	@Override
+	public void bookmarkAdd(ModelAndView mav) {
+	Map<String, Object> map = mav.getModelMap();
+	HttpServletRequest request = (HttpServletRequest) map.get("request");
+	int check = memberDao.Markinsert(request.getParameter("Mid"),request.getParameter("RTnumber"));
+	mav.addObject("check", check);
+	mav.setViewName("member/Mypage-Com.tiles");	
+	}
+	@Override
+	public void bookmarkDel(ModelAndView mav) {
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		int check = memberDao.MarkDel(request.getParameter("Mid"),request.getParameter("RTnumber"));
+		mav.addObject("check", check);
+		mav.setViewName("member/Bdelete.tiles");
 	}
 }
 

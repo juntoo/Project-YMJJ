@@ -70,7 +70,7 @@
         <div id="menuBar">
             <div id="menu" onclick="location.href='${root}/aboutjeju/introduction.do'">About JEJU</div>
             <div id="menu" onclick="location.href='${root}/restaurant/main.do'">Restaurant</div>
-            <div id="menu" onclick="location.href='${root}/community/Notice3.do'">Community</div>
+                        <div id="menu" onclick="location.href='${root}/community/ReviewList.do'">Community</div>
             <div id="menu" onclick="location.href='${root}/other/map.do'">Map</div>
             <div id="menu" onclick="location.href='${root}/other/today.do'">Today</div>
         </div>
@@ -83,7 +83,7 @@
         	<c:if test="${Mid!=null}">
 	       		<c:if test="${Mid!='admin'}">
 		       		<a style="font-size: 30px;">Name.</a>&nbsp;
-		       		<a style="font-size: 30px; margin-right: 20px; color: red;" onclick="location.href='${root}/member/Mypage-Com.do'">${Mname}</a>
+		       		<a style="font-size: 30px; margin-right: 20px; color: red;" onclick="location.href='${root}/member/Mypage-Com.do?Mid=${Mid}'">${Mname}</a>
 		            <input type="button" value="Logout"onclick="location.href='${root}/member/logout.do'" style="width: 65px; height: 25px;" />
 	       		</c:if>
 	       		<c:if test="${Mid=='admin'}">

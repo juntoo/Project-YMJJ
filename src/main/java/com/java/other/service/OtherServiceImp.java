@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.java.aop.LogAspect;
+import com.java.member.dto.RankingDto;
 import com.java.other.dao.OtherDao;
 import com.java.restaurant.dto.RestaurnatDto;
 
@@ -44,9 +46,10 @@ public class OtherServiceImp implements OtherService {
 	@Override
 	public void OtherToday(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		List<RestaurnatDto> RestaurnatList=null;
-		
+		List<RankingDto> rankingList=null;
+		rankingList = otherDao.selectRankingList();
+		mav.addObject("rankingList", rankingList);
+		LogAspect.logger.info(LogAspect.LogMsg+rankingList.toString());
 		mav.setViewName("/other/today.tiles");
 	}
 	

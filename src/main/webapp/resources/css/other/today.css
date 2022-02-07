@@ -79,3 +79,29 @@ font-size: 17px;
 text-align: center;
 padding-top: 30px;
 }
+#rankingView{
+width: 375px;
+height: 205px;
+margin: 20px;
+float: left;
+padding-left: 30px;
+}
+#Rimg{
+border: black 1px solid;
+width: 170px;
+height: 195px;
+margin: 5px;
+float: left;
+}
+#Property{
+width: 150px;
+height: 195px;
+margin: 5px;
+float: left;
+}
+#Property > div{
+width: 150px;
+height: 55px;
+margin-bottom: 15px;
+font-size: 20px;
+}

@@ -45,6 +45,11 @@
                     </div>
                     <div id="bookmark">
                         <div id="subtitle">Bookmark</div>
+                        <div id="BookmarkView">
+                  		<c:forEach var="bookDto" items="${BookmarkList}">
+                  			<div>${bookDto.bnumber}</div>
+						</c:forEach>
+						</div>
                     </div>
                 </div>
             </div>

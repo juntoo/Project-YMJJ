@@ -4,6 +4,7 @@ public class BookmarkDto {
 	private int Bnumber;
 	private String Mid;
 	private String RTnumber;
+	private String RTname;
 	public int getBnumber() {
 		return Bnumber;
 	}
@@ -22,10 +23,15 @@ public class BookmarkDto {
 	public void setRTnumber(String rTnumber) {
 		RTnumber = rTnumber;
 	}
+	public String getRTname() {
+		return RTname;
+	}
+	public void setRTname(String rTname) {
+		RTname = rTname;
+	}
 	@Override
 	public String toString() {
-		return "BookmarkDto [Bnumber=" + Bnumber + ", Mid=" + Mid + ", RTnumber=" + RTnumber + "]";
+		return "BookmarkDto [Bnumber=" + Bnumber + ", Mid=" + Mid + ", RTnumber=" + RTnumber + ", RTname=" + RTname
+				+ "]";
 	}
-	
-	
 }

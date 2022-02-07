@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.java.member.dto.BookmarkDto;
 import com.java.member.dto.MemberDto;
 import com.java.member.dto.SimpleReviewDto;
 
@@ -57,4 +58,23 @@ public class MemberDaoImp implements MemberDao {
 	public List<SimpleReviewDto> getReview(String Mid) {
 		return sqlSessionTemplate.selectList("getReview", Mid);
 	}
+	@Override
+	public int Markinsert(String Mid, String RTnumber) {
+		HashMap<String, String> hMap=new HashMap<String, String>();
+		hMap.put("Mid", Mid);
+		hMap.put("RTnumber", RTnumber);
+		return sqlSessionTemplate.insert("markinsert", hMap);
+	}
+	@Override
+	public int MarkDel(String Mid, String RTnumber) {
+		HashMap<String, String> hMap=new HashMap<String, String>();
+		hMap.put("Mid", Mid);
+		hMap.put("RTnumber", RTnumber);
+		return sqlSessionTemplate.delete("markdelete", hMap);
+	}
+	@Override
+	public List<BookmarkDto> getBook(String Mid) {
+		return sqlSessionTemplate.selectList("getBook", Mid);
+	}
+	
 }

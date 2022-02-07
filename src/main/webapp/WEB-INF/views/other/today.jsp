@@ -64,7 +64,16 @@
 			</div>
 				
 			<div class="ranking_box"> <!-- 랭킹 박스 -->
-				
+				<c:forEach var="ranking" items="${rankingList}">
+					<div id="rankingView">
+						<div id="Rimg"><img src=""></div>
+						<div id="Property">
+							<div style="font-weight: bolder;">${ranking.RTname}</div>
+							<div>${ranking.RTintroduce}</div>
+							<div>${ranking.avg}</div>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
 			
 			<div class="box_title">

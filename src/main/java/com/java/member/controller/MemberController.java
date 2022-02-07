@@ -101,5 +101,17 @@ public class MemberController {
 		memberService.Updata(mav);
 		return mav;
 	}
+	@RequestMapping(value = "/bookmark/bookmarkAdd.do", method = RequestMethod.POST)
+	public ModelAndView bookmarkAdd(HttpServletRequest request, HttpServletResponse response) {	
+		ModelAndView mav = new ModelAndView();
+		memberService.bookmarkAdd(mav);
+		return mav;
+	}
+	@RequestMapping(value = "/bookmark/bookmarkDel.do", method = RequestMethod.POST)
+	public ModelAndView bookmarkDel(HttpServletRequest request, HttpServletResponse response) {	
+		ModelAndView mav = new ModelAndView();
+		memberService.bookmarkDel(mav);
+		return mav;
+	}
 	
 }

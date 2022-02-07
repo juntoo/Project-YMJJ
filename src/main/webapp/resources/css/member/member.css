@@ -64,6 +64,19 @@ width: 352.5px;
 height: 576px;
 float: left;
 }
+#BookmarkView {
+overflow: auto;
+float: left;
+height: 550px;
+width: 371.5px;
+}
+#BookmarkView > div{
+border: 1px black solid;
+float: left;
+width: 85px;
+height: 100px;
+margin: 15px;
+}
 #subtitle{
 position: relative;
 background-color: white;
