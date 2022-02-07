@@ -29,18 +29,18 @@ public class AboutjejuDaoImp implements AboutjejuDao {
 	@Override
 	public List<AboutjejuDto> Lread(String location) {
 		
-		return sqlSessionTemplate.selectOne("LRead",location);
+		return sqlSessionTemplate.selectList("LRead",location);
 	}
 
 	@Override
 	public List<AboutjejuDto> Sread(String speciality) {
 		
-		return sqlSessionTemplate.selectOne("SRead",speciality);
+		return sqlSessionTemplate.selectList("SRead",speciality);
 	}
 
 	@Override
 	public List<AboutjejuDto> Aread(String activites) {
 		
-		return sqlSessionTemplate.selectOne("ARead",activites);	
+		return sqlSessionTemplate.selectList("ARead",activites);	
 	}
 }

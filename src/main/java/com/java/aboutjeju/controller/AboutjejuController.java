@@ -61,7 +61,7 @@ public class AboutjejuController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/aboutjeju/activites.do", method = RequestMethod.GET)
+	@RequestMapping(value="/aboutjeju/activities.do", method = RequestMethod.GET)
 	public ModelAndView activitiesread(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("request",request);

@@ -97,7 +97,7 @@ public class ReviewServiceImp implements ReviewService {
 			long fileSize=upFile.getSize();
 			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
 			
-			File path=new File("C:\\Users\\Admin\\Documents\\k-move\\Spring\\workspace\\YMJJtest\\src\\main\\webapp\\resources\\img\\");
+			File path=new File("C:\\Users\\cksdn\\OneDrive\\바탕 화면\\Git\\pro\\src\\main\\webapp\\resources\\img");
 			path.mkdir();
 			LogAspect.logger.info(LogAspect.LogMsg + path);
 			LogAspect.logger.info(LogAspect.LogMsg + fileName);
@@ -236,6 +236,6 @@ public class ReviewServiceImp implements ReviewService {
 		
 		mav.addObject("RTlist",RTlist);
 		
-		mav.setViewName("community/RestaurantSearch.tiles");
+		mav.setViewName("community/RestaurantSearch.empty");
 	}
 }

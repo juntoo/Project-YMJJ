@@ -43,7 +43,7 @@ public class AboutjejuServiceImp implements AboutjejuService {
 			//String Icategory = "0";
 			LogAspect.logger.info(LogAspect.LogMsg+Iname+","+Isize); //출력됨
 			//File path = new File("C:\\pds\\");
-			File path = new File(request.getSession().getServletContext().getRealPath("/").concat("resources"));
+			File path = new File(request.getSession().getServletContext().getRealPath("/").concat("resources/img"));
 		    path.mkdir();
 			//String safeFile = path+System.currentTimeMillis()+Iname;
 			if(path.exists()&&path.isDirectory()) {
@@ -88,8 +88,6 @@ public class AboutjejuServiceImp implements AboutjejuService {
 	public void Lread(ModelAndView mav) {
 		
 		List<AboutjejuDto>Ilist = aboutjejuDao.Lread("location");
-
-		
 		LogAspect.logger.info(LogAspect.LogMsg+Ilist.size());
 		LogAspect.logger.info(LogAspect.LogMsg+Ilist.toString());
 		mav.addObject("Ilist",Ilist);
@@ -116,7 +114,6 @@ public class AboutjejuServiceImp implements AboutjejuService {
 		LogAspect.logger.info(LogAspect.LogMsg+Ilist.size());
 		LogAspect.logger.info(LogAspect.LogMsg+Ilist.toString());
 		mav.addObject("Ilist",Ilist);	
-		
 		
 		mav.setViewName("aboutjeju/activities.tiles");
 	}

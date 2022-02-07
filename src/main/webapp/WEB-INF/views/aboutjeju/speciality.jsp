@@ -29,25 +29,25 @@
                 	
                 		<!-- 왼쪽 사진 -->
                 		<div style="padding-top: 50px; margin-top: 20px;">
-                			<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[0].iname" onclick="btnClick(${Ilist}, 0)"/>
+                			<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[0].iname}" onclick="btnClick(${Ilist}, 0)"/>
                 			<a id="sectext" style="width:149px;height:30px;">${Ilist[0].LMtitle}</a>
                 		</div>
                 		
                 		<!-- 가운데 큰 사진 -->
                 		<div style="border : 0px black solid; width: 651px; height: 450px; padding: 10px; margin-top: 30px;">
-                			<img width="600px" height="400px" alt="" src="${root}/img/${Ilist[1].iname" onclick="btnClick(${Ilist}, 1)"/>
+                			<img width="600px" height="400px" alt="" src="${root}/img/${Ilist[1].iname}" onclick="btnClick(${Ilist}, 1)"/>
                 		</div>
                 		
                 		<!-- 오른쪽 사진 -->
                 		<div>
-                			<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[2].iname" onclick="btnClick(${Ilist}, 2)"/>
+                			<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[2].iname}" onclick="btnClick(${Ilist}, 2)"/>
                 			<a id="thtext" style="width:149px;height:30px;">${Ilist[2].LMtitle}</a>
                 		</div>
                 	</div>
                 	
                 	<!-- 맨 아래 사진 -->
                 	<div id="con2">	
-                		<img width="145px" height="145px" alt="" src="${root}/img/${Ilist[3].iname" onclick="btnClick(${Ilist}, 3)"/>
+                		<img width="145px" height="145px" alt="" src="${root}/img/${Ilist[3].iname}" onclick="btnClick(${Ilist}, 3)"/>
                 		<a id="fortext" style="width:149px;height:30px; margin-right: 10px;">${Ilist[3].LMtitle}</a>
                 	</div>
                 </div>

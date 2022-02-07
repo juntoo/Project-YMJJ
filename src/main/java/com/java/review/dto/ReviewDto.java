@@ -6,7 +6,7 @@ public class ReviewDto {
 	private String RVnumber;	//글번호
 	private String Writer;		//회원아이디
 	private String RTnumber;	//레스토랑 고유번호
-	private String RTname;
+	private String RTname  = "null";
 	
 	private String RVtitle;	//글제목
 	private String RVcontent;	//글내용

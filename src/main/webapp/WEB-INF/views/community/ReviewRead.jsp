@@ -14,7 +14,7 @@
 	function delFun(root, RVnumber, pageNumber){
 		var url=root + "/community/ReviewDelete.do?RVnumber=" + RVnumber + "&pageNumber=" + pageNumber;
 		
-		location.href=url;
+		window.open(url, "", "width=500, height=500");
 	}
 	
 	function upFun(root, RVnumber, pageNumber){

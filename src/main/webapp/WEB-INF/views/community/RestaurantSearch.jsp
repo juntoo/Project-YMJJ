@@ -6,7 +6,6 @@
 <html>
 <script type="text/javascript">
 	function sendAddress(RTnumber, RTname){
-		
 		opener.reviewForm.RTnumber.value=RTnumber;
 		opener.reviewForm.RTname.value=RTname;
 		self.close();

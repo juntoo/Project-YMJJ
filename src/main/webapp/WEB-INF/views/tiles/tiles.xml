@@ -19,7 +19,7 @@
 	</definition>
 	
 	<!--  템플릿 제외 -->
-	<definition name="empty" template="/WEB-INF/views/template/empty.jsp">
+	<definition name="empty" template="/WEB-INF/views/other/empty.jsp">
 		<put-attribute name="content" value=""/>
 	</definition>
 	
@@ -32,5 +32,4 @@
 	<definition name="*/*/*.empty" extends="layout">
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
 	</definition>
-	
 </tiles-definitions>

@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 	function RTsearch(root){
-		var url=root+"/community/RestaurantSearch.do";
+		var url=root+"/community/RestaurantSearch.do?RTname=0";
 		//alert(url);
 		
 			window.open(url, "", "width=500, height=500");
