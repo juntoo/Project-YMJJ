@@ -14,16 +14,19 @@
     box-sizing: border-box; 
 }
 #header{
-    border: 1px black solid;
+    border: 0px black solid;
     width: 1920px;
     height: 70px;
+    background-color: #CFCFCF;
+    color: #3A3A3A;
 }
 #logo{
-    border: 1px black solid;
+    border: 0px black solid;
     width: 200px;
     height: 70px;
     margin-left: 40px;
     float: left;
+    overflow:hidden;
 }
 #menuBar{
     position: absolute;
@@ -32,7 +35,7 @@
     margin-left: 300px;
 }
 #menu{
-    border: 1px black solid;
+    border: 0px black solid;
     height: 70px;
     width: 170px;
     float: left;
@@ -40,6 +43,8 @@
     line-height: 70px;
     text-align: center;
     margin-left: 80px;
+    font-weight: bolder;
+    opacity: 0.6;
 }
 #but{
     float: right;
@@ -49,15 +54,23 @@
     font-size: 17px;
     margin-right: 40px;
 }
+.logo1{
+	width: 150px;
+    height: 70px;
+    object-fit:cover;
+    margin-left: 25px;
+}
 </style>
 </head>
 <body>
     <div id="header">
-        <div id="logo" onclick="location.href='${root}'">logo</div>
+        <div id="logo" onclick="location.href='${root}'">
+        	<img class="logo1" src="${root}/resources/img/logo.jfif">
+        </div>
         <div id="menuBar">
             <div id="menu" onclick="location.href='${root}/aboutjeju/introduction.do'">About JEJU</div>
             <div id="menu" onclick="location.href='${root}/restaurant/main.do'">Restaurant</div>
-            <div id="menu" onclick="location.href='${root}/community/ReviewList.do'">Community</div>
+            <div id="menu" onclick="location.href='${root}/community/Notice3.do'">Community</div>
             <div id="menu" onclick="location.href='${root}/other/map.do'">Map</div>
             <div id="menu" onclick="location.href='${root}/other/today.do'">Today</div>
         </div>
