@@ -38,8 +38,8 @@
 
         <div id="btn_type">
             <input type="button" onclick="location.href='${root}/restaurant/write.do'" value="추가"/>
-			<input type="button" onclick="location.href='${root}/restaurant/update.do?RTnumber=${RTnumber}'" value="수정"/>
-            <input type="button" value="삭제"/>
+			<input type="button" onclick="location.href='${root}/restaurant/Restaurant_Update.do'" value="수정"/>
+            <input type="button" onclick="location.href='${root}/restaurant/Restaurantdelete.do?restaurantDto=${restaurantDto}'"value="삭제"/>
         </div>
 
         <div id="subject">
@@ -59,9 +59,50 @@
 
                     <div id="review_title">Review</div>
 
-                    <div id="teduri"></div>
-                    <div id="teduri"></div>
-                    <div id="teduri"></div>
+                    <div id="comment_list_box" style="overflow: auto;">
+                   
+                   		<c:forEach var="commentsDto" items="${commentsList}">
+                   			
+                   			<div id="comment_list">
+
+                            <div style="overflow: hidden;">
+                                <strong style="float: left; margin-top: 2px; margin-left: 10px; margin-bottom: 2px; font-size: 13px;">이름</strong>
+                                <div style="font-size: 13px; float: left; margin-top: 2px; margin-left: 20px;">별점</div>
+                            </div>
+                            
+                            <div style="float: left; overflow: hidden; font-size: 13px; margin-left: 10px;">내용</div>
+
+                        	</div>
+                   			
+                        </c:forEach>
+                    </div>
+                    
+                    <form id="comment"
+                    	  action="${root}/comments/writeOk.do?root=${root}"  
+						  method="post"
+						  enctype="multipart/form-data">
+                        <div id="regi_comment">
+                            <strong name="id">${Mid}</strong>
+                            <input type="hidden" name="Mid" value="${Mid}"/>
+                            <input type="hidden" name="RTnumber" value="${restaurantDto.RTnumber}"/>
+
+                            <select name="CMliked" style="float: left; margin-top: 2px; margin-left: 20px; border: 0px;">
+                                <option>별점</option>
+                                <option value="1">★☆☆☆☆</option>
+                                <option value="2">★★☆☆☆</option>
+                                <option value="3">★★★☆☆</option>
+                                <option value="4">★★★★☆</option>
+                                <option value="5">★★★★★</option>
+                            </select>
+                            <textarea cols="43" name="CMcontent" rows="1" placeholder="댓글을 남겨보세요"></textarea>
+                        </div>
+
+                        <div id="btn_comment">
+                            <a href="#" type="submit" role="button" id="is_action">등록</a>
+                            <input type="submit" value="확인"/>
+                        </div>
+                        
+                    </form>
 
                 </div>
 
@@ -77,9 +118,11 @@
 	                	};
 	                	//지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 	                	var map = new kakao.maps.Map(mapContainer, mapOption); 
+	                	map.setDraggable(false);
+	                	map.setZoomable(false);
                 </script>
                 <c:if test="${Count != 0}">
-                <c:forEach var="restaurantDto" items="${restaurantMapList}">
+  
                 	<script>
                 		//alert(${Count});
                 		var lat = parseFloat(${restaurantDto.RTlatitude});
@@ -101,7 +144,7 @@
                 			          '        </div>' + 
                 			          '        <div class="body">' + 
                 			          '            <div class="img">' +
-                			          '                <img src="${root}/resources/img/고양이.jfif" width="73" height="70">' +
+                			          '                <img src="${root}/resources/img/${restaurantDto.RTIname}" width="73" height="70">' +
                 			          '           </div>' + 
                 			          '            <div class="desc">' + 
                 			          '                <div class="ellipsis">${restaurantDto.RTintroduce}</div>' + 
@@ -125,7 +168,6 @@
                 		});
                 		closeOverlay(overlay${restaurantDto.RTnumber});
 	                </script>
-                </c:forEach>
                 </c:if>
 
 			</div>

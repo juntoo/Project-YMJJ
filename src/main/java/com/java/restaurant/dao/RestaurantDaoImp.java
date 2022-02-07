@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.java.aop.LogAspect;
+import com.java.comments.dto.CommentsDto;
 import com.java.img.dto.ImgDto;
 import com.java.restaurant.dto.RestaurnatDto;
 
@@ -51,17 +52,62 @@ public class RestaurantDaoImp implements RestaurantDao {
 		
 		restaurnatDto=sqlSessionTemplate.selectOne("boardRead", RTnumber);
 		
-		restaurantMapList(RTnumber);
-		
 		return restaurnatDto;
 	}
 	
+	
 	@Override
-	public List<RestaurnatDto> restaurantMapList(String RTnumber){
-		return sqlSessionTemplate.selectList("boardRead",RTnumber);
-		
+	public int restaurantDeleteOk(String RTnumber) {
+		return sqlSessionTemplate.delete("boardDelete", RTnumber);
 	}
+	    
+	@Override
+    public int restaurantUpdateOk(RestaurnatDto restaurnatDto) {
+    	return sqlSessionTemplate.update("boardUpdate", restaurnatDto);
+    }
     
+    @Override
+    public RestaurnatDto restaurantUpdateSelect(String RTnumber) {
+    	return sqlSessionTemplate.selectOne("boardRead", RTnumber);
+    }
+    
+    @Override
+    public int update(RestaurnatDto restaurnatDto) {
+    	// TODO Auto-generated method stub
+    	return 0;
+    }    
+    
+	
+	// 코멘츠
+	
+	@Override
+	public int commentsWriteOk(CommentsDto comentsDto) {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.insert("commentsInsert", comentsDto);
+	}
+	
+	
+
+	@Override
+	public int commentsGetCount() {
+		// TODO Auto-generated method stub
+		return sqlSessionTemplate.selectOne("commentsCount");
+	}
+
+	@Override
+	public List<CommentsDto> commentList(int startRow, int endRow, String RTnumber) {
+		// TODO Auto-generated method stub
+		
+		HashMap<String, Object> hMap=new HashMap<String, Object>();
+		hMap.put("startRow", startRow);
+		hMap.put("endRow", endRow);
+		hMap.put("RTnumber", RTnumber);
+		
+		return sqlSessionTemplate.selectList("commentsList", hMap);
+	}
+	
+
+	
     
 	
 

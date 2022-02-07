@@ -11,8 +11,8 @@ public class RestaurnatDto {
 	private String RTcallnumber1;
 	private String RTcallnumber2;
 	private String RTcallnumber3;
-	private String RTlatitude = "null";
-	private String RTlongitude = "null";
+	private String RTlatitude;
+	private String RTlongitude;
 	private String RTintroduce;
 	private int RTcount;
 	

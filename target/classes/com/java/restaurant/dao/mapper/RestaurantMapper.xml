@@ -33,7 +33,17 @@
   
   <update id="boardReadCount"  parameterType="String" >
   		UPDATE restaurant SET RTcount=RTcount+1 WHERE RTnumber=#{RTnumber}
-  </update>	
+  </update>
+  
+   <update id="boardupdate" parameterType="com.java.restaurant.dto.RestaurnatDto">
+  		UPDATE restaurant SET email=#{email}, subject=#{subject}, content=#{content},file_name=#{fileName},path=#{path},file_size=#{fileSize} 
+  		WHERE RTnumber=#{RTnumber}
+  </update>
+  
+  <delete id="boardDelete" parameterType="String">
+  		DELETE FROM restaurant 
+  		WHERE RTnumber=#{RTnumber}
+  </delete>	
   
   	<!--
   	<select id="boardCount" resultType="int">

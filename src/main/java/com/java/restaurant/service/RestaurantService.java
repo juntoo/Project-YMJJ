@@ -12,6 +12,18 @@ public interface RestaurantService {
 	
 	public void restaurantRead(ModelAndView mav);
 	
+	public void restaurantUpdate(ModelAndView mav);
+	
+	public void restaurantUpdateOk(ModelAndView mav);
+	
+	public void restaurantDeleteOk(ModelAndView mav);
+
+	public void restaurantDelete(ModelAndView mav);
+	
+	public void commentsWriteOk(ModelAndView mav);
+	
+	public void commentsViewList(ModelAndView mav, String RTnumber);
+	
 	//public void ImgWrite(ModelAndView mav);
 
 }
