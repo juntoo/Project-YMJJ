@@ -119,7 +119,9 @@
 
                 </div>
                 
-                     
+                <input type="hidden" id="x" name="RTlongitude"/>
+                <input type="hidden" id="y" name="RTlatitude"/>
+                
             </form>
 
         </div>

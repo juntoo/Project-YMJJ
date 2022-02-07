@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.java.aop.LogAspect;
+import com.java.comments.dto.CommentsDto;
 import com.java.img.dto.ImgDto;
 import com.java.member.dto.MemberDto;
 import com.java.restaurant.dao.RestaurantDao;
@@ -96,7 +97,7 @@ public class RestaurantServiceImp implements RestaurantService {
 			long fileSize=upFile.getSize();
 			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
 			
-			File path=new File(request.getSession().getServletContext().getRealPath("/").concat("resources"));
+			File path=new File(request.getSession().getServletContext().getRealPath("/").concat("resources/img"));
 			//C:\\pds\\
 			path.mkdir();
 			
@@ -171,15 +172,20 @@ public class RestaurantServiceImp implements RestaurantService {
 	public void restaurantRead(ModelAndView mav) {
 		// TODO Auto-generated method stub
 		
+		int CMnumber = 0;
+		
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
 		String RTnumber=request.getParameter("RTnumber");
 		String pageNumber=request.getParameter("pageNumber");
+		
+		System.out.println("레스토랑"+RTnumber + "," + pageNumber);
 		LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
 		
 		RestaurnatDto restaurnatDto = restaurantDao.restaurantRead(RTnumber);
 		LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
+		
 		
 		if(restaurnatDto.getRTIsize() !=0) {
 			
@@ -188,15 +194,198 @@ public class RestaurantServiceImp implements RestaurantService {
 			
 		}
 		
-		List<RestaurnatDto> restaurantMapList=restaurantDao.restaurantMapList(RTnumber);
+		if(request.getParameter("CMnumber") !=null) {   
+			CMnumber=Integer.parseInt(request.getParameter("CMnumber"));
+			
+		}
+		
+		
 		
 		mav.addObject("restaurantDto", restaurnatDto);
-		mav.addObject("restaurantMapList", restaurantMapList);
 		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("CMnumber", CMnumber);
+		mav.addObject("RTnumber", RTnumber);
 		
-		mav.setViewName("restaurant/Restaurant_Introduction.tiles");
+
+		commentsViewList(mav, RTnumber);
+		
+		
 		
 	}
+	
+	@Override
+	  public void restaurantUpdate(ModelAndView mav) {
+	    Map<String, Object> map = mav.getModelMap();
+	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+
+	    String RTnumber=request.getParameter("RTnumber");
+	    String pageNumber=request.getParameter("pageNumber");
+	    LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
+
+	    RestaurnatDto restaurnatDto = restaurantDao.restaurantUpdateSelect(RTnumber);
+
+	    if (restaurnatDto.getRTIname() != null) {
+	      int index = restaurnatDto.getRTIname().indexOf("_") + 1;
+	      restaurnatDto.setRTIname(restaurnatDto.getRTIname().substring(index));
+	    }
+
+	    LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
+
+	    mav.addObject("restaurnatDto", restaurnatDto);
+	    mav.addObject("pageNumber", pageNumber);
+
+	    mav.setViewName("restaurant/Restaurant_Update.tiles");
+
+	  }
+
+	  @Override
+	  public void restaurantUpdateOk(ModelAndView mav) {
+	    Map<String, Object> map = mav.getModelMap();
+	    MultipartHttpServletRequest request = (MultipartHttpServletRequest) map.get("request");
+	    RestaurnatDto restaurnatDto = (RestaurnatDto) map.get("restaurnatDto");
+
+	    String pageNumber=request.getParameter("pageNumber");
+
+	    MultipartFile upFile = request.getFile("file");
+	    if (upFile.getSize() != 0) {
+	      String fileName = Long.toString(System.currentTimeMillis()) + "_" + upFile.getOriginalFilename();
+	      long fileSize = upFile.getSize();
+	      LogAspect.logger.info(LogAspect.LogMsg + fileName + "," + fileSize);
+
+	      File path = new File("D:\\pds\\");
+	      path.mkdir();
+
+	      if (path.exists() && path.isDirectory()) {
+	        File file = new File(path, fileName);
+	        try {
+	          upFile.transferTo(file);
+
+	          restaurnatDto.setRTIpath(file.getAbsolutePath());
+	          restaurnatDto.setRTIname(fileName);
+	          restaurnatDto.setRTIsize(fileSize);
+	        } catch (Exception e) {
+	          e.printStackTrace();
+	        }
+
+	        RestaurnatDto readBoard = restaurantDao.restaurantUpdateSelect(restaurnatDto.getRTnumber());
+	        if (readBoard.getRTIname() != null) {
+	          File checkFile = new File(readBoard.getRTIpath());
+	          if (checkFile.exists() && checkFile.isFile())
+	            checkFile.delete();
+	        }
+	      }
+	    }
+
+	    int check = restaurantDao.update(restaurnatDto);
+	    LogAspect.logger.info(LogAspect.LogMsg + check);
+
+	    mav.addObject("check", check);
+	    mav.addObject("pageNumber", pageNumber);
+	    mav.setViewName("restaurant/updateOk.tiles");
+	  }
+	  
+		@Override
+		public void restaurantDelete(ModelAndView mav) {
+			Map<String, Object> map = mav.getModelMap();
+		    HttpServletRequest request = (HttpServletRequest) map.get("request");
+		    
+		   // RestaurnatDto restaurnatDto=(RestaurnatDto) request.getParameter("restaurnatDto");
+		    
+		    
+		    System.out.println("정보" + restaurnatDto.getRTnumber());
+		    mav.addObject("restaurnatDto", restaurnatDto);
+		    mav.addObject("RTnumber", restaurnatDto.getRTnumber());
+		    mav.addObject("pageNumber", request.getParameter("pageNumber"));
+		    
+		    mav.setViewName("restaurant/Restaurantdelete.tiles");
+		}
+
+	  @Override
+	  public void restaurantDeleteOk(ModelAndView mav) {
+	    Map<String, Object> map = mav.getModelMap();
+	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+	    
+	    RestaurnatDto restaurnatDto=(RestaurnatDto) map.get("restaurnatDto");
+
+	    String RTnumber=request.getParameter("RTnumber");
+	    String pageNumber=request.getParameter("pageNumber");
+	    LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
+
+	    System.out.println(RTnumber);
+	    
+	    int check = restaurantDao.restaurantDeleteOk(RTnumber);
+	    LogAspect.logger.info(LogAspect.LogMsg + check);
+
+	    if (check > 0 && restaurnatDto.getRTIpath() != null) {
+	      File file = new File(restaurnatDto.getRTIpath());
+	      if (file.exists() && file.isFile())
+	        file.delete();
+	    }
+
+	    mav.addObject("check", check);
+	    mav.addObject("pageNumber", pageNumber);
+	    mav.setViewName("restaurant/RestaurantdeleteOk.tiles");
+	  }
+	
+	@Override
+	public void commentsWriteOk(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		
+		Map<String, Object> map = mav.getModelMap();
+		CommentsDto commentsDto = (CommentsDto) map.get("commentsDto");
+		LogAspect.logger.info(LogAspect.LogMsg + commentsDto.toString());
+
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		String RTnumber=request.getParameter("RTnumber");
+		String pageNumber=request.getParameter("pageNumber");
+		
+		int check = restaurantDao.commentsWriteOk(commentsDto);
+		LogAspect.logger.info(LogAspect.LogMsg + check);
+
+		LogAspect.logger.info(LogAspect.LogMsg + commentsDto.toString());
+		mav.addObject("check", check);
+		restaurantRead(mav);
+	
+		mav.setViewName("comments/writeOk.tiles");
+		
+	}
+
+	@Override
+	public void commentsViewList(ModelAndView mav, String RTnumber) {
+		// TODO Auto-generated method stub
+		
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		
+		String pageNumber=request.getParameter("pageNumber");
+		if(pageNumber == null) pageNumber="1";
+		
+		int currentPage=Integer.parseInt(pageNumber);
+        LogAspect.logger.info(LogAspect.LogMsg + currentPage);
+        
+        int boardSize=5;
+		int startRow=(currentPage-1)*boardSize+1;			
+		int endRow=currentPage*boardSize;
+		
+		int count=restaurantDao.commentsGetCount();
+		
+		List<CommentsDto> commentsDtoList=null;
+		if(count > 0) {
+			commentsDtoList=restaurantDao.commentList(startRow, endRow, RTnumber);
+		}
+		LogAspect.logger.info(LogAspect.LogMsg + commentsDtoList.size());
+		
+		mav.addObject("commentsList", commentsDtoList);
+		mav.addObject("boardSize", boardSize);
+		mav.addObject("currentPage", currentPage);
+		
+		mav.setViewName("restaurant/Restaurant_Introduction.tiles");
+	
+	} 
+	
+	
+	
+	
 	
 	
 	
