@@ -54,15 +54,30 @@
   	<select id="selectRestaurnatList" parameterType="String" resultType="com.java.restaurant.dto.RestaurnatDto">
   	SELECT * FROM Restaurant WHERE RTname = #{RTname}
   	</select>
+  	
+  	
+  	
+  	
+  	
   	<insert id="markinsert" parameterType="java.util.HashMap">
-  	INSERT INTO BOOKMARK VALUES(BOOKMARK_Bnumber_seq.nextval,#{Mid},#{RTnumber})
+  	INSERT INTO BOOKMARK VALUES(BOOKMARK_Bnumber_seq.nextval,#{mid},#{rTnumber})
   	</insert>
+  	
+
+  	<select id="selectbook" parameterType="java.util.HashMap" resultType="int">
+  		SELECT COUNT(*) FROM BOOKMARK WHERE Mid = #{Mid} AND RTnumber = #{RTnumber}
+  	</select>
+  	
   	<delete id="markdelete" parameterType="java.util.HashMap">
   	DELETE FROM BOOKMARK WHERE Mid = #{Mid} AND RTnumber = #{RTnumber}
   	</delete>
+  	
+  	
   	<select id="getBook" parameterType="String" resultType="com.java.member.dto.BookmarkDto">
   	SELECT b.Bnumber, b.Mid, r.RTnumber FROM BOOKMARK b, Restaurant r WHERE Mid = #{Mid} AND b.RTnumber = r.RTnumber
   	</select>
+  	
+  	
   	<select id="getRanking" resultType="com.java.member.dto.RankingDto">
   	SELECT a.*, r.RTname, r.RTintroduce, r.RTIname FROM (SELECT RTnumber, ROUND( AVG(CMliked),1 )  AS Avg FROM Comments GROUP BY RTnumber ORDER BY AVG(CMliked) DESC) a, restaurant r WHERE a.RTnumber = r.RTnumber
   	</select>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.java.comments.dto.CommentsDto;
 import com.java.img.dto.ImgDto;
+import com.java.member.dto.BookmarkDto;
 import com.java.restaurant.dto.RestaurnatDto;
 
 public interface RestaurantDao {
@@ -38,6 +39,14 @@ public interface RestaurantDao {
 	public int update(RestaurnatDto restaurnatDto);
 
 	public int Update2(RestaurnatDto restaurnatDto);
+	
+	// 북마크
+
+	public int bookMarkCheck(String rTnumber, String mid);
+	
+	public int bookMarkSelect(String Mid, String RTnumber);
+	
+	public int bookMarkDeleteOk(String Mid, String RTnumber);
 	
 	
 	//public int imgWriteOk(ImgDto imgDto);

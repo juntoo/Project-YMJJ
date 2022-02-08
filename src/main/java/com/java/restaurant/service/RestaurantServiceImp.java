@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.java.aop.LogAspect;
 import com.java.comments.dto.CommentsDto;
+import com.java.member.dto.BookmarkDto;
 import com.java.restaurant.dao.RestaurantDao;
 import com.java.restaurant.dto.RestaurnatDto;
 
@@ -171,21 +172,38 @@ public class RestaurantServiceImp implements RestaurantService {
 	public void restaurantRead(ModelAndView mav) {
 		// TODO Auto-generated method stub
 		int CMnumber = 0;
+	
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		
 		String RTnumber=request.getParameter("RTnumber");
 		String pageNumber=request.getParameter("pageNumber");
+		String Mid=request.getParameter("Mid");
+		int check = 0;
+		if(Mid != null) {
+			check = restaurantDao.bookMarkSelect(Mid, RTnumber);
+			LogAspect.logger.info(LogAspect.LogMsg + "dasdasdas"+check);
+			if(check > 0) {
+				check = 2;
+			}
+			if(check == 0) {
+				check = 1;
+			}
+		}
+//		
+//		if(Bunmber != 0) {
+//			Bunmber=Integer.parseInt(request.getParameter("Bunmber"));
+//		}
 		
-		System.out.println("레스토랑"+RTnumber + "," + pageNumber);
+		
 		LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
 		
 		RestaurnatDto restaurnatDto = restaurantDao.restaurantRead(RTnumber);
 		LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
 		
 		if(request.getParameter("CMnumber") !=null) {   
-			CMnumber=Integer.parseInt(request.getParameter("CMnumber"));	
-		}
+			CMnumber=Integer.parseInt(request.getParameter("CMnumber"));
+		} 
+		 
 		int currentPage=Integer.parseInt(pageNumber);
         
         int boardSize=5;
@@ -199,6 +217,7 @@ public class RestaurantServiceImp implements RestaurantService {
 			commentsDtoList=restaurantDao.commentList(startRow, endRow, RTnumber);
 		}
 		
+		//mav.addObject("check", check);
 		mav.addObject("commentsList", commentsDtoList);
 		mav.addObject("boardSize", boardSize);
 		mav.addObject("currentPage", currentPage);
@@ -206,9 +225,82 @@ public class RestaurantServiceImp implements RestaurantService {
 		mav.addObject("pageNumber", pageNumber);
 		mav.addObject("CMnumber", CMnumber);
 		mav.addObject("RTnumber", RTnumber);
+		mav.addObject("check", check);
+		
 		
 		mav.setViewName("restaurant/Restaurant_Introduction.tiles");
 	}
+	
+	@Override
+	public void bookmarkDeleteOk(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		
+		Map<String, Object> map = mav.getModelMap();
+	    HttpServletRequest request = (HttpServletRequest) map.get("request");
+	    
+	    String RTnumber=request.getParameter("RTnumber");
+		String Mid=request.getParameter("Mid");
+		String pageNumber=request.getParameter("pageNumber");
+		
+	    int check = restaurantDao.bookMarkDeleteOk(Mid, RTnumber);
+	    LogAspect.logger.info(LogAspect.LogMsg +"제거" + check);
+
+	    mav.addObject("check", check);
+	    mav.addObject("RTnumber", RTnumber);
+	    mav.addObject("Mid", Mid);
+	    mav.addObject("pageNumber", pageNumber);
+	  
+	    mav.setViewName("bookmark/bookmarkdeleteOk.tiles");
+		
+		
+	}
+	
+	
+	@Override
+	public void bookmarkOk(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		String RTnumber=request.getParameter("RTnumber");
+		String Mid=request.getParameter("Mid");
+		String pageNumber=request.getParameter("pageNumber");
+		int check = restaurantDao.bookMarkCheck(RTnumber,Mid);
+		LogAspect.logger.info(LogAspect.LogMsg + "RTnumber : " + RTnumber + "Mid : " + Mid);
+		
+		mav.addObject("check", check);
+	    mav.addObject("pageNumber", pageNumber);
+	    mav.addObject("RTnumber", RTnumber);
+		
+		mav.setViewName("bookmark/writeOk.tiles");
+
+		
+	}
+	
+	@Override
+	public void commentsWriteOk(ModelAndView mav) {
+		// TODO Auto-generated method stub
+		
+		Map<String, Object> map = mav.getModelMap();
+		CommentsDto commentsDto = (CommentsDto) map.get("commentsDto");
+		LogAspect.logger.info(LogAspect.LogMsg + commentsDto.toString());
+
+		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		String RTnumber=request.getParameter("RTnumber");
+		String pageNumber=request.getParameter("pageNumber");
+		
+		int check = restaurantDao.commentsWriteOk(commentsDto);
+		LogAspect.logger.info(LogAspect.LogMsg + check);
+
+		LogAspect.logger.info(LogAspect.LogMsg + commentsDto.toString());
+		mav.addObject("check", check);
+		restaurantRead(mav);
+	
+		mav.setViewName("comments/writeOk.tiles");
+		
+	}
+	
+	
+
 	@Override
 	  public void restaurantUpdate(ModelAndView mav) {
 	    Map<String, Object> map = mav.getModelMap();
@@ -314,28 +406,11 @@ public class RestaurantServiceImp implements RestaurantService {
 	    mav.setViewName("restaurant/RestaurantdeleteOk.tiles");
 	  }
 	
-	@Override
-	public void commentsWriteOk(ModelAndView mav) {
-		// TODO Auto-generated method stub
-		
-		Map<String, Object> map = mav.getModelMap();
-		CommentsDto commentsDto = (CommentsDto) map.get("commentsDto");
-		LogAspect.logger.info(LogAspect.LogMsg + commentsDto.toString());
 
-		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		String RTnumber=request.getParameter("RTnumber");
-		String pageNumber=request.getParameter("pageNumber");
-		
-		int check = restaurantDao.commentsWriteOk(commentsDto);
-		LogAspect.logger.info(LogAspect.LogMsg + check);
 
-		LogAspect.logger.info(LogAspect.LogMsg + commentsDto.toString());
-		mav.addObject("check", check);
-		restaurantRead(mav);
 	
-		mav.setViewName("comments/writeOk.tiles");
-		
-	}
+	
+	
 
 	
 // imgDto 사용할때 이코드

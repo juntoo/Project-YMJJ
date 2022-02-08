@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.java.comments.dto.CommentsDto;
 import com.java.img.dto.ImgDto;
+import com.java.member.dto.BookmarkDto;
 import com.java.member.dto.MemberDto;
 import com.java.restaurant.dto.RestaurnatDto;
 import com.java.restaurant.service.RestaurantService;
@@ -102,6 +103,30 @@ public class RestaurantController {
 		restaurantService.commentsWriteOk(mav);
 		return mav;
 		
+	}
+	
+	@RequestMapping(value="/bookmark/writeOk.do", method=RequestMethod.GET)
+	public ModelAndView bookmarkWriteOk(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		restaurantService.bookmarkOk(mav);
+		return mav;
+		
+	}
+	
+	@RequestMapping(value ="/bookmark/bookmarkdeleteOk.do", method = RequestMethod.GET)
+	public ModelAndView bookmarkDeleteOk(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		restaurantService.bookmarkDeleteOk(mav);
+		return mav;
+	}
+	
+	
+	@RequestMapping(value="/restaurant/Restaurant_Update.do", method = RequestMethod.GET)
+	public ModelAndView restaurantUpdate(HttpServletRequest request,HttpServletResponse response) {
+		return new ModelAndView("restaurant/Restaurant_Update.tiles");
 	}
 	
 	@RequestMapping(value = "/restaurant/RestaurantupdateOk.do", method = RequestMethod.POST)

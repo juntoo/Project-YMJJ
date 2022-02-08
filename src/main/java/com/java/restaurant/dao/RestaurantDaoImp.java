@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.java.aop.LogAspect;
 import com.java.comments.dto.CommentsDto;
+import com.java.member.dto.BookmarkDto;
 import com.java.restaurant.dto.RestaurnatDto;
 
 @Component
@@ -134,16 +135,37 @@ public class RestaurantDaoImp implements RestaurantDao {
 	public int Update2(RestaurnatDto restaurnatDto) {
     	return sqlSessionTemplate.update("restaurantUpdate2", restaurnatDto);
 	}
-    
-	
 
-//	@Override
-//	public int imgWriteOk(ImgDto imgDto) {
-//		// TODO Auto-generated method stub
-//		
-//		return sqlSessionTemplate.insert("insert", imgDto);
-//	}
+
 	
+	// 북마크
 	
-	
+	@Override
+	public int bookMarkCheck(String rTnumber, String mid) {
+		HashMap<String, Object> hMap=new HashMap<String, Object>();
+		hMap.put("rTnumber", rTnumber);
+		hMap.put("mid", mid);
+		return sqlSessionTemplate.insert("markinsert", hMap);
+	}
+
+	@Override
+	public int bookMarkDeleteOk(String Mid, String RTnumber) {
+		// TODO Auto-generated method stub
+		HashMap<String, Object> hMap=new HashMap<String, Object>();
+		hMap.put("RTnumber", RTnumber);
+		hMap.put("Mid", Mid);
+		
+		return sqlSessionTemplate.delete("markdelete", hMap);
+	}
+
+	@Override
+	public int bookMarkSelect(String Mid, String RTnumber) {
+		HashMap<String, Object> hMap=new HashMap<String, Object>();
+		hMap.put("RTnumber", RTnumber);
+		hMap.put("Mid", Mid);
+		int check = sqlSessionTemplate.selectOne("selectbook", hMap);
+		LogAspect.logger.info(LogAspect.LogMsg + check);
+		return check;
+	}
+
 }

@@ -21,6 +21,10 @@ public interface RestaurantService {
 	public void restaurantDelete(ModelAndView mav);
 	
 	public void commentsWriteOk(ModelAndView mav);
+	
+	public void bookmarkOk(ModelAndView mav);
+	
+	public void bookmarkDeleteOk(ModelAndView mav);
 
 	
 	//public void ImgWrite(ModelAndView mav);

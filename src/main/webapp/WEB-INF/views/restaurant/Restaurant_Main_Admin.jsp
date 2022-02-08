@@ -45,7 +45,7 @@
 	<div style="font-size: 17px;" id="list">
 		<c:forEach var="restaurantDto" items="${restaurantList}">
 	         <li style="width: 340px; height: 200px; margin-left: 40px; ">
-	            <a href="${root}/restaurant/introduction.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${currengPage}">
+	            <a href="${root}/restaurant/introduction.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${currengPage}&Mid=${Mid}">
 	            	<div><img alt="pictures" src="${root}/resources/img/${restaurantDto.RTIname}"></div>
 	            	<div style="text-align: center; font-weight: bold;">${restaurantDto.RTname}</div>
 	            </a>
