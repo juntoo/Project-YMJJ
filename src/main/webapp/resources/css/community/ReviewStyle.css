@@ -54,6 +54,13 @@ font-weight: bolder;
 	height: 50px;
 }
 
+#viewDate{
+	font-weight: bold; 
+	float: left; 
+	line-height: 50px; 
+	margin-left: 15px;
+}
+
 #viewcount {
 	float: left;
 	margin-left: 20px;
