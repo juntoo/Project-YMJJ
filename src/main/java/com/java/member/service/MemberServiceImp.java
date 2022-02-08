@@ -44,7 +44,7 @@ public class MemberServiceImp implements MemberService {
 		
 		mav.addObject("Mid", Mid);
 		mav.addObject("check", check);
-		mav.setViewName("member/ID_Check.empt");
+		mav.setViewName("member/ID_Check.empty");
 	}
 	@Override
 	public void memberLoginOk(ModelAndView mav) {

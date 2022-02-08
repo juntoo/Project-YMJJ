@@ -78,15 +78,12 @@ public class RestaurantController {
 	
 	@RequestMapping(value="/comments/writeOk.do", method=RequestMethod.POST)
 	public ModelAndView commentsboardWriteOk(HttpServletRequest request, HttpServletResponse response, CommentsDto commentsDto) {
-		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("request", request);
 		mav.addObject("commentsDto", commentsDto);
-		//mav.addObject("restaurnatDto", restaurnatDto);
 		
 		System.out.println(commentsDto.toString());
 		
-		//commentsService.commentsWriteOk(mav);
 		restaurantService.commentsWriteOk(mav);
 		return mav;
 		

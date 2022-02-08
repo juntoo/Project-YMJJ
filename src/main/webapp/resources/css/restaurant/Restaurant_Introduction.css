@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 body{
-    width: 1200px;
     margin: 0px auto;
     border: 0px solid black;
     overflow: hidden;
@@ -120,6 +119,12 @@ body > #content{
 #content > #subject > #nav > #review > #comment_list_box{
     border: 0px solid red;
     height: 115px;
+    width: 370px;
+    -ms-overflow-style: none;
+}
+
+#comment_list_box::-webkit-scrollbar{
+	 display:none;
 }
 
 #content > #subject > #nav > #review > #comment_list_box > #comment_list{

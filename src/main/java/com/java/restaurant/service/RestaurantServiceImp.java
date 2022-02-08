@@ -130,8 +130,6 @@ public class RestaurantServiceImp implements RestaurantService {
     public void restaurantList(ModelAndView mav) {
         // TODO Auto-generated method stub
 		
-	
-
         Map<String, Object> map=mav.getModel();
         HttpServletRequest request=(HttpServletRequest) map.get("request");
 
@@ -167,9 +165,7 @@ public class RestaurantServiceImp implements RestaurantService {
 	@Override
 	public void restaurantRead(ModelAndView mav) {
 		// TODO Auto-generated method stub
-		
 		int CMnumber = 0;
-		
 		Map<String, Object> map=mav.getModelMap();
 		HttpServletRequest request=(HttpServletRequest) map.get("request");
 		
@@ -187,35 +183,12 @@ public class RestaurantServiceImp implements RestaurantService {
 			
 			int index=restaurnatDto.getRTIname().indexOf("_") +1;
 			restaurnatDto.setRTIname(restaurnatDto.getRTIname().substring(index));
-			
 		}
 		
 		if(request.getParameter("CMnumber") !=null) {   
-			CMnumber=Integer.parseInt(request.getParameter("CMnumber"));
-			
+			CMnumber=Integer.parseInt(request.getParameter("CMnumber"));	
 		}
-		
-		
-		
-		mav.addObject("restaurantDto", restaurnatDto);
-		mav.addObject("pageNumber", pageNumber);
-		mav.addObject("CMnumber", CMnumber);
-		mav.addObject("RTnumber", RTnumber);
-		
-
-		commentsViewList(mav, RTnumber);
-	}
-	@Override
-	public void commentsViewList(ModelAndView mav, String RTnumber) {
-		// TODO Auto-generated method stub
-		Map<String, Object> map = mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest) map.get("request");
-		
-		String pageNumber=request.getParameter("pageNumber");
-		if(pageNumber == null) pageNumber="1";
-		
 		int currentPage=Integer.parseInt(pageNumber);
-        LogAspect.logger.info(LogAspect.LogMsg + currentPage);
         
         int boardSize=5;
 		int startRow=(currentPage-1)*boardSize+1;			
@@ -231,11 +204,13 @@ public class RestaurantServiceImp implements RestaurantService {
 		mav.addObject("commentsList", commentsDtoList);
 		mav.addObject("boardSize", boardSize);
 		mav.addObject("currentPage", currentPage);
+		mav.addObject("restaurantDto", restaurnatDto);
+		mav.addObject("pageNumber", pageNumber);
+		mav.addObject("CMnumber", CMnumber);
+		mav.addObject("RTnumber", RTnumber);
 		
 		mav.setViewName("restaurant/Restaurant_Introduction.tiles");
-	
-	} 
-	
+	}
 	@Override
 	  public void restaurantUpdate(ModelAndView mav) {
 	    Map<String, Object> map = mav.getModelMap();
