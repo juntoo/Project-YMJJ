@@ -129,29 +129,39 @@ public class RestaurantServiceImp implements RestaurantService {
 	@Override
     public void restaurantList(ModelAndView mav) {
         // TODO Auto-generated method stub
-		
         Map<String, Object> map=mav.getModel();
         HttpServletRequest request=(HttpServletRequest) map.get("request");
 
         String pageNumber=request.getParameter("pageNumber");
+        String RTtype=request.getParameter("RTtype");
+        LogAspect.logger.info(LogAspect.LogMsg + RTtype);
         if(pageNumber == null) pageNumber="1";
 
         int currengPage=Integer.parseInt(pageNumber);
-        LogAspect.logger.info(LogAspect.LogMsg + currengPage);
 
         int boardSize=10;
         int startRow=(currengPage-1) * boardSize +1;
         int endRow=currengPage*boardSize; 
-
-        int count=restaurantDao.getCount();
-        LogAspect.logger.info(LogAspect.LogMsg + count);
-
         List<RestaurnatDto> restaurantList=null;
-        if(count > 0) {
-            restaurantList=restaurantDao.restaurantList(startRow, endRow);
-            LogAspect.logger.info(LogAspect.LogMsg + restaurantList.size());
+        int count=0;
+        if(RTtype == null) {
+            LogAspect.logger.info(LogAspect.LogMsg + "전체 출력");
+	        count=restaurantDao.getCount();
+	        LogAspect.logger.info(LogAspect.LogMsg + count);
+	        if(count > 0) {
+	            restaurantList=restaurantDao.restaurantList(startRow, endRow);
+	            LogAspect.logger.info(LogAspect.LogMsg + restaurantList.size());
+	        }
         }
-        
+        if(RTtype != null) {
+            LogAspect.logger.info(LogAspect.LogMsg + RTtype +"출력");
+        	count=restaurantDao.getCount(RTtype);
+	        LogAspect.logger.info(LogAspect.LogMsg + count);
+	        if(count > 0) {
+	            restaurantList=restaurantDao.restaurantList(startRow, endRow, RTtype);
+	            LogAspect.logger.info(LogAspect.LogMsg + restaurantList.size());
+	        }
+        }
         //System.out.println(restaurantList);
         
         mav.addObject("boardSize", boardSize);

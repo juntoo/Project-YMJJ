@@ -40,13 +40,9 @@ body > #content{
 #Restaurant_photo{
     width: 380px;
     height: 453px;
-    border: 2px solid red;
-    
     float: left;
-
     margin-left: 28px;
     margin-top: 20px;
-
     text-align: center;
     line-height: 555px;
 }
@@ -60,7 +56,6 @@ body > #content{
 #nav{
     width: 380px;
     height: 453px;
-    border: 2px seagreen solid;
     float: left;
 
     margin-top: 20px;

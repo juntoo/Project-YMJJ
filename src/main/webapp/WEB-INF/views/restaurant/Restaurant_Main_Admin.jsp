@@ -19,19 +19,19 @@
 
 	<div style="font-size: 17px;"id="tag">
 	
-		<div>회집</div>
+		<div onclick="location.href='${root}/restaurant/main.do?RTtype=회집'">회집</div>
 		
-		<div>한식</div>
+		<div onclick="location.href='${root}/restaurant/main.do?RTtype=한식'">한식</div>
 		
-		<div>중국식</div>
+		<div onclick="location.href='${root}/restaurant/main.do?RTtype=중국식'">중국식</div>
 		
-		<div>일식</div>
+		<div onclick="location.href='${root}/restaurant/main.do?RTtype=일식'">일식</div>
 		
-		<div>까페</div>
+		<div onclick="location.href='${root}/restaurant/main.do?RTtype=까페'">까페</div>
 		
-		<div>식육(숯불구이)</div>
+		<div onclick="location.href='${root}/restaurant/main.do?RTtype=식육(숯불구이)'">식육(숯불구이)</div>
 		
-		<div>외국음식전문점(인도.태국등)</div>
+		<div onclick="location.href='${root}/restaurant/main.do?RTtype=외국음식전문점(인도.태국등)'">외국음식전문점(인도.태국등)</div>
 		
 	</div>
 	

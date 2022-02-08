@@ -29,7 +29,12 @@ public class RestaurantDaoImp implements RestaurantDao {
         // TODO Auto-generated method stub
         return sqlSessionTemplate.selectOne("boardCount");
     }
-    
+	@Override
+    public int getCount(String rTtype) {
+        // TODO Auto-generated method stub
+        return sqlSessionTemplate.selectOne("boardCounttype", rTtype);
+    }
+	
     @Override
     public List<RestaurnatDto> restaurantList(int startRow, int endRow) {
         // TODO Auto-generated method stub
@@ -38,6 +43,17 @@ public class RestaurantDaoImp implements RestaurantDao {
         hMap.put("endRow", endRow);
         
         return sqlSessionTemplate.selectList("boardList", hMap);
+    }
+    
+    @Override
+    public List<RestaurnatDto> restaurantList(int startRow, int endRow, String rTtype) {
+        // TODO Auto-generated method stub
+        HashMap<String, Object> hMap=new HashMap<String, Object>();
+        hMap.put("startRow", startRow);
+        hMap.put("endRow", endRow);
+        hMap.put("rTtype", rTtype);
+        
+        return sqlSessionTemplate.selectList("boardListtype", hMap);
     }
 
 	@Override

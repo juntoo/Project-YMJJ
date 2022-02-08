@@ -12,8 +12,12 @@ public interface RestaurantDao {
 	public int restaurantWriteOk(RestaurnatDto restaurnatDto);
 	
 	public int getCount();
+	
+	public int getCount(String rTtype);
 
     public List<RestaurnatDto> restaurantList(int startRow, int endRow);
+    
+    public List<RestaurnatDto> restaurantList(int startRow, int endRow, String rTtype);
 
 	public RestaurnatDto restaurantRead(String RTnumber);
 	

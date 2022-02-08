@@ -55,9 +55,10 @@ border: blue 0px solid;
 width: 400px;
 height: 120px;
 float: left;
-font-size: 17px;
+font-size: 25px;
+font-weight: bolder;
 text-align: center;
-padding-top: 30px;
+padding-top: 10px;
 }
 .t_covid{
 border: blue 0px solid;
@@ -65,9 +66,10 @@ width: 400px;
 height: 120px;
 float: left;
 margin-left: 60px;
-font-size: 17px;
+font-size: 25px;
+font-weight: bolder;
 text-align: center;
-padding-top: 30px;
+padding-top: 10px;
 }
 .t_ranking{
 border: blue 0px solid;
@@ -75,9 +77,10 @@ width: 840px;
 height: 120px;
 float: left;
 margin-left: 60px;
-font-size: 17px;
+font-size: 25px;
+font-weight: bolder;
 text-align: center;
-padding-top: 30px;
+padding-top: 10px;
 }
 #rankingView{
 width: 375px;
