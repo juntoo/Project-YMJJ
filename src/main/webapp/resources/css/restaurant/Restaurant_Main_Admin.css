@@ -23,18 +23,20 @@
 }
 
 #tag{
-	width: 200px;
 	height: 30px;
-	columns: 4;
 	border: 0px solid black;
 	margin: 0px auto;
 	font-weight: bolder;
 	color: gray;
+	display: table;
+	text-align: center;
 }
 
-#tag > a{
-	float: left;
+#tag > div{
+	margin-right: 40px;
+	width: 120px;
 }
+
 
 #list{
     column-width:320px;
@@ -54,7 +56,8 @@
 }
 
 #list li img{
-	width: 100%;
+    width: 320px;
+    height: 161px;
 }
 
 #list li span{

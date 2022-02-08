@@ -26,8 +26,6 @@ public interface RestaurantDao {
 	public RestaurnatDto restaurantUpdateSelect(String RTnumber);
 	
 	public int restaurantUpdateOk(RestaurnatDto restaurnatDto);
-
-	public int update(RestaurnatDto restaurnatDto);
 	
 	public int commentsWriteOk(CommentsDto comentsDto);
 	
@@ -36,6 +34,10 @@ public interface RestaurantDao {
 	public List<CommentsDto> commentList(int startRow, int endRow, String RTnumber);
 
 	public RestaurnatDto selectrestaurant(String parameter);
+
+	public int update(RestaurnatDto restaurnatDto);
+
+	public int Update2(RestaurnatDto restaurnatDto);
 	
 	
 	//public int imgWriteOk(ImgDto imgDto);

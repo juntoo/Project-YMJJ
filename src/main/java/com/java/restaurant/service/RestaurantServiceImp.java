@@ -93,8 +93,7 @@ public class RestaurantServiceImp implements RestaurantService {
 			long fileSize=upFile.getSize();
 			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
 			
-			File path=new File(request.getSession().getServletContext().getRealPath("/").concat("resources/img"));
-			//C:\\pds\\
+			File path=new File("C:\\Users\\User\\Desktop\\git\\pro\\src\\main\\webapp\\resources\\img");
 			path.mkdir();
 			
 			if(path.exists() && path.isDirectory()) {
@@ -112,14 +111,10 @@ public class RestaurantServiceImp implements RestaurantService {
 				}
 			}	
 		}
-		
 		LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
-//		 DB
-		
 		int check=restaurantDao.restaurantWriteOk(restaurnatDto);
 		LogAspect.logger.info(LogAspect.LogMsg + check);
 		mav.addObject("check", check);
-	
 		//imgWrite(mav);
 		mav.setViewName("restaurant/writeOk.tiles");
 		
@@ -188,13 +183,6 @@ public class RestaurantServiceImp implements RestaurantService {
 		RestaurnatDto restaurnatDto = restaurantDao.restaurantRead(RTnumber);
 		LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
 		
-		
-		if(restaurnatDto.getRTIsize() !=0) {
-			
-			int index=restaurnatDto.getRTIname().indexOf("_") +1;
-			restaurnatDto.setRTIname(restaurnatDto.getRTIname().substring(index));
-		}
-		
 		if(request.getParameter("CMnumber") !=null) {   
 			CMnumber=Integer.parseInt(request.getParameter("CMnumber"));	
 		}
@@ -225,12 +213,13 @@ public class RestaurantServiceImp implements RestaurantService {
 	  public void restaurantUpdate(ModelAndView mav) {
 	    Map<String, Object> map = mav.getModelMap();
 	    HttpServletRequest request = (HttpServletRequest) map.get("request");
-
 	    String RTnumber=request.getParameter("RTnumber");
 	    String pageNumber=request.getParameter("pageNumber");
 	    LogAspect.logger.info(LogAspect.LogMsg + RTnumber + "," + pageNumber);
 
 	    RestaurnatDto restaurnatDto = restaurantDao.restaurantUpdateSelect(RTnumber);
+
+	    LogAspect.logger.info(LogAspect.LogMsg + restaurnatDto.toString());
 
 	    if (restaurnatDto.getRTIname() != null) {
 	      int index = restaurnatDto.getRTIname().indexOf("_") + 1;
@@ -253,14 +242,15 @@ public class RestaurantServiceImp implements RestaurantService {
 	    RestaurnatDto restaurnatDto = (RestaurnatDto) map.get("restaurnatDto");
 
 	    String pageNumber=request.getParameter("pageNumber");
-
+	    String RTnumber=request.getParameter("RTnumber");
+	    
 	    MultipartFile upFile = request.getFile("file");
 	    if (upFile.getSize() != 0) {
 	      String fileName = Long.toString(System.currentTimeMillis()) + "_" + upFile.getOriginalFilename();
 	      long fileSize = upFile.getSize();
 	      LogAspect.logger.info(LogAspect.LogMsg + fileName + "," + fileSize);
 
-	      File path = new File("D:\\pds\\");
+	      File path = new File("C:\\Users\\User\\Desktop\\git\\pro\\src\\main\\webapp\\resources\\img");
 	      path.mkdir();
 
 	      if (path.exists() && path.isDirectory()) {
@@ -274,21 +264,18 @@ public class RestaurantServiceImp implements RestaurantService {
 	        } catch (Exception e) {
 	          e.printStackTrace();
 	        }
-
-	        RestaurnatDto readBoard = restaurantDao.restaurantUpdateSelect(restaurnatDto.getRTnumber());
-	        if (readBoard.getRTIname() != null) {
-	          File checkFile = new File(readBoard.getRTIpath());
-	          if (checkFile.exists() && checkFile.isFile())
-	            checkFile.delete();
-	        }
 	      }
 	    }
-
-	    int check = restaurantDao.update(restaurnatDto);
-	    LogAspect.logger.info(LogAspect.LogMsg + check);
-
+	    int check=0;
+	    LogAspect.logger.info(LogAspect.LogMsg + "수정할 데이터 : "+restaurnatDto.toString());
+	    if(upFile.getSize() !=0) {
+			check=restaurantDao.update(restaurnatDto);
+		}else if(upFile.getSize() ==0) {
+			check=restaurantDao.Update2(restaurnatDto);
+		}
 	    mav.addObject("check", check);
 	    mav.addObject("pageNumber", pageNumber);
+	    mav.addObject("RTnumber", RTnumber);
 	    mav.setViewName("restaurant/updateOk.tiles");
 	  }
 	  

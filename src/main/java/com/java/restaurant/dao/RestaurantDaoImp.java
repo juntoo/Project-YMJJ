@@ -93,8 +93,7 @@ public class RestaurantDaoImp implements RestaurantDao {
     
     @Override
     public int update(RestaurnatDto restaurnatDto) {
-    	// TODO Auto-generated method stub
-    	return 0;
+    	return sqlSessionTemplate.update("restaurantUpdate", restaurnatDto);
     }    
     
 	
@@ -131,7 +130,10 @@ public class RestaurantDaoImp implements RestaurantDao {
 	public RestaurnatDto selectrestaurant(String parameter) {
 		return sqlSessionTemplate.selectOne("selectrestaurant", parameter);
 	}
-	
+	@Override
+	public int Update2(RestaurnatDto restaurnatDto) {
+    	return sqlSessionTemplate.update("restaurantUpdate2", restaurnatDto);
+	}
     
 	
 

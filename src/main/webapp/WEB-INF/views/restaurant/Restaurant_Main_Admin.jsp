@@ -19,19 +19,19 @@
 
 	<div style="font-size: 17px;"id="tag">
 	
-		<div onclick="location.href='${root}/restaurant/main.do?RTtype=회집'">회집</div>
-		
-		<div onclick="location.href='${root}/restaurant/main.do?RTtype=한식'">한식</div>
-		
-		<div onclick="location.href='${root}/restaurant/main.do?RTtype=중국식'">중국식</div>
-		
-		<div onclick="location.href='${root}/restaurant/main.do?RTtype=일식'">일식</div>
-		
-		<div onclick="location.href='${root}/restaurant/main.do?RTtype=까페'">까페</div>
-		
-		<div onclick="location.href='${root}/restaurant/main.do?RTtype=식육(숯불구이)'">식육(숯불구이)</div>
-		
-		<div onclick="location.href='${root}/restaurant/main.do?RTtype=외국음식전문점(인도.태국등)'">외국음식전문점(인도.태국등)</div>
+		<div style="border: 0px solid blue; float: left;" onclick="location.href='${root}/restaurant/main.do?RTtype=회집'">회집</div>
+				
+		<div style="border: 0px solid blue; float: left;" onclick="location.href='${root}/restaurant/main.do?RTtype=한식'">한식</div>
+				
+		<div style="border: 0px solid blue; float: left;" onclick="location.href='${root}/restaurant/main.do?RTtype=중국식'">중국식</div>
+				
+		<div style="border: 0px solid blue; float: left;" onclick="location.href='${root}/restaurant/main.do?RTtype=일식'">일식</div>
+				
+		<div style="border: 0px solid blue; float: left;" onclick="location.href='${root}/restaurant/main.do?RTtype=까페'">까페</div>
+				
+		<div style="border: 0px solid blue; float: left;" onclick="location.href='${root}/restaurant/main.do?RTtype=식육(숯불구이)'">식육(숯불구이)</div>
+				
+		<div style="border: 0px solid blue; float: left;" onclick="location.href='${root}/restaurant/main.do?RTtype=외국음식전문점(인도.태국등)'">외국음식전문점(인도.태국등)</div>
 		
 	</div>
 	
@@ -47,7 +47,7 @@
 	         <li style="width: 340px; height: 200px; margin-left: 40px; ">
 	            <a href="${root}/restaurant/introduction.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${currengPage}">
 	            	<div><img alt="pictures" src="${root}/resources/img/${restaurantDto.RTIname}"></div>
-	            	<div style="text-align: center; margin-top: 130px; font-weight: bold;">${restaurantDto.RTname}</div>
+	            	<div style="text-align: center; font-weight: bold;">${restaurantDto.RTname}</div>
 	            </a>
 	         </li>
         </c:forEach>

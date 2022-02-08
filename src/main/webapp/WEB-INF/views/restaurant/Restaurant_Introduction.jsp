@@ -43,7 +43,7 @@
 			<c:if test="${Mid == 'admin'}">
 				<div id="btn_type">
 		            <input type="button" onclick="location.href='${root}/restaurant/write.do'" value="추가"/>
-					<input type="button" onclick="location.href='${root}/restaurant/Restaurant_Update.do'" value="수정"/>
+					<input type="button" onclick="location.href='${root}/restaurant/update.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${pageNumber}'" value="수정"/>
 	            <input type="button" onclick="location.href='${root}/restaurant/Restaurantdelete.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${pageNumber}'"value="삭제"/>
       		  </div>
 			</c:if>
@@ -55,7 +55,7 @@
 
         <div id="subject">
 
-            <div id="Restaurant_photo"><img alt="pictures" src="${root}/resources/img/${restaurantDto.RTIname}"></div>
+            <div id="Restaurant_photo"><img alt="pictures" src="${root}/resources/img/${restaurantDto.RTIname}" style="width: 380px; height: 423px; object-fit: fill;"></div>
 
             <div id="nav">
 

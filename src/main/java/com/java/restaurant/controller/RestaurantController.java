@@ -55,7 +55,22 @@ public class RestaurantController {
 	
 	@RequestMapping(value="/restaurant/update.do", method = RequestMethod.GET)
 	public ModelAndView restaurantUdate(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("restaurant/Restaurant_Update.tiles");
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		restaurantService.restaurantUpdate(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/restaurant/updateOk.do", method = RequestMethod.POST)
+	public ModelAndView restaurantUdateOk(HttpServletRequest request,HttpServletResponse response, RestaurnatDto restaurnatDto) {
+		ModelAndView mav=new ModelAndView();
+		
+		mav.addObject("request", request);
+		mav.addObject("restaurnatDto", restaurnatDto);
+		
+		restaurantService.restaurantUpdateOk(mav);
+		return mav;
 	}
 	
 	@RequestMapping(value="/restaurant/introduction.do", method = RequestMethod.GET)
@@ -87,12 +102,6 @@ public class RestaurantController {
 		restaurantService.commentsWriteOk(mav);
 		return mav;
 		
-	}
-	
-	
-	@RequestMapping(value="/restaurant/Restaurant_Update.do", method = RequestMethod.GET)
-	public ModelAndView restaurantUpdate(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("restaurant/Restaurant_Update.tiles");
 	}
 	
 	@RequestMapping(value = "/restaurant/RestaurantupdateOk.do", method = RequestMethod.POST)

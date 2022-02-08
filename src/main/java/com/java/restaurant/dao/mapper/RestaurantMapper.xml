@@ -48,6 +48,14 @@
   		UPDATE restaurant SET RTcount=RTcount+1 WHERE RTnumber=#{RTnumber}
   </update>
   
+  <update id="restaurantUpdate" parameterType="com.java.restaurant.dto.RestaurnatDto">
+  		UPDATE restaurant SET RTname=#{RTname}, RTtype=#{RTtype}, RTaddress=#{RTaddress}, RTpostalcode=#{RTpostalcode}, RTcallnumber1=#{RTcallnumber1}, RTcallnumber2=#{RTcallnumber2}, RTcallnumber3=#{RTcallnumber3}, RTlatitude=#{RTlatitude}, RTlongitude=#{RTlongitude}, RTintroduce=#{RTintroduce}, RTIname=#{RTIname}, RTIsize=#{RTIsize}, RTIpath=#{RTIpath} WHERE RTnumber=#{RTnumber}
+  </update>
+  
+  <update id="restaurantUpdate2" parameterType="com.java.restaurant.dto.RestaurnatDto">
+  		UPDATE restaurant SET RTname=#{RTname}, RTtype=#{RTtype}, RTaddress=#{RTaddress}, RTpostalcode=#{RTpostalcode}, RTcallnumber1=#{RTcallnumber1}, RTcallnumber2=#{RTcallnumber2}, RTcallnumber3=#{RTcallnumber3}, RTlatitude=#{RTlatitude}, RTlongitude=#{RTlongitude} WHERE RTnumber=#{RTnumber}
+  </update>
+  
    <update id="boardupdate" parameterType="com.java.restaurant.dto.RestaurnatDto">
   		UPDATE restaurant SET email=#{email}, subject=#{subject}, content=#{content},file_name=#{fileName},path=#{path},file_size=#{fileSize} 
   		WHERE RTnumber=#{RTnumber}

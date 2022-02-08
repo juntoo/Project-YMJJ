@@ -67,18 +67,3 @@
   	SELECT a.*, r.RTname, r.RTintroduce, r.RTIname FROM (SELECT RTnumber, ROUND( AVG(CMliked),1 )  AS Avg FROM Comments GROUP BY RTnumber ORDER BY AVG(CMliked) DESC) a, restaurant r WHERE a.RTnumber = r.RTnumber
   	</select>
   </mapper>   		
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
