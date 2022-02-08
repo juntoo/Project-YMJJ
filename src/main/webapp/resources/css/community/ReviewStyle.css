@@ -1,4 +1,4 @@
-@charset "UTF-8";
+a@charset "UTF-8";
 
 * {
 	margin: 0px auto;
@@ -52,6 +52,13 @@ font-weight: bolder;
 
 #mid1 {
 	height: 50px;
+}
+
+#viewDate{
+	font-weight: bold; 
+	float: left; 
+	line-height: 50px; 
+	margin-left: 15px;
 }
 
 #viewcount {
@@ -161,6 +168,7 @@ font-weight: bolder;
 	height: 315px;
 	margin: 6px;
 	border: 1px gray solid;
+	border-radius:10px;
 	box-sizing: border-box;
 }
 
