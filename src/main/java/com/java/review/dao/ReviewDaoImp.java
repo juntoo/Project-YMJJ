@@ -88,6 +88,12 @@ public class ReviewDaoImp implements ReviewDao {
 	}
 	
 	@Override
+	public int reviewFileUpdateOk(ReviewDto reviewDto) {
+		
+		return sqlSessionTemplate.update("reviewFileUpdate", reviewDto);
+	}
+	
+	@Override
 	public List<RestaurnatDto> RTsearch(String RTname) {
 		
 		return sqlSessionTemplate.selectList("RTsearch",RTname);

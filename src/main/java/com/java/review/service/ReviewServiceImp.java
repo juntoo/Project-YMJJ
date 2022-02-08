@@ -205,12 +205,46 @@ public class ReviewServiceImp implements ReviewService {
 	@Override
 	public void reviewUpdateOk(ModelAndView mav) {
 		Map<String, Object> map=mav.getModelMap();
-		HttpServletRequest request=(HttpServletRequest) map.get("request");
+		MultipartHttpServletRequest request=(MultipartHttpServletRequest) map.get("request");
 		
 		ReviewDto reviewDto=(ReviewDto) map.get("reviewDto");
 		LogAspect.logger.info(LogAspect.LogMsg+reviewDto.toString());
 		
-		int check=reviewDao.reviewUpdateOk(reviewDto);
+		int check=0;
+		
+		MultipartFile upFile=request.getFile("file");
+		LogAspect.logger.info(LogAspect.LogMsg + upFile);
+		if(upFile.getSize() !=0) {
+			String fileName=Long.toString(System.currentTimeMillis()) + "_" + upFile.getOriginalFilename();
+			long fileSize=upFile.getSize();
+			LogAspect.logger.info(LogAspect.LogMsg + fileName + ","  + fileSize);
+			
+			File path=new File("C:\\Users\\cksdn\\OneDrive\\바탕 화면\\Git\\pro\\src\\main\\webapp\\resources\\img");
+			path.mkdir();
+			LogAspect.logger.info(LogAspect.LogMsg + path);
+			LogAspect.logger.info(LogAspect.LogMsg + fileName);
+			LogAspect.logger.info(LogAspect.LogMsg + path.exists() +","+path.isDirectory());
+			
+			if(path.exists() && path.isDirectory()) {
+				File file=new File(path, fileName);
+				
+				try {
+					upFile.transferTo(file);
+					
+					reviewDto.setRVimgname(fileName);
+					reviewDto.setRVimgpath(file.getAbsolutePath());
+					reviewDto.setRVimgsize(fileSize);
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}	
+		}
+		
+		if(upFile.getSize() !=0) {
+			check=reviewDao.reviewFileUpdateOk(reviewDto);
+		}else if(upFile.getSize() ==0) {
+			check=reviewDao.reviewUpdateOk(reviewDto);
+		}
 		LogAspect.logger.info(LogAspect.LogMsg+check);
 		
 		int pageNumber=Integer.parseInt(request.getParameter("pageNumber"));

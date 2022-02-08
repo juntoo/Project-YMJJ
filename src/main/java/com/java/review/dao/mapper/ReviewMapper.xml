@@ -83,6 +83,11 @@
   	WHERE RVnumber=#{RVnumber}
   </update>
   
+  <update id="reviewFileUpdate" parameterType="com.java.review.dto.ReviewDto">
+  	UPDATE review SET RVtitle=#{RVtitle}, RVcontent=#{RVcontent}, RVimgname=#{RVimgname}, RVimgpath=#{RVimgpath}, RVimgsize=#{RVimgsize}
+  	WHERE RVnumber=#{RVnumber}
+  </update>
+  
   <select id="RTsearch" parameterType="String" resultType="com.java.restaurant.dto.RestaurnatDto">
 		SELECT * FROM restaurant WHERE RTname LIKE #{RTname}
   </select>

@@ -26,5 +26,7 @@ public interface ReviewDao {
 	
 	public int reviewUpdateOk(ReviewDto reviewDto);
 	
+	public int reviewFileUpdateOk(ReviewDto reviewDto);
+	
 	public List<RestaurnatDto> RTsearch(String RTname);
 }
