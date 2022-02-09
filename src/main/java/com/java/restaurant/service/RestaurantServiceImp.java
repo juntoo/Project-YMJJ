@@ -167,10 +167,13 @@ public class RestaurantServiceImp implements RestaurantService {
 	@Override
 	public void commentsWriteOk(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		CommentsDto commentsDto = (CommentsDto) map.get("commentsDto");
 		int check = restaurantDao.commentsWriteOk(commentsDto);
 		mav.addObject("check", check);
-		restaurantRead(mav);
+		mav.addObject("Mid", request.getParameter("Mid"));
+		mav.addObject("pageNumber", request.getParameter("pageNumber"));
+		mav.addObject("RTnumber", request.getParameter("RTnumber"));
 		mav.setViewName("comments/writeOk.tiles");
 	}
 
@@ -231,7 +234,6 @@ public class RestaurantServiceImp implements RestaurantService {
 	public void restaurantDelete(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		System.out.println("정보" + request.getParameter("RTnumber"));
 		mav.addObject("RTnumber", request.getParameter("RTnumber"));
 		mav.addObject("pageNumber", request.getParameter("pageNumber"));
 		mav.setViewName("restaurant/Restaurantdelete.tiles");
@@ -241,8 +243,6 @@ public class RestaurantServiceImp implements RestaurantService {
 	public void restaurantDeleteOk(ModelAndView mav) {
 		Map<String, Object> map = mav.getModelMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		System.out.println("정보" + request.getParameter("RTnumber"));
-		System.out.println("정보" + request.getParameter("pageNumber"));
 		RestaurnatDto readBoard = restaurantDao.selectrestaurant(request.getParameter("RTnumber"));
 		int check = restaurantDao.restaurantDeleteOk(request.getParameter("RTnumber"));
 		if (check > 0 && readBoard.getRTIpath() != null) {

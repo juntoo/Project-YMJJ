@@ -119,31 +119,36 @@
                         </c:forEach>
                     </div>
                     <c:if test="${Mid != nill}">
-	                    <form id="comment"
-	                    	  action="${root}/comments/writeOk.do?root=${root}"  
-							  method="post"
-							  enctype="multipart/form-data">
-	                        <div id="regi_comment">
-	                            <strong name="id">${Mid}</strong>
-	                            <input type="hidden" name="Mid" value="${Mid}"/>
-	                            <input type="hidden" name="RTnumber" value="${restaurantDto.RTnumber}"/>
-	                            <input type="hidden" name="pageNumber" value="${pageNumber}"/>
-	
-	                            <select name="CMliked" style="float: left; margin-top: 2px; margin-left: 20px; border: 0px;">
-	                                <option>별점</option>
-	                                <option value="1">★☆☆☆☆</option>
-	                                <option value="2">★★☆☆☆</option>
-	                                <option value="3">★★★☆☆</option>
-	                                <option value="4">★★★★☆</option>
-	                                <option value="5">★★★★★</option>
-	                            </select>
-	                            <textarea cols="43" name="CMcontent" rows="1" placeholder="댓글을 남겨보세요"></textarea>
-	                        </div>
-	
-	                        <div id="btn_comment">
-	                            <input type="submit" value="등록" style="border: 0; outline: 0; background-color: white; color: gray; float: right; margin-right: 2px;"/>
-	                        </div> 
-	                    </form>
+						<c:if test="${Mid == 'admin'}">
+							<div style="width: 340px; height: 70px; line-height: 70px; background-color: #dbdada; border-radius: 16px; margin-top: 9px;">로그인 후 작성이 가능합니다.</div>
+						</c:if>
+						<c:if test="${Mid != 'admin'}">
+		                    <form id="comment"
+		                    	  action="${root}/comments/writeOk.do?root=${root}&Mid=${Mid}&RTnumber=${restaurantDto.RTnumber}"  
+								  method="post"
+								  enctype="multipart/form-data">
+		                        <div id="regi_comment">
+		                            <strong name="id">${Mid}</strong>
+		                            <input type="hidden" name="Mid" value="${Mid}"/>
+		                            <input type="hidden" name="RTnumber" value="${restaurantDto.RTnumber}"/>
+		                            <input type="hidden" name="pageNumber" value="${pageNumber}"/>
+		
+		                            <select name="CMliked" style="float: left; margin-top: 2px; margin-left: 20px; border: 0px;">
+		                                <option>별점</option>
+		                                <option value="1">★☆☆☆☆</option>
+		                                <option value="2">★★☆☆☆</option>
+		                                <option value="3">★★★☆☆</option>
+		                                <option value="4">★★★★☆</option>
+		                                <option value="5">★★★★★</option>
+		                            </select>
+		                            <textarea cols="43" name="CMcontent" rows="1" placeholder="댓글을 남겨보세요"></textarea>
+		                        </div>
+		
+		                        <div id="btn_comment">
+		                            <input type="submit" value="등록" style="border: 0; outline: 0; background-color: white; color: gray; float: right; margin-right: 2px;"/>
+		                        </div> 
+		                    </form>
+						</c:if>
 					</c:if>
 					<c:if test="${Mid == nill}">
 						<div style="width: 340px; height: 70px; line-height: 70px; background-color: #dbdada; border-radius: 16px; margin-top: 9px;">로그인 후 작성이 가능합니다.</div>
@@ -191,9 +196,9 @@
                 			          '                <img src="${root}/resources/img/${restaurantDto.RTIname}" width="73" height="70">' +
                 			          '           </div>' + 
                 			          '            <div class="desc">' + 
-                			          '                <div class="ellipsis">${restaurantDto.RTintroduce}</div>' + 
+                			          '                <div class="ellipsis">${restaurantDto.RTpostalcode}</div>' + 
                 			          '                <div class="jibun ellipsis">${restaurantDto.RTaddress}</div>' + 
-                			          '                <div><a href="#" target="_blank" class="link">가게페이지</a></div>' + 
+                			          '                <div>${restaurantDto.RTcallnumber1} - ${restaurantDto.RTcallnumber2} - ${restaurantDto.RTcallnumber3}</div>' + 
                 			          '            </div>' + 
                 			          '        </div>' + 
                 			          '    </div>' +    
