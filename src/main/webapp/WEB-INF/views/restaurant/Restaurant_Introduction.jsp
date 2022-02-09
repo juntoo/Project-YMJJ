@@ -42,16 +42,11 @@
 		<c:if test="${Mid != null}">
 			<c:if test="${Mid == 'admin'}">
 				<div id="btn_type">
-<<<<<<< Updated upstream
 		            <input type="button" onclick="location.href='${root}/restaurant/write.do'" value="추가"/>
 					<input type="button" onclick="location.href='${root}/restaurant/update.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${pageNumber}'" value="수정"/>
-	            <input type="button" onclick="location.href='${root}/restaurant/Restaurantdelete.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${pageNumber}'"value="삭제"/>
-=======
-		        	<input type="button" onclick="location.href='${root}/restaurant/write.do'" value="추가"/>
-					<input type="button" onclick="location.href='${root}/restaurant/Restaurant_Update.do'" value="수정"/>
 	            	<input type="button" onclick="location.href='${root}/restaurant/Restaurantdelete.do?RTnumber=${restaurantDto.RTnumber}&pageNumber=${pageNumber}'"value="삭제"/>
->>>>>>> Stashed changes
-      		  </div>
+
+      		  	</div>
 			</c:if>
 			<c:if test="${Mid != 'admin'}">
 	            
@@ -65,12 +60,12 @@
 					</c:if>  
 					<c:if test="${check == 1}">
 						<div id="btn_type">
-		        			<input type="button" value="북마크 추가" onclick="location.href='${root}/bookmark/writeOk.do?RTnumber=${restaurantDto.RTnumber}&Mid=${Mid}&pageNumber=${pageNumber}&Mid=${Mid}'"/>
+							<button style="margin-right: 5px; height: 23px; border: 0; outline: 0; background-color: white;"type="button" value="북마크 추가" onclick="location.href='${root}/bookmark/writeOk.do?RTnumber=${restaurantDto.RTnumber}&Mid=${Mid}&pageNumber=${pageNumber}&Mid=${Mid}'"><img id="img_btnsize" src="${root}/resources/img/star1.png"></button>
       		  			</div>
 					</c:if>
 					<c:if test="${check == 2}">
 						<div id="btn_type">
-		        			<input type="button" value="북마크 제거" onclick="location.href='${root}/bookmark/bookmarkdeleteOk.do?RTnumber=${restaurantDto.RTnumber}&Mid=${Mid}&pageNumber=${pageNumber}&Mid=${Mid}'"/>
+							<button style="height: 23px; border: 0; outline: 0; background-color: white;"type="button" value="북마크 제거" onclick="location.href='${root}/bookmark/bookmarkdeleteOk.do?RTnumber=${restaurantDto.RTnumber}&Mid=${Mid}&pageNumber=${pageNumber}&Mid=${Mid}'"><img id="img_btnsize" src="${root}/resources/img/star2.png"></button>
       		  			</div>
 					</c:if>
 	            	<input type="hidden" name="Bnumber" value="${Bnumber}"/>

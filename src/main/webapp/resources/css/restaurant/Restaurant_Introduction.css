@@ -24,7 +24,7 @@ body > #content{
 
   border: 0px solid red;
 
-  margin-left: 1056px;
+  margin-left: 1153px;
   margin-bottom: 20px;
   
   
@@ -177,4 +177,9 @@ body > #content{
     float: left;
 
     margin-top: 20px;
+}
+
+#img_btnsize{
+	max-width: 100%;
+ 	max-height: 100%;
 }
