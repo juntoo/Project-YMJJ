@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.java.event.dto.EventDto;
 import com.java.event.service.EventService;
+
 
 @Controller
 public class EventController {
@@ -17,22 +19,88 @@ public class EventController {
 	private EventService eventService;
 	
 	@RequestMapping(value="/community/EventList.do", method = RequestMethod.GET)
-	public ModelAndView reviewList(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/EventList.tiles");
-	}
-	
-	@RequestMapping(value="/community/EventRead.do", method = RequestMethod.GET)
-	public ModelAndView aboutjejuLocation(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/EventRead.tiles");
-	}
-	
-	@RequestMapping(value="/community/EventUpdate.do", method = RequestMethod.GET)
-	public ModelAndView aboutjejuSpeciality(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/EventUpdate.tiles");
+	public ModelAndView fileBoardList(HttpServletRequest request, HttpServletResponse response) {
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		eventService.eventList(mav);
+		return mav;
 	}
 	
 	@RequestMapping(value="/community/EventWrite.do", method = RequestMethod.GET)
-	public ModelAndView aboutjejuactivities(HttpServletRequest request,HttpServletResponse response) {
-		return new ModelAndView("community/EventWrite.tiles");
+	public ModelAndView eventWrite(HttpServletRequest request,HttpServletResponse response) {
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		
+		eventService.eventWrite(mav);
+		
+		return mav;
 	}
+	
+	@RequestMapping(value = "/community/EventWriteOk.do", method = RequestMethod.POST)
+	public ModelAndView eventWriteOk(HttpServletRequest request,HttpServletResponse response, EventDto eventDto) {
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("eventDto",eventDto);
+		
+		eventService.eventWriteOk(mav);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/community/EventRead.do", method = RequestMethod.GET)
+	public ModelAndView eventRead(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		eventService.eventRead(mav);
+		return mav;
+	}
+	
+	
+	public ModelAndView eventDownload(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		mav.addObject("response", response);
+		
+		eventService.eventDownload(mav);
+		return null;
+	}
+	
+	@RequestMapping(value="community/EventDeleteOk.do", method = RequestMethod.GET)
+	public ModelAndView noticeBoardDeleteOk(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		eventService.eventDeleteOk(mav);
+		return mav;
+	}
+	
+	
+	
+	@RequestMapping(value="/community/EventUpdate.do", method=RequestMethod.GET)
+	public ModelAndView EventUpdate(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request", request);
+		
+		eventService.eventUpdate(mav);
+		return mav;
+	}
+	
+	@RequestMapping(value="/community/EventUpdateOk.do", method = RequestMethod.POST)
+	public ModelAndView reviewUpdateOk(HttpServletRequest request,HttpServletResponse response, EventDto eventDto) {
+		
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("request",request);
+		mav.addObject("eventDto",eventDto);
+		
+		eventService.eventUpdateOk(mav);
+		
+		return mav;
+	}
+	
+	
 }
