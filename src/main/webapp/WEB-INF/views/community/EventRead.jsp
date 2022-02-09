@@ -57,9 +57,8 @@
 				
 					<span id="viewcount"></span> <span id="mid1_button">
 						<c:if test="${Mid == 'admin' }">
-							<input type="submit" value="수정" onclick="upFun('${root}', '${eventDto.enumber}', '${pageNumber}')"
-								style="margin-right: 30px; margin-top: 10px;" />
-							<input type="submit" value="삭제" onclick="delFun('${root}', '${eventDto.enumber}', '${pageNumber}','${eventDto.epath}')"/>	
+							<input type="submit" value="수정" onclick="upFun('${root}', '${eventDto.enumber}', '${pageNumber}')" style="margin-right: 30px; margin-top: 10px; float: right;"/>
+							<input type="submit" value="삭제" onclick="delFun('${root}', '${eventDto.enumber}', '${pageNumber}','${eventDto.epath}')" style="margin-right: 30px; margin-top: 10px; float: right;"/>	
 						</c:if>
 					</span>
 			

@@ -55,13 +55,9 @@
 							
 					<c:if test="${count>0}">
 						<c:forEach var="eventDto" items="${eventList}">
-							<div id="card">
-								<a href="${root}/community/EventRead.do?enumber=${eventDto.enumber}&pageNumber=${currentPage}">
-									<img alt=""
-									src="${root}/resources/img/${eventDto.efilename}"
-									width=245 height=245>
-									<p> ${eventDto.etitle}</p>
-								</a>
+							<div id="card" onclick="location.href='${root}/community/EventRead.do?enumber=${eventDto.enumber}&pageNumber=${currentPage}'">
+								<img src="${root}/resources/img/${eventDto.efilename}" width=245 height=245px/>
+								<div style="text-align: center; font-style: normal;">${eventDto.etitle}</div>		
 							</div>
 						</c:forEach>		
 					</c:if>

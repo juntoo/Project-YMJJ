@@ -43,7 +43,7 @@
 					<a>Event</a>
 				</div>
 				<div id="detail"
-					onclick="location.href='${root}/community/Notice.do';">
+					onclick="location.href='${root}/community/Notice3.do';">
 					<a>Notice</a>
 				</div>
 				<div id="detail"

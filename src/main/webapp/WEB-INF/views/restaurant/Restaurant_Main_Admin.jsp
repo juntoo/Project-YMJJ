@@ -35,7 +35,7 @@
 		
 	</div>
 	
-	<c:if test="${Mid != null}">
+	<c:if test="${Mid == 'admin'}">
    	 	<div id="btn_type">
 		<input type="button" onclick="location.href='${root}/restaurant/write.do'" value="추가"/>
 	</div>
