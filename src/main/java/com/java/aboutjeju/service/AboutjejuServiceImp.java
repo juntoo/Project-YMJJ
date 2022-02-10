@@ -67,7 +67,7 @@ public class AboutjejuServiceImp implements AboutjejuService {
 			LogAspect.logger.info(LogAspect.LogMsg + aboutjejuDto.toString());
 			LogAspect.logger.info(LogAspect.LogMsg + check);
 			mav.addObject("check", check);
-			mav.setViewName("aboutjeju/location.tiles");
+			mav.setViewName("aboutjeju/introduction.tiles");
 		}
 	}
 

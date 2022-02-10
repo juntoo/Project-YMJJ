@@ -67,11 +67,11 @@
         <div id="menuF">
             <div id="category">
                 <div id="detail" style="border-left: 0px;"></div>
-                <div id="detail"><a href="${root}/aboutjeju/introduction.do">Introduction</a></div>
-                <div id="detail"><a href="${root}/aboutjeju/location.do">Location</a></div>
-                <div id="detail" style="border-right: 0px;"><a  href="${root}/aboutjeju/speciality.do">Speciality</a></div>
-                <div id="detail"><a href="${root}/aboutjeju/activities.do">Activities</a></div>
-                <div id="detail" style="height: 600px; border-left: 0px; border-bottom: 0px;"></div>              
+                <div id="detail" onclick="location.href='${root}/aboutjeju/introduction.do'"><a>Introduction</a></div>
+                <div id="detail" onclick="location.href='${root}/aboutjeju/location.do'"><a>Location</a></div>
+                <div id="detail" onclick="location.href='${root}/aboutjeju/speciality.do'"style="border-right: 0px;"><a>Speciality</a></div>
+                <div id="detail" onclick="location.href='${root}/aboutjeju/activities.do'"><a>Activities</a></div>
+                <div id="detail" style="height: 600px; border-left: 0px; border-bottom: 0px;"></div>             
             </div>
             <div id="content">
            
@@ -206,36 +206,41 @@
 	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   	</div>
-	   	
-	   	<div id = "hiden4"style="azimuth:inherit;background-color:white; display: none; border: 2px black solid; width: 500px; height: 550px; display:lnline-block; position:absolute;" >
-          <div id="zido4" style="width: 500px; height: 250px; border: 0px black solid; display:lnline-block;">
-            <script type="text/javascript">
-               var mapContainer = document.getElementById('zido4'), // 지도를 표시할 div 
-	               mapOption = { 
-	                   center: new kakao.maps.LatLng(${Ilist[3].LMlatitude}, ${Ilist[3].LMlongitude}), // 지도의 중심좌표
-	                   level: 2 // 지도의 확대 레벨
-	               };
-	               //지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-	               var map = new kakao.maps.Map(mapContainer, mapOption); 
-	               map.setDraggable(false);
-	               map.setZoomable(false);
-	               
-	               var lat = parseFloat(${Ilist[3].LMlatitude});
-	               var lon = parseFloat( ${Ilist[3].LMlongitude});
-	               //alert("위도" + lat + "경도" + lon);
-	               var ${aboutDto.LMnumber} = new kakao.maps.Marker({
-	                     map: map, 
-	                   position: new kakao.maps.LatLng(lat, lon)
-	                  });
-            </script>
+	   	 
+	   	 <div id = "hiden4"style="azimuth:inherit; background-color:white; display: none; border: 2px black solid; width: 500px; height: 560px; position:absolute; " >
+        <div id="zido4" style="width: 466px; height: 250px; border: 0px black solid;">
+           <script type="text/javascript">
+					var mapContainer = document.getElementById('zido4'), // 지도를 표시할 div 
+	            	mapOption = { 
+	            	    center: new kakao.maps.LatLng(parseFloat(${Ilist[3].LMlatitude}),  parseFloat(${Ilist[3].LMlongitude})), // 지도의 중심좌표
+	            	    level: 2 // 지도의 확대 레벨
+	            	};
+	            	//지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+	            	var map = new kakao.maps.Map(mapContainer, mapOption); 
+	            	map.setDraggable(false);
+	            	map.setZoomable(false);
+	            	
+	            	// 마커가 표시될 위치입니다 
+	            	var markerPosition  = new kakao.maps.LatLng(parseFloat(${Ilist[3].LMlatitude}),parseFloat(${Ilist[3].LMlongitude})); 
+
+	            	// 마커를 생성합니다
+	            	var marker = new kakao.maps.Marker({
+	            	    position: markerPosition
+	            	});
+
+	            	// 마커가 지도 위에 표시되도록 설정합니다
+	            	marker.setMap(map);
+				</script>
          </div>
-	   		<div id="conttext" >
+            <div id="conttext" >
                <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[3].LMtitle}</a></div> 
                <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[3].LMpostalcode}</a></div>
                <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[3].LMcontent}</a></div>
 	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   	</div>
+	   	
+	   	
 	   	</div>
         </form>
     </div>
