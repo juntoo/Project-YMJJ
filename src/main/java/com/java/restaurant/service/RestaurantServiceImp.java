@@ -75,13 +75,14 @@ public class RestaurantServiceImp implements RestaurantService {
 		int endRow = currengPage * boardSize;
 		List<RestaurnatDto> restaurantList = null;
 		int count = 0;
-		if (RTtype == null) {
+		if (RTtype.equals("all")) {
 			count = restaurantDao.getCount();
+			System.out.println("asdasds");
 			if (count > 0) {
 				restaurantList = restaurantDao.restaurantList(startRow, endRow);
 			}
 		}
-		if (RTtype != null) {
+		else {
 			count = restaurantDao.getCount(RTtype);
 			System.out.println(RTtype);
 			System.out.println(RTtype + "인 수 : " +count);

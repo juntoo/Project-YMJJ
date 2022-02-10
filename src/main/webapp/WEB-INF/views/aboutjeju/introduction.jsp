@@ -66,7 +66,7 @@
         <div id="menuF">
             <div id="category">
                 <div id="detail" style="border-left: 0px;"></div>
-                <div id="detail" onclick="location.href='${root}/aboutjeju/introduction.do'"><a>Introduction</a></div>
+                <div id="detail" onclick="location.href='${root}/aboutjeju/introduction.do'"style="border-right: 0px;"><a>Introduction</a></div>
                 <div id="detail" onclick="location.href='${root}/aboutjeju/location.do'"><a>Location</a></div>
                 <div id="detail" onclick="location.href='${root}/aboutjeju/speciality.do'"><a>Speciality</a></div>
                 <div id="detail" onclick="location.href='${root}/aboutjeju/activities.do'"><a>Activities</a></div>

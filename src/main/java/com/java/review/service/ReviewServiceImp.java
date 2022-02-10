@@ -62,6 +62,8 @@ public class ReviewServiceImp implements ReviewService {
 		ReviewDto reviewDto = (ReviewDto) map.get("reviewDto");
 		MultipartHttpServletRequest request = (MultipartHttpServletRequest) map.get("request");
 		MultipartFile upFile = request.getFile("file");
+		System.out.println(reviewDto.toString());
+		
 		if (upFile.getSize() != 0) {
 			String fileName = Long.toString(System.currentTimeMillis()) + "_" + upFile.getOriginalFilename();
 			long fileSize = upFile.getSize();

@@ -152,8 +152,8 @@ document.addEventListener('DOMContentLoaded', function(){
 						
 					<div id="mid1">
 						<div id="searchBox">
-							<label>식당고유번호<input type="text" id="search" name="RTnumber" readonly="readonly"/></label>
-							<label>식당이름<input type="text" id="search" name="RTname" readonly="readonly"/></label>
+							<label>식당고유번호<input type="text" id="search" name="RTnumber"/></label>
+							<label>식당이름<input type="text" id="search" name="RTname"/></label>
 							<input type="button" value="식당검색" onclick="RTsearch('${root}')"/>
 						</div>
 						<span id="mid1_button">
