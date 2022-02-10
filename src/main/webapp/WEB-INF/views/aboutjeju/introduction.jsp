@@ -76,20 +76,20 @@
                 <div style="border : 2px black solid; width: 1175px; height: 640px; margin-top: 40px;margin-left: 40px; overflow: hidden;">
 					<!-- 왼쪽 큰 사진 -->
 					<div class="LMimg" style="border : 1px black solid; width: 590px; height: 590px; margin-top: 20px;margin-left: 20px; float: left;">
-						<img id="img" alt="#" src="${root}/img/${Ilist[0].iname}" onclick="btnClick1()"/> 
+	        			<img id="img" src="${root}/resources/img/${Ilist[0].iname}"  onclick="btnClick1()"/>
 					</div>
 					<!-- 오른쪽 3개 사진 -->
 					<div id="imgsize" style="margin-right: 30px;"> 
-						<img id="img" alt="#" src="${root}/img/${Ilist[1].iname}" onclick="btnClick2()"/>
-						<div style="margin-top: 150px;"><a>${Ilist[0].LMtitle}</a></div>
+	        			<img id="img" src="${root}/resources/img/${Ilist[1].iname}"  onclick="btnClick2()"/>
+						<div><a>${Ilist[1].LMtitle}</a></div>
 				</div>
 					<div id="imgsize" >
-						<img id="img" alt="#" src="${root}/img/${Ilist[2].iname}" onclick="btnClick3()"/> 
-						<div style="margin-top: 150px;"><a>${Ilist[2].LMtitle}</a></div> 
+	        			<img id="img" src="${root}/resources/img/${Ilist[2].iname}"  onclick="btnClick3()"/> 
+						<div><a>${Ilist[2].LMtitle}</a></div> 
 					</div>
 					<div id="imgsize" > 
-						<img id="img" alt="#" src="${root}/img/${Ilist[3].iname}" onclick="btnClick4()"/>
-						 <div style="margin-top: 150px;"><a> ${Ilist[3].LMtitle} </a></div>
+	        			<img id="img" src="${root}/resources/img/${Ilist[3].iname}"  onclick="btnClick4()"/>
+						 <div><a> ${Ilist[3].LMtitle} </a></div>
 					</div>
 					<!-- 긴 텍스트 -->
 					<div id="texts">
@@ -114,7 +114,7 @@
 					var mapContainer = document.getElementById('zido1'), // 지도를 표시할 div 
 	            	mapOption = { 
 	            	    center: new kakao.maps.LatLng(parseFloat(${Ilist[0].LMlatitude}),  parseFloat(${Ilist[0].LMlongitude})), // 지도의 중심좌표
-	            	    level: 2 // 지도의 확대 레벨
+	            	    level: 4 // 지도의 확대 레벨
 	            	};
 	            	//지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 	            	var map = new kakao.maps.Map(mapContainer, mapOption); 
@@ -134,24 +134,20 @@
 				</script>
 			</div>
 	   		<div id="conttext" >
-   				<c:forEach var="aboutjejuDto" items="${Ilist}" >
-	               <c:if test="${aboutjejuDto.LMtitle==Ilist[0].LMtitle}">
-	               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-	               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-	               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-	               </c:if>
-            </c:forEach>
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[0].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[0].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[0].LMcontent}</a></div>
 	   		</div>
 	   		 <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   	</div>
 	   <!-- 2  -->
-		<div id = "hiden2"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute; " >
+		<div id = "hiden2"style="azimuth:inherit; background-color:white;  display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute; " >
         <div id="zido2" style="width: 466px; height: 250px; border: 0px black solid; display:lnline-block;">
            <script type="text/javascript">
 					var mapContainer = document.getElementById('zido2'), // 지도를 표시할 div 
 	            	mapOption = { 
 	            	    center: new kakao.maps.LatLng(parseFloat(${Ilist[1].LMlatitude}),  parseFloat(${Ilist[1].LMlongitude})), // 지도의 중심좌표
-	            	    level: 2 // 지도의 확대 레벨
+	            	    level: 4 // 지도의 확대 레벨
 	            	};
 	            	//지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 	            	var map = new kakao.maps.Map(mapContainer, mapOption); 
@@ -170,25 +166,21 @@
 	            	marker.setMap(map);
 				</script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[1].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-            </div>
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[1].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[1].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[1].LMcontent}</a></div>
+	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   	</div>
 	   	
-	   	<div id = "hiden3"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute;" >
+	   	<div id = "hiden3"style="azimuth:inherit; background-color:white;  display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute;" >
             <div id="zido3" style="width: 466px; height: 250px; border: 0px black solid; display:lnline-block;">
             <script type="text/javascript">
 					var mapContainer = document.getElementById('zido3'), // 지도를 표시할 div 
 	            	mapOption = { 
 	            	    center: new kakao.maps.LatLng(parseFloat(${Ilist[2].LMlatitude}),  parseFloat(${Ilist[2].LMlongitude})), // 지도의 중심좌표
-	            	    level: 2 // 지도의 확대 레벨
+	            	    level: 4 // 지도의 확대 레벨
 	            	};
 	            	//지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 	            	var map = new kakao.maps.Map(mapContainer, mapOption); 
@@ -207,49 +199,46 @@
 	            	marker.setMap(map);
 				</script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[2].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-            </div>
+            
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[2].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[2].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[2].LMcontent}</a></div>
+	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   	</div>
 	   	
-	   	<div id = "hiden4"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 550px; display:lnline-block; position:absolute;" >
+	   	<div id = "hiden4"style="azimuth:inherit; background-color:white;  display: none; border: 2px black solid; width: 500px; height: 550px; display:lnline-block; position:absolute;" >
           <div id="zido4" style="width: 500px; height: 250px; border: 0px black solid; display:lnline-block;">
             <script type="text/javascript">
                var mapContainer = document.getElementById('zido4'), // 지도를 표시할 div 
-	               mapOption = { 
-	                   center: new kakao.maps.LatLng(${Ilist[3].LMlatitude}, ${Ilist[3].LMlongitude}), // 지도의 중심좌표
-	                   level: 2 // 지도의 확대 레벨
-	               };
-	               //지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-	               var map = new kakao.maps.Map(mapContainer, mapOption); 
-	               map.setDraggable(false);
-	               map.setZoomable(false);
-	               
-	               var lat = parseFloat(${Ilist[3].LMlatitude});
-	               var lon = parseFloat( ${Ilist[3].LMlongitude});
-	               //alert("위도" + lat + "경도" + lon);
-	               var ${aboutDto.LMnumber} = new kakao.maps.Marker({
-	                     map: map, 
-	                   position: new kakao.maps.LatLng(lat, lon)
-	                  });
+               mapOption = { 
+           	    center: new kakao.maps.LatLng(parseFloat(${Ilist[3].LMlatitude}),  parseFloat(${Ilist[3].LMlongitude})), // 지도의 중심좌표
+           	    level: 4 // 지도의 확대 레벨
+	           	};
+	           	//지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+	           	var map = new kakao.maps.Map(mapContainer, mapOption); 
+	           	map.setDraggable(false);
+	           	map.setZoomable(false);
+	           	
+	           	// 마커가 표시될 위치입니다 
+	           	var markerPosition  = new kakao.maps.LatLng(parseFloat(${Ilist[3].LMlatitude}),parseFloat(${Ilist[3].LMlongitude})); 
+	
+	           	// 마커를 생성합니다
+	           	var marker = new kakao.maps.Marker({
+	           	    position: markerPosition
+	           	});
+	
+	           	// 마커가 지도 위에 표시되도록 설정합니다
+           	marker.setMap(map);
             </script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[3].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-            </div>
+           
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[3].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[3].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[3].LMcontent}</a></div>
+	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   	</div>
 	   	</div>

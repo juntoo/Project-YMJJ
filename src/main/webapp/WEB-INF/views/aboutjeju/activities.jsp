@@ -100,29 +100,26 @@
 	                <!-- 왼쪽 사진들 -->
 					<div id="hiking">
 						<div>
-							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[0].iname}" onclick="btnClick1()"/>
-							
-							<div style="margin-top: 150px;"><a>${Ilist[0].LMtitle}</a></div>
+		        			<img width="150px" height="150px"src="${root}/resources/img/${Ilist[0].iname}"  onclick="btnClick1()"/>
+							<div><a>${Ilist[0].LMtitle}</a></div>
 						</div>
 						<div>
-							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[1].iname}" onclick="btnClick2()"/>
-							
-							<div style="margin-top: 150px;"><a>${Ilist[1].LMtitle}</a></div>					
+		        			<img width="150px" height="150px"src="${root}/resources/img/${Ilist[1].iname}"  onclick="btnClick2()"/>
+							<div><a>${Ilist[1].LMtitle}</a></div>					
 						</div>
 						<div>
-							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[2].iname}" onclick="btnClick3()"/>
-							
-							<div style="margin-top: 150px;"><a>${Ilist[2].LMtitle}</a></div>
+		        			<img width="150px" height="150px"src="${root}/resources/img/${Ilist[2].iname}"  onclick="btnClick3()"/>
+							<div><a>${Ilist[2].LMtitle}</a></div>
 						</div>
 					</div>
 						<!-- 가운데 큰 글씨 -->
 					<div id="activity">
 						<div id="act1">
 							<div id="color1">
-								<a>${Ilist[4].LMcontent}</a>
+								<a>${Ilist[3].LMcontent}</a>
 							</div>
 							<div>
-								<a>${Ilist[5].LMcontent}</a>
+								<a>${Ilist[4].LMcontent}</a>
 							</div>
 						</div>
 						
@@ -132,26 +129,26 @@
 						
 						<div id="act3">
 							<div id="color2">
-								<img width="200px" height="150px" alt="" src="${root}/img/${Ilist[4].iname}" onclick="btnClick5()"/>
+		        			<img width="200px" height="150px"src="${root}/resources/img/${Ilist[3].iname}"  onclick="btnClick4()"/>
 							</div>
 							<div>
-								<img width="200px" height="150px" alt="" src="${root}/img/${Ilist[5].iname}" onclick="btnClick6()"/>
+		        			<img width="200px" height="150px"src="${root}/resources/img/${Ilist[4].iname}"  onclick="btnClick5()"/>
 							</div>
 						</div>
 					</div>
 						
 					<div id="leisure">
 						<div>
-							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[6].iname}" onclick="btnClick7()"/>
-							<div style="margin-top: 150px;"><a>${Ilist[6].LMtitle}</a></div>
+		        			<img width="150px" height="150px"src="${root}/resources/img/${Ilist[5].iname}"  onclick="btnClick6()"/>
+							<div><a>${Ilist[5].LMtitle}</a></div>
 						</div>
 						<div>
-							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[7].iname}" onclick="btnClick8()"/>
-							<div style="margin-top: 150px;"><a>${Ilist[7].LMtitle}</a></div>
+		        			<img width="150px" height="150px"src="${root}/resources/img/${Ilist[6].iname}"  onclick="btnClick7()"/>
+							<div><a>${Ilist[6].LMtitle}</a></div>
 						</div>
 						<div>
-							<img width="150px" height="150px" alt="" src="${root}/img/${Ilist[3].iname}" onclick="btnClick4()"/>
-							<div style="margin-top: 150px;"><a>${Ilist[3].LMtitle}</a></div>
+		        			<img width="150px" height="150px"src="${root}/resources/img/${Ilist[7].iname}"  onclick="btnClick8()"/>
+							<div><a>${Ilist[7].LMtitle}</a></div>
 						</div>
 					</div>
 	            </div>
@@ -159,7 +156,7 @@
 	          </form>
             </div>
             <div style="position: relative; margin-left: 650px; margin-top: 10px;">		
-		<div id ="hiden1"style="display:none; border: 2px black solid; width: 500px; height: 560px; position:absolute;">
+			<div id ="hiden1"style="display:none; background-color:white; border: 2px black solid; width: 500px; height: 560px; position:absolute;">
 	   		<div id="zido1" style="width: 466px; height: 250px; border: 0px black solid; display:lnline-block;">
 				<script type="text/javascript">
 					var mapContainer = document.getElementById('zido1'), // 지도를 표시할 div 
@@ -185,18 +182,14 @@
 				</script>
 			</div>
 	   		<div id="conttext" >
-   				<c:forEach var="aboutjejuDto" items="${Ilist}" >
-	               <c:if test="${aboutjejuDto.LMtitle==Ilist[0].LMtitle}">
-	               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-	               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-	               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-	               </c:if>
-            </c:forEach>             
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[0].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[0].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[0].LMcontent}</a></div>
 	   		</div>
 	   		<div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   		</div>
 	   	<!-- 2  -->
-		<div id = "hiden2"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 560px; position:absolute; " >
+		<div id = "hiden2"style="azimuth:inherit; background-color:white; display: none; border: 2px black solid; width: 500px; height: 560px; position:absolute; " >
         <div id="zido2" style="width: 466px; height: 250px; border: 0px black solid;">
            <script type="text/javascript">
 					var mapContainer = document.getElementById('zido2'), // 지도를 표시할 div 
@@ -221,19 +214,15 @@
 	            	marker.setMap(map);
 				</script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[1].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-            </div>
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[1].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[1].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[1].LMcontent}</a></div>
+	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   	</div>
 	   	
-  		<div id = "hiden3"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 560px; position:absolute;" >
+  		<div id = "hiden3"style="azimuth:inherit; background-color:white; display: none; border: 2px black solid; width: 500px; height: 560px; position:absolute;" >
             <div id="zido3" style="width: 466px; height: 250px; border: 0px black solid; display:lnline-block;">
             <script type="text/javascript">
 					var mapContainer = document.getElementById('zido3'), // 지도를 표시할 div 
@@ -258,19 +247,15 @@
 	            	marker.setMap(map);
 				</script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[2].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-            </div>
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[2].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[2].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[2].LMcontent}</a></div>
+	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   	</div>
 	   	
-	   	<div id = "hiden4"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 560px; position:absolute;" >
+	   	<div id = "hiden4"style="azimuth:inherit; background-color:white; display: none; border: 2px black solid; width: 500px; height: 560px; position:absolute;" >
             <div id="zido4" style="width: 466px; height: 250px; border: 0px black solid; display:lnline-block;">
             <script type="text/javascript">
 			           var mapContainer = document.getElementById('zido3'), // 지도를 표시할 div 
@@ -295,19 +280,15 @@
 			       	marker.setMap(map);
             </script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[3].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-            </div>
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[3].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[3].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[3].LMcontent}</a></div>
+	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 	   	</div>
           	
-	   	<div id = "hiden5"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute;" >
+	   	<div id = "hiden5"style="azimuth:inherit; background-color:white; display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute;" >
             <div id="zido5" style="width: 466px; height: 250px; border: 0px black solid; display:lnline-block;">
             <script type="text/javascript">
                var mapContainer = document.getElementById('zido5'), // 지도를 표시할 div 
@@ -332,20 +313,16 @@
 	          	marker.setMap(map);
             </script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[4].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-            </div>
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[4].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[4].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[4].LMcontent}</a></div>
+	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 		</div>
 		
 		
-	   	<div id = "hiden6"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute;" >
+	   	<div id = "hiden6"style="azimuth:inherit; background-color:white; display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute;" >
             <div id="zido6" style="width: 466px; height: 250px; border: 0px black solid; display:lnline-block;">
             <script type="text/javascript">
                var mapContainer = document.getElementById('zido6'), // 지도를 표시할 div 
@@ -370,19 +347,15 @@
 	           	marker.setMap(map);
             </script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[5].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-            </div>
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[5].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[5].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[5].LMcontent}</a></div>
+	   		</div>
             <div><button value="닫기" onclick="OnClose()">닫기</button></div>
 		</div>
 		
-	   	<div id = "hiden7"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute;" >
+	   	<div id = "hiden7"style="azimuth:inherit; background-color:white; display: none; border: 2px black solid; width: 500px; height: 560px; display:lnline-block; position:absolute;" >
             <div id="zido7" style="width: 466px; height: 250px; border: 0px black solid; display:lnline-block;">
             <script type="text/javascript">
                var mapContainer = document.getElementById('zido7'), // 지도를 표시할 div 
@@ -407,24 +380,20 @@
 	           	marker.setMap(map);
             </script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[6].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-		   	</div>
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[6].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[6].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[6].LMcontent}</a></div>
+	   		</div>
 		   	<div><button value="닫기" onclick="OnClose()">닫기</button></div>
 		   	</div>
 		   	
-		   		<div id = "hiden8"style="azimuth:inherit; display: none; border: 2px black solid; width: 500px; height: 550px; display:lnline-block; position:absolute;" >
+		   		<div id = "hiden8"style="azimuth:inherit; background-color:white; display: none; border: 2px black solid; width: 500px; height: 550px; display:lnline-block; position:absolute;" >
             <div id="zido8" style="width: 466px; height: 250px; border: 0px black solid; display:lnline-block;">
             <script type="text/javascript">
                var mapContainer = document.getElementById('zido7'), // 지도를 표시할 div 
 	               mapOption = { 
-	           	    center: new kakao.maps.LatLng(parseFloat(${Ilist[6].LMlatitude}),  parseFloat(${Ilist[6].LMlongitude})), // 지도의 중심좌표
+	           	    center: new kakao.maps.LatLng(parseFloat(${Ilist[7].LMlatitude}),  parseFloat(${Ilist[7].LMlongitude})), // 지도의 중심좌표
 	           	    level: 2 // 지도의 확대 레벨
 	           	};
 	           	//지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
@@ -433,7 +402,7 @@
 	           	map.setZoomable(false);
 	           	
 	           	// 마커가 표시될 위치입니다 
-	           	var markerPosition  = new kakao.maps.LatLng(parseFloat(${Ilist[6].LMlatitude}),parseFloat(${Ilist[6].LMlongitude})); 
+	           	var markerPosition  = new kakao.maps.LatLng(parseFloat(${Ilist[7].LMlatitude}),parseFloat(${Ilist[7].LMlongitude})); 
 	
 	           	// 마커를 생성합니다
 	           	var marker = new kakao.maps.Marker({
@@ -444,15 +413,11 @@
 	           	marker.setMap(map);
             </script>
          </div>
-            <div id="conttext" >
-               <c:forEach var="aboutjejuDto" items="${Ilist}" >
-               <c:if test="${aboutjejuDto.LMtitle==Ilist[6].LMtitle}">
-               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${aboutjejuDto.LMtitle}</a></div> 
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${aboutjejuDto.LMpostalcode}</a></div>
-               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${aboutjejuDto.LMcontent}</a></div>
-               </c:if>
-            </c:forEach>
-		   	</div>
+	   		<div id="conttext" >
+               <div  style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>제목 : </label><a>${Ilist[7].LMtitle}</a></div> 
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px;"><label>주소 : </label><a>${Ilist[7].LMpostalcode}</a></div>
+               <div style="border: 1px black solid; margin: 10px 10px 10px 10px; height: 150px;"><label>상세 정보 : </label><a>${Ilist[7].LMcontent}</a></div>
+	   		</div>
 		   	<div><button value="닫기" onclick="OnClose()">닫기</button></div>
 		   	</div>
 		   	

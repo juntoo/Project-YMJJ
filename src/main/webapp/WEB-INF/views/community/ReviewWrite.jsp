@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 	function RTsearch(root){
-		var url=root+"/community/RestaurantSearch.do?RTname=0";
+		var url=root+"/community/RestaurantSearch.do?";
 		//alert(url);
 		
 			window.open(url, "식당검색", "width=500, height=500");

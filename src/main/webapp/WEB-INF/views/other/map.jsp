@@ -99,7 +99,7 @@
                 <div id="check">
                     <div id="checkBox">
                         <div>
-                            <input type="radio" value="회집" name="category"/><label>회집</label>
+                            <input type="radio" value="횟집" name="category"/><label>횟집</label>
                             <input type="radio" value="한식" name="category"/><label>한식</label>
                             <input type="radio" value="중국식" name="category"/><label>중국식</label>
                             <input type="radio" value="일식" name="category"/><label>일식</label>
